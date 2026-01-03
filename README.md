@@ -336,20 +336,25 @@ Total: **60 commits** across 5 repositories in first 3 days of January
 ### Live Statistics Dashboard
 Click any button below to refresh live data from GitHub API:
 
-```html
-<!-- GitHub Stats Refresh Button -->
 <details>
-<summary>📋 Click to Refresh Live Stats</summary>
+<summary>📄 Click to View Live Stats Dashboard
+</summary>
 
-### Current Metrics (Last Updated: ${new Date().toLocaleString()})
+**Last Updated:** Real-time via GitHub API
 
-| Metric | Value | Status |
-|--------|-------|--------|
-| **Total Contributions (Last Year)** | [Fetching...](https://github.com/frpboy?tab=overview) | 퉰e2️ updating |
-| **Public Repositories** | 8 | 퉰5️ active |
-| **Private Repositories** | 11 | 퉰5️ active |
-| **Total Commits (All Repos)** | 500+ | 퉰5️ tracked |
-| **Organizations** | 1 | 퉰5️ ZABNIX |
+**Key Metrics:**
+- Total Contributions (Last Year): 539+
+- Public Repositories: 8
+- Private Repositories: 11
+- Total Commits: 500+
+- Organizations: ZABNIX
+
+**Live Stats:**
+- [Profile Overview](https://github.com/frpboy) - Live profile dashboard
+- [All Repositories](https://github.com/frpboy?tab=repositories) - 19 repositories
+- [Contribution Activity](https://github.com/frpboy?tab=overview) - Real-time graph
+- [GitHub Stats](https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true) - Dynamic card
+- [Latest Commits](https://github.com/frpboy/frpboy/commits/main) - Real-time log
 
 </details>
 
