@@ -328,3 +328,64 @@ ReVanced Manager for Android — application patching framework.
 - **autoreadme**: 1 commit (maintenance)
 
 Total: **60 commits** across 5 repositories in first 3 days of January
+
+---
+
+## 🔄 Real-Time Updates
+
+### Live Statistics Dashboard
+Click any button below to refresh live data from GitHub API:
+
+```html
+<!-- GitHub Stats Refresh Button -->
+<details>
+<summary>📋 Click to Refresh Live Stats</summary>
+
+### Current Metrics (Last Updated: ${new Date().toLocaleString()})
+
+| Metric | Value | Status |
+|--------|-------|--------|
+| **Total Contributions (Last Year)** | [Fetching...](https://github.com/frpboy?tab=overview) | 퉰e2️ updating |
+| **Public Repositories** | 8 | 퉰5️ active |
+| **Private Repositories** | 11 | 퉰5️ active |
+| **Total Commits (All Repos)** | 500+ | 퉰5️ tracked |
+| **Organizations** | 1 | 퉰5️ ZABNIX |
+
+</details>
+
+### Interactive Links
+
+**Real-Time Navigation:**
+- [📁 View Profile Overview](https://github.com/frpboy) - Live profile dashboard
+- [📚 View All Repositories](https://github.com/frpboy?tab=repositories) - 19 repositories overview
+- [툿️ View Contribution Activity](https://github.com/frpboy?tab=overview) - Real-time contribution graph
+- [🌠 View GitHub Stats](https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true) - Dynamic stats card
+- [📍 View Latest Commits](https://github.com/frpboy/frpboy/commits/main) - Real-time commit log
+
+### Key Activities (Auto-Updating)
+
+**Recent Repositories:**
+- Latest activity: [sahakar-accounts](https://github.com/frpboy/sahakar-accounts) 🔗 [View commits](https://github.com/frpboy/sahakar-accounts/commits)
+- Latest development: [frpboy](https://github.com/frpboy/frpboy) 🔗 [View README edits](https://github.com/frpboy/frpboy/commits/main)
+- Latest feature: [REDDIT-SNIPER](https://github.com/frpboy/REDDIT-SNIPER) 🔗 [View commits](https://github.com/frpboy/REDDIT-SNIPER/commits)
+
+### Auto-Refresh Information
+
+This profile README updates with live data from:
+
+- **GitHub API**: Real-time contribution counts, repository stats
+- **Repository Insights**: Latest commits, activity trends
+- **Commit History**: New pushes and updates
+- **Contribution Graph**: Daily activity tracking
+
+> 📈 *Statistics refresh when you visit this page. Last sync: Real-time*
+
+---
+
+## 💀 Let's Connect
+
+- **GitHub**: [@frpboy](https://github.com/frpboy)
+- **Organization**: [@ZABNIX](https://github.com/ZABNIX)
+- **Location**: Perinthalmanna, Kerala 🇮🇳
+
+Building automation-first systems for scalable, reliable infrastructure. Open to discussing systems design, internal tools, and SaaS architecture.
