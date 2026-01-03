@@ -144,3 +144,54 @@ If you’re building tools, platforms, or internal systems —
 we’ll probably get along.
 
 ---
+
+## 📊 GitHub Stats & Contributions
+
+<p align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&hide_border=true&count_private=true&theme=radical" alt="Rahul's GitHub Stats"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&show_icons=true&hide_border=true&layout=compact&theme=radical" alt="Top Languages"/>
+</p>
+
+## 💻 Tech Stack
+
+### Languages
+```
+TypeScript  Python  JavaScript  Dart  HTML
+```
+
+### Backend & Frameworks
+```
+Node.js  Next.js  Firebase  APIs  Google Apps Script
+```
+
+### DevOps & Tools
+```
+Docker  GitHub Actions  CI/CD  Vercel  Fly.io
+```
+
+### Databases & Platforms  
+```
+Supabase  PostgreSQL  Google Sheets  REST APIs
+```
+
+## 🎯 Passion Points
+
+🚀 **Passionate Developer** building:
+- 🤖 Automation-first systems that reduce repetitive work
+- ⚙️ Internal tools that scale without manual effort
+- 🧩 SaaS products with clean architecture
+- 📦 Docker-based, production-ready solutions
+- 🔄 CI/CD pipelines that enable team velocity
+
+## 📈 Activity Snapshot
+
+Active contributor across **19 repositories** with focus on:
+- **85%** Internal infrastructure & systems
+- **10%** Public developer tools
+- **5%** Open source maintenance
+
+**Current Streak**: Building consistently, not in bursts 🔥
+
+---
+
+---
