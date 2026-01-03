@@ -1,16 +1,29 @@
-## Hi there 👋
+## 👋 Hey, I’m FrpBoy
 
-<!--
-**frpboy/frpboy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I build practical systems that automate workflows, simplify operations, and scale without drama.
 
-Here are some ideas to get you started:
+### 🧠 What I focus on
+- Automation & internal tools
+- Web apps (Next.js / TypeScript)
+- Dockerized deployments
+- Data pipelines & integrations
+- No-nonsense engineering
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🛠 Tech Stack
+- **Languages:** TypeScript, JavaScript, Dart
+- **Backend:** Node.js, APIs, Webhooks
+- **Frontend:** HTML, modern JS frameworks
+- **DevOps:** Docker, CI/CD
+- **Tools:** GitHub Actions, Supabase, Google Apps Script
+
+### 🚀 Featured Projects
+- **AutoReadme** – AI-powered README generator  
+- **Repo-Verse** – Visualize GitHub repos as solar systems  
+- **Deploy-Raganork** – Docker-based deployment setup  
+
+### 📈 GitHub Stats
+![stats]
+![streak]
+
+### 📫 Reach me
+- GitHub: @frpboy
