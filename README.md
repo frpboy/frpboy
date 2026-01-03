@@ -100,6 +100,40 @@ I build consistently — not in bursts.
 
 I value code that someone else can understand at 2 AM.
 
+## 📊 Contribution Patterns & Activity
+
+**533 contributions in the last year** — consistent, focused effort across automation, internal tools, and SaaS products.
+
+### Key Metrics
+
+- **Primary Focus**: Infrastructure & internal systems for [Sahakar Medicals](https://github.com/ZABNIX) (85% of recent commits)
+- **Recent Burst**: 58 commits in January 2026 (intensive feature sprint)
+- **Activity Pattern**: Intense work weeks (peaks of 90+ contributions) followed by stabilization and refactoring
+- **Consistency**: Non-zero contributions most weeks — not burst-driven, but sustained development
+- **Technologies**: TypeScript/JavaScript (Node.js, Next.js), Docker, automation, database design
+
+### Contribution Highlights
+
+| Month | Commits | Pattern | Focus |
+|-------|---------|---------|-------|
+| **Dec 2024** | ~184 commits | Peak activity Dec 23-31 | Feature push, production hardening |
+| **Oct 2024** | ~24 commits | Moderate | Bug fixes, maintenance |
+| **Jan 2026** | 58 commits | Sustained sprint | sahakar-accounts development |
+
+**Note**: Contributions tracked across 19 repositories, with emphasis on:
+- Public tools (autoreadme, repo-verse, deploy-raganork)
+- Internal systems (sahakar-*, REDDIT-SNIPER)
+- Open source maintenance (revanced-manager, Pretty-md)
+
+### What This Tells You
+
+✅ **Reliable Delivery**: Can sustain 50-100+ commits/week when focused on a feature
+✅ **Systems Thinking**: Architecture-first approach; commits span database schema, API design, CI/CD, and deployment
+✅ **Production-Ready**: Activity spikes are followed by stabilization phases (testing, refactoring, documentation)
+✅ **Tool Builder**: Equally comfortable shipping internal tools as public-facing SaaS
+
+
+
 ---
 
 ## 📫 Connect
