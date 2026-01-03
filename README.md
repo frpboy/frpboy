@@ -1,4 +1,4 @@
-# 👋 Hey, I’m FrpBoy
+# 👋 Hey, I’m Rahul
 
 I build **practical, automation-first systems** that reduce manual work, scale cleanly, and don’t fall apart in production.
 
