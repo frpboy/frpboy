@@ -195,3 +195,136 @@ Active contributor across **19 repositories** with focus on:
 ---
 
 ---
+
+
+## 📚 Projects Overview
+
+I maintain **19 repositories** across production systems, developer tools, and experimental projects. Here's a comprehensive breakdown:
+
+### 🏢 Production & Enterprise Systems
+
+#### **ZERPAI-ERP** (TypeScript) — *Pharmaceutical Supply Chain Management*
+Fully-structured ERP system for distributors, pharmacies, and multi-branch medical businesses. Delivers real-time stock accuracy, regulatory-ready data management, and seamless integration across sales, purchase, inventory, and vendor workflows.
+- **Tech**: TypeScript, microservices, multi-tier architecture
+- **Features**: Inventory management, pricing, supply-chain optimization
+- **Status**: Active production
+
+#### **sahakar-accounts** (TypeScript) — *Accounting & Financial Management*
+Production-grade accounting system with **205+ commits**. Implements comprehensive ledger management, transaction rules, and dashboard analytics for Sahakar Medicals.
+- **Tech**: Next.js, React, Tailwind CSS, TypeScript
+- **Modules**: Dashboard, ledger, audit trails, export functionality
+- **Features**: PWA support, real-time data sync, strict financial controls
+- **Status**: Active production (49 commits in Jan 2026)
+
+#### **purchase-order-system** (Google Apps Script) — *Automated PO Workflow*
+Automated Purchase Order system integrating stock, master log, and MOQ tracker sheets for Sahakar outlets.
+- **Tech**: Google Apps Script, Google Sheets API
+- **Features**: Daily PO generation, history logging, smart status control, access protection
+- **Impact**: Eliminates manual PO entry for multi-outlet operations
+
+#### **Sahakar-PPO** (TypeScript) — *Purchase & Operations*
+Operational system for procurement and purchase planning.
+- **Tech**: TypeScript, modern frontend framework
+- **Status**: Active development
+
+### 🛠️ Developer Tools & Utilities
+
+#### **autoreadme** (TypeScript) — *AI-Powered README Generator*
+**10+ commits** | Public | MIT License
+Automatic README generation from project analysis. Smart detection for Node.js, Python, and generic projects.
+- **Tech**: TypeScript, Handlebars templates, CLI framework
+- **Features**: Zero-config templates, CI/CD integration, GitHub Actions support
+- **Impact**: Turns messy repos into clean, structured documentation
+
+#### **repo-verse** (TypeScript) — *GitHub Repository Visualization*
+**77 commits** | Forked from nimaldanyathk/repo-verse
+Generates dynamic, animated SVG solar system visualization of repositories.
+- **Tech**: Next.js, TypeScript, SVG generation
+- **Features**: Real-time stats, auto-cycling HUD, embedded Profile README
+- **Impact**: Visual storytelling for developer portfolios
+
+#### **deploy-raganork** (Dockerfile) — *Docker Deployment Framework*
+**22 commits** | Forked from sou6av/deploy-raganork
+Opinionated, reproducible Docker deployments that work on first deploy.
+- **Tech**: Docker, Heroku, Fly.io
+- **Focus**: Simplicity over configuration options
+- **Platforms**: Heroku one-click deploy, Fly.io modern alternative
+
+### 🎨 Design & Prototyping
+
+#### **Dailyfoodlog** (TypeScript) — *Food Logging Design System*
+**2 commits** | Figma-generated code
+UI code bundle for Daily Food Log design system.
+- **Original**: Figma design (https://www.figma.com/design/TdeRtwChrutJzhu5D1HD7R/Daily-Food-Log)
+- **Tech**: TypeScript, CSS, design tokens
+
+### 🔬 Research & Experimental
+
+#### **SmartLabs** (TypeScript) — *Development Setup Documentation*
+**2 commits** | Private
+Laboratory setup and functional source documentation.
+
+#### **BRIC** (Dart) — *Mobile Application*
+**Private** | Last updated 2 weeks ago
+Mobile development project using Flutter/Dart.
+
+#### **Metly** (HTML) — *Metrics & Analytics*
+Interactive metrics and analytics visualization.
+
+### 📋 Internal & Organization Systems
+
+#### **sahakar-po** (TypeScript) — *Purchase Order Management*
+**Private** | Active development
+
+#### **SAHAKAR-APP** — *Core Application Platform*
+**Private** | Comprehensive business application
+
+#### **PO-TIRUR-SAHAKAR** — *Location-Specific Operations*
+**Private** | Outlet-specific purchase order system
+
+#### **starlex** (JavaScript) — *Product Management*
+**Private** | Custom business solution
+
+### 🌐 Open Source & Community
+
+#### **revanced-manager** (Dart) — *Open Source Mobile Tool*
+**Forked** | GNU GPL v3.0
+ReVanced Manager for Android — application patching framework.
+
+#### **Pretty-md** (Dockerfile) — *Community Bot*
+**Forked** | Multi-device bot utility
+
+---
+
+## 📊 Repository Statistics
+
+- **Total Repositories**: 19
+- **Original Projects**: 15
+- **Forked Projects**: 4
+- **Public**: 8
+- **Private**: 11
+- **Primary Languages**: TypeScript (9), JavaScript (2), Dart (2), Dockerfile (2), HTML (1)
+- **Combined Commits**: 500+ (tracked across projects)
+
+## 🎯 Project Breakdown by Domain
+
+| Domain | Count | Focus |
+|--------|-------|-------|
+| **Enterprise Systems** | 4 | ERP, accounting, procurement, operations |
+| **Developer Tools** | 3 | Documentation, visualization, deployment |
+| **Internal Tools** | 5 | Organization-specific business solutions |
+| **Experimental** | 2 | Prototyping, learning projects |
+| **Open Source** | 2 | Community contributions |
+| **Design & UI** | 1 | Design systems and prototyping |
+
+---
+
+## 🚀 Recent Activity (Jan 2026)
+
+- **sahakar-accounts**: 49 commits (active development sprint)
+- **frpboy** (profile): 6 commits (documentation updates)
+- **REDDIT-SNIPER**: 2 commits (feature updates)
+- **Sahakar-PPO**: 2 commits (deployment)
+- **autoreadme**: 1 commit (maintenance)
+
+Total: **60 commits** across 5 repositories in first 3 days of January
