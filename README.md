@@ -39,9 +39,6 @@ I am an **Automation-First Systems Engineer** with roots in **Thiruvalla** and c
 *   **Evidence-Based Logic:** I am openly atheist and strongly anti-pseudoscience. This shapes my tech decisions: I demand data, not "trust me bro" solutions.
 *   **Systems > Scripts:** I don't just patch problems. I diagnose organizational malware (chaos) and build pipelines to fix it structurally.
 
-**From Hardware to Architecture:**
-I understand devices below the UI level (firmware, IMEI logic, Android internals). This "bottom-up" understanding means I build software that respects the hardware and infrastructure it runs on.
-
 ---
 
 ### 🛠 Tech Stack & Workstation
@@ -104,44 +101,44 @@ I don't build toy apps. I build **internal operating systems** that businesses r
 | **[REDDIT-SNIPER](https://github.com/frpboy/REDDIT-SNIPER)** | **Real-time Data Intelligence.** Event-driven alert system designed to bypass expensive API costs ($10k/mo savings). | **Engineering Economics.** Solving problems without burning cash. |
 | **[AutoReadme](https://github.com/frpboy/autoreadme)** | **Dev Tooling.** CLI tool to auto-generate documentation using AI templates. | Reduces cognitive load for developers. |
 
-#### 3️⃣ Interactive Experience
-| Project | Description |
-| :--- | :--- |
-| **[his-birthday](https://github.com/frpboy/his-birthday)** | **Digital Art.** A minimal, immersive microsite. Shows my capability in interaction design and emotional UI, balancing my heavy backend systems work. |
-
 ---
 
-### 📊 Comprehensive Data & Analytics
+### 📊 Live Analytics
 
 <div align="center">
-
   <!-- Trophies -->
-  <h3>🏆 Achievements</h3>
-  <img src="https://github-profile-trophy.vercel.app/?username=frpboy&no-frame=true&row=1&column=7&theme=gitdimmed" alt="Trophies" />
-  
-  <br/><br/>
+  <a href="https://github.com/frpboy">
+    <img src="https://github-profile-trophy.vercel.app/?username=frpboy&no-frame=true&row=1&column=7&theme=flat" alt="Trophies" />
+  </a>
+</div>
 
-  <!-- Stats & Streak -->
-  <h3>📈 Github Performance</h3>
-  <p align="center">
-    <a href="https://github.com/frpboy">
+<br />
+
+<!-- Row 1: Stats and Streak locked in a table to prevent breaking -->
+<table align="center" style="border: none;">
+  <tr>
+    <td align="center" style="border: none;">
       <img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Stats" />
-    </a>
-    <a href="https://github.com/frpboy">
+    </td>
+    <td align="center" style="border: none;">
       <img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Streak" />
-    </a>
-  </p>
-  
-  <br/>
+    </td>
+  </tr>
+</table>
 
-  <!-- Top Languages & Productive Time -->
-  <p align="center">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Languages" />
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" height="180" />
-  </p>
+<!-- Row 2: Languages and Productive Time -->
+<table align="center" style="border: none;">
+  <tr>
+    <td align="center" style="border: none;">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Languages" />
+    </td>
+    <td align="center" style="border: none;">
+      <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" height="180" alt="Productive Time" />
+    </td>
+  </tr>
+</table>
 
-  <br/>
-
+<div align="center">
   <!-- Summary Cards -->
   <h3>🗓️ Habits & Timeline</h3>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=frpboy&theme=github_dark" height="150" />
@@ -153,9 +150,12 @@ I don't build toy apps. I build **internal operating systems** that businesses r
 
   <br/><br/>
   
-  <!-- Snake Animation (Requires GitHub Action) -->
-  <img src="https://github.com/frpboy/frpboy/blob/output/github-contribution-grid-snake.svg" alt="Snake Animation" width="100%" />
-
+  <!-- Snake Animation -->
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
+    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
+  </picture>
 </div>
 
 ---
