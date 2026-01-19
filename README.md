@@ -9,7 +9,7 @@
 
   <!-- 2. TYPING ANIMATION -->
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=800&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Systems+Engineer+%2F+Vibe+Coder;From+Flashing+ROMs+to+Pushing+Code;Reddit+Addict+%7C+Ambivert;Logic+%3E+Hype" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=800&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Automation-First+Systems+Engineer;Thiruvalla+%7C+Perinthalmanna;Replacing+Spreadsheets+with+Systems;Logic+%3E+Hype" alt="Typing SVG" />
   </a>
 
   <!-- 3. SOCIALS -->
@@ -30,26 +30,22 @@
 
 <div align="center">
 
-### 👨‍💻 The Human Element
+### 👨‍💻 The Core Identity (Beyond Code)
 
 I am an **Automation-First Systems Engineer** operating from **Perinthalmanna** (originally from **Thiruvalla**).  
-I talk to servers more than I talk to people (Ambivert life).
+My background isn't typical, and that's my edge.
 
-| **The Origin Story** | **The Personality** |
-| :--- | :--- |
-| 🛠️ **Hardware Roots:** Started as a **Smartphone Technician** focused on software diagnostics. I went from flashing ROMs and fixing IMEI logic to architecting full-scale cloud systems. | 🤖 **Philosophy:** Openly **atheist and anti-pseudoscience**. I trust logs, data, and evidence. No "gut feelings," just stack traces. |
-| 🔄 **The Switch:** Pivoted to Development because I prefer **"Vibe Coding"**—building things that actually work without the corporate fluff. | 🕵️ **Current Status:** Tech Enthusiast turned **Reddit Addict**. I doom-scroll r/sysadmin and r/programminghorror so you don't have to. |
+**Hardware Roots**  
+I started as a **Smartphone Technician** and Faculty. I understand devices at the chip level (firmware, IMEI logic, power rails). I don't just write software; I understand the metal it runs on.
 
-<br/>
+**The Philosophy**  
+I am openly **atheist and anti-pseudoscience**. I make decisions based on evidence, logs, and data—never "gut feeling" or hype.
 
-### 🍿 Pop Culture & Vibes
+**The Driver**  
+I carry responsibility quietly. My work is fueled by the drive to build a stable, logical future for my family (Anirudh).
 
-| Category | Status | Details |
-| :--- | :---: | :--- |
-| **Cinematic Sins** | 🚨 | I watch everything, but **I have never finished Breaking Bad, Dark, or Game of Thrones.** (Don't judge me). |
-| **Watchlist** | ✅ | **Marvel, Sci-Fi, High-Octane Action.** If it explodes or involves time travel, I'm watching it. |
-| **Blocklist** | ❌ | **Horror.** Keep that jump-scare nonsense away from my screens. |
-| **Audio** | 🎧 | **Polyglot Listener.** I don't care about the language or genre. <br/> **Current Obsession:** 👳‍♂️ **Punjabi Beats** (High energy coding fuel). |
+**The Method**  
+I diagnose organizational malware (chaos) and replace it with boring, reliable pipelines.
 
 </div>
 
@@ -152,4 +148,25 @@ I talk to servers more than I talk to people (Ambivert life).
 | **[purchase-order-system](https://github.com/frpboy/purchase-order-system)** | `Apps Script` `Sheets` | ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg) ![Auto](https://img.shields.io/badge/Type-Automation-blue) |
 | **[ZERPAI-ERP](https://github.com/frpboy/ZERPAI-ERP)** | `TypeScript` `ERP` | ![Private](https://img.shields.io/badge/Access-Private_Repo-red) ![Domain](https://img.shields.io/badge/Domain-Pharma-purple) |
 | **[REDDIT-SNIPER](https://github.com/frpboy/REDDIT-SNIPER)** | `Event-Driven` | ![Savings](https://img.shields.io/badge/Savings-%2410k%2Fmo-success) ![Status](https://img.shields.io/badge/Bot-Active-success) |
-| **[his-birthday](https://github.com/frpboy/his-birthday)** | `HTML/JS` `Interaction` | ![Type](https://img.shields.io/badge/Type-Digital_Art-pink)
+| **[his-birthday](https://github.com/frpboy/his-birthday)** | `HTML/JS` `Interaction` | ![Type](https://img.shields.io/badge/Type-Digital_Art-pink) ![Status](https://img.shields.io/badge/Status-Live-success) |
+
+</div>
+
+---
+
+<div align="center">
+
+### 🐍 The System Feed
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
+  <img alt="github snake" src="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg" width="100%" />
+</picture>
+
+<br/>
+
+<p>📍 <b>Thiruvalla ➡️ Perinthalmanna</b></p>
+<p><i>"Replacing spreadsheets with systems since Day 1."</i></p>
+
+</div>
