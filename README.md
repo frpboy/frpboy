@@ -1,17 +1,16 @@
 <div align="center">
-  <!-- 1. HEADER: LIVE COUNTERS -->
+  <!-- 1. HEADER: LIVE COUNTERS & BADGES -->
   <img src="https://komarev.com/ghpvc/?username=frpboy&label=TOTAL%20VIEWS&color=0e75b6&style=for-the-badge" alt="Profile Views" />
   <img src="https://img.shields.io/github/followers/frpboy?label=Followers&style=for-the-badge&color=success" alt="Followers" />
-  <img src="https://img.shields.io/badge/Location-India_🇮🇳_(IST)-ff9933?style=for-the-badge" alt="Location" />
+  <img src="https://img.shields.io/badge/Location-Kerala,_India_🇮🇳-FF9900?style=for-the-badge&logo=google-maps&logoColor=white" />
+  <img src="https://img.shields.io/badge/Timezone-IST_(UTC+05:30)-blueviolet?style=for-the-badge&logo=clock&logoColor=white" />
   <br />
   <br />
 
-  <!-- 2. TYPING HEADER -->
+  <!-- 2. TYPING ANIMATION -->
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=26&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Automation-First+Systems+Engineer;Thiruvalla+%7C+Perinthalmanna;Replacing+Spreadsheets+with+Systems" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=800&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Systems+Engineer+%2F+Vibe+Coder;From+Flashing+ROMs+to+Pushing+Code;Reddit+Addict+%7C+Ambivert;Logic+%3E+Hype" alt="Typing SVG" />
   </a>
-
-  <p><i>"Bridge-generation guy. Old-school discipline + new-school tools."</i></p>
 
   <!-- 3. SOCIALS -->
   <p>
@@ -29,123 +28,149 @@
 
 ---
 
-### 📡 The Systems Identity
-
-I am an **Automation-First Systems Engineer** based in **Kerala, India**. I started in hardware diagnostics and mobile repair (chip-level) before moving to architecture. I don't build "apps"; I build **internal operating systems** that businesses depend on.
-
-*   **Logic > Hype:** I am openly atheist and anti-pseudoscience. I trust data, logs, and evidence.
-*   **The Mission:** I diagnose organizational chaos and replace it with boring, reliable pipelines.
-
----
-
-### 🛠️ The Tech Arsenal
-
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=ts,js,dart,nodejs,nextjs,postgres,supabase,docker,githubactions,linux,windows,android,gcp,gmail,nginx,bash" />
+
+### 👨‍💻 The Human Element
+
+I am an **Automation-First Systems Engineer** operating from **Perinthalmanna** (originally from **Thiruvalla**).  
+I talk to servers more than I talk to people (Ambivert life).
+
+| **The Origin Story** | **The Personality** |
+| :--- | :--- |
+| 🛠️ **Hardware Roots:** Started as a **Smartphone Technician** focused on software diagnostics. I went from flashing ROMs and fixing IMEI logic to architecting full-scale cloud systems. | 🤖 **Philosophy:** Openly **atheist and anti-pseudoscience**. I trust logs, data, and evidence. No "gut feelings," just stack traces. |
+| 🔄 **The Switch:** Pivoted to Development because I prefer **"Vibe Coding"**—building things that actually work without the corporate fluff. | 🕵️ **Current Status:** Tech Enthusiast turned **Reddit Addict**. I doom-scroll r/sysadmin and r/programminghorror so you don't have to. |
+
+<br/>
+
+### 🍿 Pop Culture & Vibes
+
+| Category | Status | Details |
+| :--- | :---: | :--- |
+| **Cinematic Sins** | 🚨 | I watch everything, but **I have never finished Breaking Bad, Dark, or Game of Thrones.** (Don't judge me). |
+| **Watchlist** | ✅ | **Marvel, Sci-Fi, High-Octane Action.** If it explodes or involves time travel, I'm watching it. |
+| **Blocklist** | ❌ | **Horror.** Keep that jump-scare nonsense away from my screens. |
+| **Audio** | 🎧 | **Polyglot Listener.** I don't care about the language or genre. <br/> **Current Obsession:** 👳‍♂️ **Punjabi Beats** (High energy coding fuel). |
+
 </div>
 
 ---
 
-### 📊 DATA DASHBOARD (Stacked View)
+<div align="center">
+
+### 🛠️ The War Room (Tech Stack)
+
+<!-- Tech Marquee -->
+<img src="https://skillicons.dev/icons?i=ts,js,dart,nodejs,nextjs,postgres,supabase,docker,githubactions,linux,windows,android,gcp,gmail,nginx,bash,vim" />
+
+<br/><br/>
+
+<!-- The Hardware Rig -->
+<img src="https://img.shields.io/badge/OS-Windows_11-0078D6?style=flat&logo=windows&logoColor=white" />
+<img src="https://img.shields.io/badge/Mobile-Android_(Rooted)-3DDC84?style=flat&logo=android&logoColor=white" />
+<img src="https://img.shields.io/badge/Ecosystem-Samsung-1428A0?style=flat&logo=samsung&logoColor=white" />
+<img src="https://img.shields.io/badge/Tools-n8n_Automation-FF6584?style=flat&logo=n8n&logoColor=white" />
+
+</div>
+
+---
+
+<div align="center">
+
+### 📊 DATA CENTER (Comprehensive Analytics)
 
 <!-- 4. TROPHIES -->
-<div align="center">
-  <h3>🏆 Achievements</h3>
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=frpboy&row=1&column=7&margin-w=15&margin-h=15&no-bg=true&theme=gitdimmed" alt="Trophies" />
-  </a>
-</div>
+<h3>🏆 Achievements</h3>
+<a href="https://github.com/ryo-ma/github-profile-trophy">
+  <img src="https://github-profile-trophy.vercel.app/?username=frpboy&row=1&column=7&margin-w=15&margin-h=15&no-bg=true&theme=gitdimmed" alt="Trophies" />
+</a>
 
-<br/>
+<br/><br/>
 
 <!-- 5. GITHUB STATS -->
-<div align="center">
-  <h3>📈 Overall Performance</h3>
-  <img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Stats" />
-</div>
+<h3>📈 Overall Performance</h3>
+<img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Stats" />
 
-<br/>
+<br/><br/>
 
 <!-- 6. STREAK STATS -->
-<div align="center">
-  <h3>🔥 Contribution Streak</h3>
-  <img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Streak" />
-</div>
+<h3>🔥 Contribution Streak</h3>
+<img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Streak" />
 
-<br/>
+<br/><br/>
 
 <!-- 7. TOP LANGUAGES -->
-<div align="center">
-  <h3>💻 Tech Stack Usage</h3>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Languages" />
-</div>
+<h3>💻 Tech Stack Usage</h3>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Languages" />
 
-<br/>
+<br/><br/>
 
-<!-- 8. PRODUCTIVE TIME -->
-<div align="center">
-  <h3>⏰ Peak Productivity (IST)</h3>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" alt="Productive Time" />
-</div>
+<!-- 8. PRODUCTIVE TIME (IST) -->
+<h3>⏰ Peak Productivity (IST +05:30)</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" alt="Productive Time" />
 
-<br/>
+<br/><br/>
 
-<!-- 9. PROFILE DETAILS -->
-<div align="center">
-  <h3>🗓️ Habits & Summary</h3>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=frpboy&theme=github_dark" alt="Profile Details" />
-</div>
+<!-- 9. PROFILE DETAILS & HABITS -->
+<h3>🗓️ Habits & Summary</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=frpboy&theme=github_dark" alt="Profile Details" />
 
-<br/>
+<br/><br/>
 
-<!-- 10. ACTIVITY GRAPH -->
-<div align="center">
-  <h3>🌊 Activity Wave</h3>
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="Activity Graph" />
-</div>
+<!-- 10. REPO BREAKDOWN -->
+<h3>🥧 Repository Breakdown</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=frpboy&theme=github_dark" alt="Repo Pie Chart" />
 
-<br/>
+<br/><br/>
 
-<!-- 11. REPO PIE CHART -->
-<div align="center">
-  <h3>🥧 Repository Breakdown</h3>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=frpboy&theme=github_dark" alt="Repo Pie Chart" />
-</div>
+<!-- 11. 3D CITY VIEW -->
+<h3>🏗️ Commit Infrastructure (Isometric)</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=frpboy&theme=github_dark" alt="Isometric Stats" />
 
-<br/>
+<br/><br/>
 
-<!-- 12. TECH JOKE -->
-<div align="center">
-  <h3>⚡ Engineering Humor</h3>
-  <img src="https://readme-jokes.vercel.app/api?theme=dark&bg_color=0D1117" width="500" alt="Jokes Card" />
+<!-- 12. ACTIVITY WAVE -->
+<h3>🌊 Activity Wave</h3>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="Activity Graph" />
+
+<br/><br/>
+
+<!-- 13. TECH JOKE -->
+<h3>⚡ Engineering Humor</h3>
+<img src="https://readme-jokes.vercel.app/api?theme=dark&bg_color=0D1117" width="500" alt="Jokes Card" />
+
 </div>
 
 ---
+
+<div align="center">
 
 ### 🚀 Flagship Systems Status
 
 | System | Stack | Status |
-| :--- | :--- | :--- |
+| :---: | :---: | :---: |
 | **[sahakar-accounts](https://github.com/frpboy/sahakar-accounts)** | `Next.js` `TS` `PWA` | ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg) ![Size](https://img.shields.io/github/repo-size/frpboy/sahakar-accounts) |
 | **[purchase-order-system](https://github.com/frpboy/purchase-order-system)** | `Apps Script` `Sheets` | ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg) ![Auto](https://img.shields.io/badge/Type-Automation-blue) |
 | **[ZERPAI-ERP](https://github.com/frpboy/ZERPAI-ERP)** | `TypeScript` `ERP` | ![Private](https://img.shields.io/badge/Access-Private_Repo-red) ![Domain](https://img.shields.io/badge/Domain-Pharma-purple) |
 | **[REDDIT-SNIPER](https://github.com/frpboy/REDDIT-SNIPER)** | `Event-Driven` | ![Savings](https://img.shields.io/badge/Savings-%2410k%2Fmo-success) ![Status](https://img.shields.io/badge/Bot-Active-success) |
+| **[his-birthday](https://github.com/frpboy/his-birthday)** | `HTML/JS` `Interaction` | ![Type](https://img.shields.io/badge/Type-Digital_Art-pink) ![Status](https://img.shields.io/badge/Status-Live-success) |
+
+</div>
 
 ---
 
+<div align="center">
+
 ### 🐍 The System Feed
 
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
-    <img alt="github snake" src="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg" width="100%" />
-  </picture>
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
+  <img alt="github snake" src="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg" width="100%" />
+</picture>
 
 <br/>
 
-<div align="center">
-  <p>📍 <b>Thiruvalla ➡️ Perinthalmanna</b></p>
-  <p><i>"Replacing spreadsheets with systems since Day 1."</i></p>
+<p>📍 <b>Thiruvalla ➡️ Perinthalmanna</b></p>
+<p><i>"Replacing spreadsheets with systems since Day 1."</i></p>
+
 </div>
