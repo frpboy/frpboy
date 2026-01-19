@@ -105,28 +105,20 @@ I don't build toy apps. I build **internal operating systems** that businesses r
 
 ### 📊 Live Analytics
 
+<!-- Trophies (Simplified to prevent breaking) -->
 <div align="center">
-  <!-- Trophies -->
-  <a href="https://github.com/frpboy">
-    <img src="https://github-profile-trophy.vercel.app/?username=frpboy&no-frame=true&row=1&column=7&theme=flat" alt="Trophies" />
-  </a>
+  <img src="https://github-profile-trophy.vercel.app/?username=frpboy&row=1&column=7&margin-w=15&margin-h=15" alt="Trophies" />
 </div>
 
-<br />
+<br/>
 
-<!-- Row 1: Stats and Streak locked in a table to prevent breaking -->
-<table align="center" style="border: none;">
-  <tr>
-    <td align="center" style="border: none;">
-      <img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Stats" />
-    </td>
-    <td align="center" style="border: none;">
-      <img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Streak" />
-    </td>
-  </tr>
-</table>
+<!-- Stats and Streak (Using standard Markdown to prevent layout crash) -->
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Stats" />
+  <img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Streak" />
+</p>
 
-<!-- Row 2: Languages and Productive Time -->
+<!-- Languages and Productivity (These work well, keeping them in table for alignment) -->
 <table align="center" style="border: none;">
   <tr>
     <td align="center" style="border: none;">
@@ -150,7 +142,7 @@ I don't build toy apps. I build **internal operating systems** that businesses r
 
   <br/><br/>
   
-  <!-- Snake Animation -->
+  <!-- Snake Animation (Dark Mode Optimized) -->
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
