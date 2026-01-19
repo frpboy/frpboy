@@ -94,7 +94,7 @@ Reproducible deployments that work on first deploy.
 ### 🧮 Yearly Contribution Breakdown
 <p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=frpboy&theme=default" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&theme=default&utcOffset=5.5" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&theme=default&utcOffset=5.3" />
 </p>
 
 ---
