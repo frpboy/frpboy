@@ -1,152 +1,121 @@
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=frpboy&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
-  <img src="https://img.shields.io/github/followers/frpboy?label=Followers&style=social" alt="Followers" />
+  <!-- Top Badges -->
+  <img src="https://komarev.com/ghpvc/?username=frpboy&label=PROFILE%20VIEWS&color=0e75b6&style=for-the-badge" alt="Profile Views" />
+  <img src="https://img.shields.io/github/followers/frpboy?label=Followers&style=for-the-badge&color=success" alt="Followers" />
+  <img src="https://img.shields.io/badge/Location-India_🇮🇳-ff9933?style=for-the-badge" alt="Location" />
   <br />
   <br />
 
   <!-- Dynamic Typing Header -->
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=435&lines=Rahul+Muraleedharan;Automation-First+Engineer;Internal+Systems+Architect;Roots:+Thiruvalla+%7C+Base:+Perinthalmanna" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=26&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=Rahul+Muraleedharan;Automation-First+Systems+Engineer;Thiruvalla+%7C+Perinthalmanna;Replacing+Spreadsheets+with+Systems" alt="Typing SVG" />
   </a>
 
-  <h3>Internal Tools • Workflow Orchestration • Infrastructure</h3>
-  
-  <p>
-    <i>"Bridge-generation guy. Old-school discipline + new-school tools."</i>
-  </p>
+  <p><i>"Bridge-generation guy. Old-school discipline + new-school tools."</i></p>
 
+  <!-- Social Links -->
   <p>
     <a href="mailto:frpboy12@gmail.com">
-      <img src="https://img.shields.io/badge/Email-frpboy12%40gmail.com-D14836?style=flat&logo=gmail&logoColor=white" alt="Email" />
+      <img src="https://img.shields.io/badge/Email-frpboy12%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
     </a>
     <a href="https://www.linkedin.com/in/rahul-muraleedharan-it">
-      <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" />
+      <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a>
     <a href="https://github.com/frpboy">
-      <img src="https://img.shields.io/badge/GitHub-frpboy-181717?style=flat&logo=github&logoColor=white" alt="GitHub" />
+      <img src="https://img.shields.io/badge/GitHub-frpboy-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
     </a>
   </p>
 </div>
 
 ---
 
-### 🧠 The Core Identity (Engineering Philosophy)
+### 📡 The Systems Identity
 
-I am an **Automation-First Systems Engineer** with roots in **Thiruvalla** and currently operating from **Perinthalmanna**. My background isn't typical, and that's my edge. I started in **hardware diagnostics and mobile repair**, teaching logic-level troubleshooting before I ever wrote a line of production code.
+I am an **Automation-First Systems Engineer** based in **Kerala, India**. I started in hardware diagnostics and mobile repair (chip-level) before moving to architecture. This means I build software that respects the "metal" it runs on.
 
-**My Engineering DNA:**
-*   **Pragmatism > Ideology:** I don't buy hype. I test, verify, then deploy. If it works and scales, I use it. If it's fluff, I kill it.
-*   **Evidence-Based Logic:** I am openly atheist and strongly anti-pseudoscience. This shapes my tech decisions: I demand data, not "trust me bro" solutions.
-*   **Systems > Scripts:** I don't just patch problems. I diagnose organizational malware (chaos) and build pipelines to fix it structurally.
+*   **Logic > Hype:** I am openly atheist and anti-pseudoscience. I trust data, logs, and evidence.
+*   **The Mission:** I diagnose organizational chaos and replace it with boring, reliable pipelines.
 
 ---
 
-### 🛠 Tech Stack & Workstation
+### 🛠️ The Arsenal (Tech Stack)
 
-<table width="100%">
-  <tr>
-    <td width="20%"><b>Core Languages</b></td>
-    <td>
-      <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" />
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" />
-      <img src="https://img.shields.io/badge/Dart-0175C2?style=flat&logo=dart&logoColor=white" />
-      <img src="https://img.shields.io/badge/Google_Apps_Script-4285F4?style=flat&logo=google&logoColor=white" />
-    </td>
-  </tr>
-  <tr>
-    <td><b>Backend & Auto</b></td>
-    <td>
-      <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" />
-      <img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white" />
-      <img src="https://img.shields.io/badge/n8n-FF6584?style=flat&logo=n8n&logoColor=white" />
-      <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=black" />
-    </td>
-  </tr>
-  <tr>
-    <td><b>Infra & Ops</b></td>
-    <td>
-      <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" />
-      <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" />
-      <img src="https://img.shields.io/badge/Sheets_as_DB-34A853?style=flat&logo=google-sheets&logoColor=white" />
-    </td>
-  </tr>
-  <tr>
-    <td><b>The Rig</b></td>
-    <td>
-       <img src="https://img.shields.io/badge/OS-Windows_11-0078D6?style=flat&logo=windows&logoColor=white" />
-       <img src="https://img.shields.io/badge/Mobile-Android_Root_Access-3DDC84?style=flat&logo=android&logoColor=white" />
-       <img src="https://img.shields.io/badge/Hardware-Samsung_Ecosystem-1428A0?style=flat&logo=samsung&logoColor=white" />
-    </td>
-  </tr>
-</table>
-
----
-
-### 🚀 Production Systems & Architecture
-
-I don't build toy apps. I build **internal operating systems** that businesses run on.
-
-#### 1️⃣ The SAHAKAR Ecosystem
-*A modular internal ERP handling purchasing, stock flow, and accounts.*
-| Component | Tech | Role |
-| :--- | :--- | :--- |
-| **[sahakar-accounts](https://github.com/frpboy/sahakar-accounts)** | `Next.js` `TS` `PWA` | **Financial Core.** Strict financial controls, PWA interface, and maintainable accounting logic. |
-| **[purchase-order-system](https://github.com/frpboy/purchase-order-system)** | `Apps Script` `Sheets` | **Ops Automation.** Integrates Master Logs, MOQ tracking, and smart status controls. |
-| **[Sahakar-PPO](https://github.com/frpboy/Sahakar-PPO)** | `TypeScript` | **Procurement.** Pre-Purchase Order management and validation workflow. |
-
-#### 2️⃣ Supply Chain & Intelligence
-| Project | Description | Key Insight |
-| :--- | :--- | :--- |
-| **[ZERPAI-ERP](https://github.com/frpboy/ZERPAI-ERP)** | **Pharma Supply-Chain System.** Inventory, pricing logic, and multi-branch sync for high-compliance medical business. | Domain-specific compliance & reliability. |
-| **[REDDIT-SNIPER](https://github.com/frpboy/REDDIT-SNIPER)** | **Real-time Data Intelligence.** Event-driven alert system designed to bypass expensive API costs ($10k/mo savings). | **Engineering Economics.** Solving problems without burning cash. |
-| **[AutoReadme](https://github.com/frpboy/autoreadme)** | **Dev Tooling.** CLI tool to auto-generate documentation using AI templates. | Reduces cognitive load for developers. |
-
----
-
-### 📊 Live Analytics
-
-<!-- Trophies (Simplified to prevent breaking) -->
+<!-- Scrolling Tech Marquee for that "Hacker" feel -->
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=frpboy&row=1&column=7&margin-w=15&margin-h=15" alt="Trophies" />
+  <img src="https://skillicons.dev/icons?i=ts,js,dart,nodejs,nextjs,postgres,supabase,docker,githubactions,linux,windows,android,gmail,gcp" />
 </div>
 
 <br/>
 
-<!-- Stats and Streak (Using standard Markdown to prevent layout crash) -->
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Stats" />
-  <img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Streak" />
-</p>
-
-<!-- Languages and Productivity (These work well, keeping them in table for alignment) -->
-<table align="center" style="border: none;">
+<table width="100%">
   <tr>
-    <td align="center" style="border: none;">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Languages" />
+    <td width="50%">
+      <h3>🚀 Flagship Systems</h3>
+      <p><b><a href="https://github.com/frpboy/sahakar-accounts">sahakar-accounts</a></b><br/>
+      <i>Next.js • TypeScript • PWA</i><br/>
+      Production-grade accounting & financial controls.</p>
+      
+      <p><b><a href="https://github.com/frpboy/purchase-order-system">purchase-order-system</a></b><br/>
+      <i>Apps Script • Sheets DB</i><br/>
+      Ops automation with master logs & MOQ tracking.</p>
+      
+      <p><b><a href="https://github.com/frpboy/ZERPAI-ERP">ZERPAI-ERP</a></b><br/>
+      <i>TypeScript • ERP</i><br/>
+      Pharma supply-chain & multi-branch sync.</p>
     </td>
-    <td align="center" style="border: none;">
-      <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" height="180" alt="Productive Time" />
+    <td width="50%">
+      <h3>⚡ Automation & Utilities</h3>
+      <p><b><a href="https://github.com/frpboy/REDDIT-SNIPER">REDDIT-SNIPER</a></b><br/>
+      <i>Event-Driven • Automation</i><br/>
+      Real-time data alerts bypassing $10k API costs.</p>
+      
+      <p><b><a href="https://github.com/frpboy/autoreadme">AutoReadme</a></b><br/>
+      <i>CLI • AI Tooling</i><br/>
+      Automated documentation generator.</p>
+      
+      <p><b><a href="https://github.com/frpboy/his-birthday">his-birthday</a></b><br/>
+      <i>Interaction Design</i><br/>
+      Digital art experience showing UI sensitivity.</p>
     </td>
   </tr>
 </table>
 
+---
+
+### 📊 The Command Center (Live Analytics)
+
+<!-- ROW 1: The Main Stats (Reliable Version) -->
 <div align="center">
-  <!-- Summary Cards -->
-  <h3>🗓️ Habits & Timeline</h3>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=frpboy&theme=github_dark" height="150" />
+  <a href="https://github.com/frpboy">
+    <img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Rahul's Stats" />
+  </a>
+</div>
 
-  <br/><br/>
+<br/>
 
-  <!-- Full Activity Graph -->
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="Activity Graph" />
+<!-- ROW 2: Habits & Languages (Using the Card Suite that works for you) -->
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=frpboy&theme=github_dark" height="180" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=frpboy&theme=github_dark" height="180" />
+</div>
 
-  <br/><br/>
-  
-  <!-- Snake Animation (Dark Mode Optimized) -->
+<br/>
+
+<!-- ROW 3: Time & Commits -->
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" height="180" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=frpboy&theme=github_dark" height="180" />
+</div>
+
+<br/>
+
+<!-- ROW 4: The Snake (Your System Win) -->
+<div align="center">
+  <h3>🐍 Contribution History</h3>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
-    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg">
+    <img alt="github snake" src="https://raw.githubusercontent.com/frpboy/frpboy/output/github-contribution-grid-snake.svg" width="100%" />
   </picture>
 </div>
 
@@ -155,8 +124,4 @@ I don't build toy apps. I build **internal operating systems** that businesses r
 <div align="center">
   <p>📍 <b>Thiruvalla ➡️ Perinthalmanna</b></p>
   <p><i>"Replacing spreadsheets with systems since Day 1."</i></p>
-  <p>
-    <a href="https://github.com/frpboy?tab=repositories">📦 View All Repositories</a> • 
-    <a href="https://github.com/frpboy?tab=stars">⭐ Starred Projects</a>
-  </p>
 </div>
