@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Notes</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">Quick Notes</h1>
+      <div class="stats">
+        <span class="char-count">0 chars</span>
+        <span class="word-count">0 words</span>
+      </div>
+    </header>
+
+    <!-- New Note Section -->
+    <section class="new-note-section">
+      <textarea 
+        class="note-input" 
+        placeholder="Type your quick note here..."
+        maxlength="5000"
+      ></textarea>
+      <div class="action-buttons">
+        <button class="btn btn-save">Save Note</button>
+        <button class="btn btn-clear-input">Clear</button>
+      </div>
+    </section>
+
+    <!-- Notes List Section -->
+    <section class="notes-section">
+      <div class="section-header">
+        <h2>Saved Notes</h2>
+        <div class="notes-controls">
+          <input type="text" class="search-input" placeholder="Search notes...">
+          <button class="btn btn-import">Import</button>
+          <button class="btn btn-export">Export All</button>
+          <button class="btn btn-clear-all">Clear All</button>
+        </div>
+      </div>
+      
+      <div class="notes-list"></div>
+      
+      <div class="notes-empty">
+        <p class="empty-message">No notes yet. Start writing your first note above!</p>
+      </div>
+    </section>
+
+    <!-- Hidden file input for import -->
+    <input type="file" class="file-input" accept=".json,.txt" style="display: none;">
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

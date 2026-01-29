@@ -1,0 +1,47 @@
+{
+  "name": "quick-notes",
+  "version": "1.0.0",
+  "description": "A lightweight notepad Chrome extension for taking quick notes while browsing",
+  "author": "frpboy (https://github.com/frpboy)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frpboy/chrome-quick-notes.git"
+  },
+  "homepage": "https://github.com/frpboy/chrome-quick-notes#readme",
+  "keywords": [
+    "chrome-extension",
+    "notes",
+    "notepad",
+    "productivity",
+    "quick-notes",
+    "frpboy-extension"
+  ],
+  "bugs": {
+    "url": "https://github.com/frpboy/chrome-quick-notes/issues"
+  },
+  "files": [
+    "manifest.json",
+    "popup.html",
+    "popup.css",
+    "popup.js",
+    "background.js",
+    "storage.js",
+    "utils.js",
+    "icons/"
+  ],
+  "scripts": {
+    "dev": "echo 'Load the extension in Chrome Developer Mode'",
+    "test": "echo 'Manual testing in Chrome required'",
+    "build": "echo 'No build step required - vanilla JavaScript'",
+    "start": "echo 'Quick Notes Extension - Ready for development'"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "chrome": ">=88"
+  },
+  "browserslist": [
+    "chrome >= 88"
+  ]
+}
