@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading Time Estimator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📖 Reading Time</h1>
+    </header>
+
+    <main id="content">
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Analyzing page...</p>
+      </div>
+
+      <div id="results" class="results hidden">
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-content">
+            <div class="stat-label">Estimated Time</div>
+            <div class="stat-value" id="readingTime">-- min</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-content">
+            <div class="stat-label">Word Count</div>
+            <div class="stat-value" id="wordCount">--</div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h2>⚙️ Settings</h2>
+          <div class="setting-item">
+            <label for="readingSpeed">Reading Speed (WPM)</label>
+            <div class="speed-control">
+              <input 
+                type="range" 
+                id="readingSpeed" 
+                min="100" 
+                max="400" 
+                value="200" 
+                step="10"
+              >
+              <input 
+                type="number" 
+                id="readingSpeedValue" 
+                min="100" 
+                max="400" 
+                value="200"
+              >
+            </div>
+            <div class="speed-presets">
+              <button class="preset-btn" data-speed="150">Slow</button>
+              <button class="preset-btn" data-speed="200">Average</button>
+              <button class="preset-btn" data-speed="300">Fast</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="error" class="error hidden">
+        <div class="error-icon">⚠️</div>
+        <p id="errorMessage">Unable to analyze this page</p>
+      </div>
+    </main>
+
+    <footer>
+      <button id="refreshBtn" class="refresh-btn" title="Refresh analysis">
+        <span>🔄</span> Refresh
+      </button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
