@@ -1,0 +1,169 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 14px;
+  --bg: #0f1117;
+  --card: #171a21;
+  --text: #f6f7f9;
+  --muted: #9aa4b2;
+  --accent: #6c8bff;
+  --accent-strong: #4f6dff;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  width: 320px;
+}
+
+.popup {
+  padding: 18px;
+}
+
+.popup__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.popup__header h1 {
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.popup__subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.popup__section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.popup__section--footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.toggle-button {
+  width: 56px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: #252a36;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-button.active {
+  background: var(--accent-strong);
+}
+
+.toggle-indicator {
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s ease;
+}
+
+.toggle-button.active .toggle-indicator {
+  transform: translateX(26px);
+}
+
+.segmented {
+  display: flex;
+  gap: 8px;
+}
+
+.segment {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.segment.active {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.site-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.site-hostname {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.list-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.secondary-button {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.secondary-button.active {
+  background: rgba(108, 139, 255, 0.15);
+  border-color: var(--accent);
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.shortcut {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Dark Mode Toggle by frpboy (https://github.com/frpboy) */

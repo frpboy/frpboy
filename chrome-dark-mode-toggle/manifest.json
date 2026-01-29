@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Dark Mode Toggle",
+  "short_name": "Dark Mode Toggle",
+  "version": "1.0.0",
+  "description": "A simple one-click dark mode toggle with per-site preferences and customizable darkness levels.",
+  "author": "frpboy",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "settings.html",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["storage.js", "styles.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "commands": {
+    "toggle-dark-mode": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+D",
+        "mac": "Command+Shift+D"
+      },
+      "description": "Toggle dark mode on the current site"
+    }
+  }
+}
