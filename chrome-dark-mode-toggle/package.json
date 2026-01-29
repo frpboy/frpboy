@@ -1,0 +1,8 @@
+{
+  "name": "chrome-dark-mode-toggle",
+  "version": "1.0.0",
+  "description": "A simple one-click dark mode toggle with per-site preferences and customizable darkness levels.",
+  "author": "frpboy (https://github.com/frpboy)",
+  "license": "MIT",
+  "private": false
+}
