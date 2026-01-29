@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page for Reading Time Estimator</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #667eea;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .meta {
+      color: #666;
+      font-style: italic;
+    }
+    article {
+      font-size: 1.1em;
+    }
+    h2 {
+      color: #764ba2;
+      margin-top: 30px;
+    }
+    nav {
+      background: #f5f5f5;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 5px;
+    }
+    footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      color: #666;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <strong>Navigation:</strong> Home | About | Blog | Contact
+  </nav>
+
+  <header>
+    <h1>The Ultimate Guide to Chrome Extensions</h1>
+    <div class="meta">Published on January 29, 2024 | By Test Author</div>
+  </header>
+
+  <article>
+    <p>
+      Chrome extensions are small software programs that customize the browsing experience. 
+      They enable users to tailor Chrome functionality and behavior to individual needs or preferences. 
+      They are built on web technologies such as HTML, JavaScript, and CSS.
+    </p>
+
+    <h2>What Are Chrome Extensions?</h2>
+    <p>
+      A Chrome extension is a simple plugin for the Google Chrome web browser that allows you to add 
+      functionality to your browser without diving deeply into native code. You can create new extensions 
+      for Chrome with those core technologies that you're already familiar with from web development: 
+      HTML, CSS, and JavaScript. If you've ever built a web page, you should feel right at home with extensions.
+    </p>
+
+    <h2>Why Build Chrome Extensions?</h2>
+    <p>
+      Chrome extensions can dramatically improve your productivity. They can block ads, manage passwords, 
+      take screenshots, or even change the appearance of websites you visit. The possibilities are nearly 
+      endless. Many developers start building extensions to solve their own problems, then share them 
+      with others who have similar needs.
+    </p>
+
+    <h2>Getting Started</h2>
+    <p>
+      To start building a Chrome extension, you need three things: a manifest.json file that describes 
+      your extension, HTML/CSS for any user interface, and JavaScript for functionality. The manifest.json 
+      file is the most important part—it tells Chrome everything it needs to know about your extension, 
+      including its name, version, permissions, and which files to load.
+    </p>
+
+    <h2>Manifest V3</h2>
+    <p>
+      Manifest V3 is the latest version of the Chrome extension platform. It brings improvements to 
+      security, privacy, and performance. While it requires some changes from V2, the modern architecture 
+      is worth the effort. Key changes include the use of service workers instead of background pages, 
+      changes to how host permissions work, and improvements to the declarative capabilities of extensions.
+    </p>
+
+    <h2>Key Components</h2>
+    <p>
+      Most extensions consist of several key components. The background script runs in the background 
+      and handles events. Content scripts run in the context of web pages and can read and modify the 
+      content of web pages you visit. The popup is what users see when they click your extension icon. 
+      And options pages let users customize how your extension works.
+    </p>
+
+    <h2>Best Practices</h2>
+    <p>
+      When building extensions, always request the minimum permissions necessary. Users are increasingly 
+      concerned about privacy, and extensions that request excessive permissions may be viewed with suspicion. 
+      Keep your extension lightweight and fast. Use efficient algorithms and avoid unnecessary resource 
+      consumption. Make your extension accessible to all users, including those using assistive technologies.
+    </p>
+
+    <h2>Testing and Debugging</h2>
+    <p>
+      Chrome provides excellent tools for testing and debugging extensions. You can load unpacked extensions 
+      in developer mode to test them during development. The Chrome DevTools work with extensions just like 
+      they do with web pages. You can set breakpoints, inspect variables, and examine network requests. 
+      Test your extension on various websites to ensure it works consistently.
+    </p>
+
+    <h2>Distribution</h2>
+    <p>
+      Once your extension is ready, you can distribute it through the Chrome Web Store. This requires 
+      creating a developer account, paying a one-time registration fee, and submitting your extension 
+      for review. The review process typically takes a few days. You can also distribute extensions 
+      outside the store, though this requires additional user steps and is generally not recommended.
+    </p>
+
+    <h2>Conclusion</h2>
+    <p>
+      Building Chrome extensions is a rewarding experience that allows you to enhance the browsing 
+      experience for millions of users. With basic web development skills, you can create powerful 
+      tools that solve real problems. Start small, focus on user experience, and don't be afraid to 
+      iterate based on feedback. The Chrome extension ecosystem is vibrant and welcoming to new developers.
+    </p>
+  </article>
+
+  <footer>
+    <p>© 2024 Test Page. This page is for testing the Reading Time Estimator extension.</p>
+    <p>Word count: Approximately 650 words | Expected reading time: ~3 minutes at 200 WPM</p>
+  </footer>
+
+  <script>
+    console.log('Test page loaded. Open the Reading Time Estimator extension to test!');
+  </script>
+</body>
+</html>
