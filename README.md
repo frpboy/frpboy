@@ -31,129 +31,95 @@
 
 <div align="center">
 
-### 👨‍💻 The Human Element
+### 👨‍💻 Rahul Muraleedharan
+**Full-Stack Developer · Automation Engineer · Independent Builder**
 
-I am an **Automation-First Systems Engineer** operating from **Perinthalmanna** (originally from **Thiruvalla**).  
-I talk to servers more than I talk to people (Ambivert life).
+I build practical software: web applications, automation workflows, developer tools, and data-backed systems. My path started with smartphone diagnostics and software troubleshooting and grew into full-stack development, cloud-connected products, and workflow engineering.
 
-| **The Origin Story** | **The Personality** |
-| :--- | :--- |
-| 🛠️ **Hardware Roots:** Started as a **Smartphone Technician** focused on software diagnostics. I went from flashing ROMs and fixing IMEI logic to architecting full-scale cloud systems. | 🤖 **Philosophy:** Openly **atheist and anti-pseudoscience**. I trust logs, data, and evidence. No "gut feelings," just stack traces. |
-| 🔄 **The Switch:** Pivoted to Development because I prefer **"Vibe Coding"**—building things that actually work without the corporate fluff. | 🕵️ **Current Status:** Tech Enthusiast turned **Reddit Addict**. I doom-scroll r/sysadmin and r/programminghorror so you don't have to. |
-
-<br/>
-
-### 🍿 Pop Culture & Vibes
-
-| Category | Status | Details |
-| :--- | :---: | :--- |
-| **Cinematic Sins** | 🚨 | I watch everything, but **I have never finished Breaking Bad, Dark, or Game of Thrones.** (Don't judge me). |
-| **Watchlist** | ✅ | **Marvel, Sci-Fi, High-Octane Action.** If it explodes or involves time travel, I'm watching it. |
-| **Blocklist** | ❌ | **Horror.** Keep that jump-scare nonsense away from my screens. |
-| **Audio** | 🎧 | **Polyglot Listener.** I don't care about the language or genre. <br/> **Current Obsession:** 👳‍♂️ **Punjabi Beats** (High energy coding fuel). |
+[Portfolio](https://www.frpboy.in/) · [GitHub](https://github.com/frpboy) · [LinkedIn](https://www.linkedin.com/in/rahul-muraleedharan-it) · [Email](mailto:frpboy12@gmail.com)
 
 </div>
 
 ---
 
+## What I build
+
+- **Full-stack web apps:** product interfaces, dashboards, REST APIs, authentication, and database-backed workflows.
+- **Automation:** replace repetitive spreadsheet and operations work with scripts, scheduled jobs, and reliable workflows.
+- **Developer tools:** small utilities that make testing, repository work, and day-to-day engineering easier.
+- **Mobile and web products:** prototype, validate, and iterate on end-user applications with a focus on usability and maintainability.
+
+I care about evidence over hype: clear behavior, useful logs, secure defaults, repeatable tests, and fixes that address root causes.
+
+---
+
+## Featured projects
+
+| Project | What it does | Technologies / status |
+| --- | --- | --- |
+| [AdBlocker Test Lab](https://github.com/frpboy/adblocker-test-lab) | Browser-based test lab for exploring ad-resource blocking, tracking protection, privacy signals, and observable loading behavior. | React · TypeScript · Vite · prototype/active development |
+| [Sahakar Accounts](https://github.com/frpboy/sahakar-accounts) | Multi-outlet accounting and operations workflows designed to reduce manual spreadsheet work. | Next.js · TypeScript · Supabase · PostgreSQL · PWA |
+| [Purchase Order System](https://github.com/frpboy/purchase-order-system) | Automates daily purchase-order workflows across Google Sheets, including logging and MOQ tracking. | Google Apps Script · Google Sheets · automation |
+| [Nah That's Fake](https://github.com/frpboy/NahThatsFake) | Telegram bot and Mini App for deepfake/scam-related checks, link scanning, referrals, and account workflows. | Node.js · TypeScript · Telegram · Supabase |
+| [RepoVerse](https://github.com/frpboy/repo-verse) | Generates a space-themed visualisation of GitHub repositories for profile pages. | TypeScript · SVG · GitHub Actions |
+| [Portfolio OS](https://github.com/frpboy/frpboy-Portfolio) | Interactive portfolio experience presenting projects and the transition from hardware diagnostics to software engineering. | Next.js · React · TypeScript · Tailwind CSS · GSAP · Framer Motion |
+| [Metly](https://github.com/frpboy/Metly) | Flutter UI concept for gold and silver tracking and explanatory market insights. Live prices are currently mocked. | Flutter · Dart · Dio · Firebase/Cloudflare integration planned |
+
+> These are selected projects from the repositories I can publicly showcase. Features, deployment, and release status vary by project; see each repository for its current source and documentation.
+
+---
+
+## Engineering toolkit
+
 <div align="center">
 
-### 🛠️ The War Room (Tech Stack)
+<img src="https://skillicons.dev/icons?i=ts,js,python,dart,react,nextjs,nodejs,postgres,supabase,docker,githubactions,linux,windows,android,nginx,bash" alt="Technologies" />
 
-<!-- Tech Marquee -->
-<img src="https://skillicons.dev/icons?i=ts,js,dart,nodejs,nextjs,postgres,supabase,docker,githubactions,linux,windows,android,gcp,gmail,nginx,bash,vim" />
+</div>
 
-<br/><br/>
+**Languages & UI:** TypeScript, JavaScript, Dart, React, Next.js, Flutter  
+**Backend & data:** Node.js, REST APIs, PostgreSQL, Supabase  
+**Delivery & operations:** Git, GitHub Actions, Docker, Linux, Windows, deployment workflows  
+**Automation:** Google Apps Script, spreadsheet workflows, n8n-style automation
 
-<!-- The Hardware Rig -->
-<img src="https://img.shields.io/badge/OS-Windows_11-0078D6?style=flat&logo=windows&logoColor=white" />
-<img src="https://img.shields.io/badge/Mobile-Android_(Rooted)-3DDC84?style=flat&logo=android&logoColor=white" />
-<img src="https://img.shields.io/badge/Ecosystem-Samsung-1428A0?style=flat&logo=samsung&logoColor=white" />
-<img src="https://img.shields.io/badge/Tools-n8n_Automation-FF6584?style=flat&logo=n8n&logoColor=white" />
+---
+
+## How I work
+
+- Prefer simple, navigable interfaces over unnecessary complexity.
+- Treat authentication, authorization, input validation, and secret handling as first-class requirements.
+- Use tests and CI to verify changes instead of assuming a build is healthy.
+- Document what is verified, what is planned, and what still needs validation.
+- Iterate in small, reviewable changes and avoid destructive repository operations.
+
+---
+
+## Find me online
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-frpboy.in-58A6FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.frpboy.in/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rahul-muraleedharan-it)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:frpboy12@gmail.com)
 
 </div>
 
 ---
 
-<div align="center">
-
-### 📊 DATA CENTER (Comprehensive Analytics)
-
-<!-- 4. TROPHIES -->
-<h3>🏆 Achievements</h3>
-<a href="https://github.com/ryo-ma/github-profile-trophy">
-  <img src="https://github-profile-trophy.vercel.app/?username=frpboy&row=1&column=7&margin-w=15&margin-h=15&no-bg=true&theme=gitdimmed" alt="Trophies" />
-</a>
-
-<br/><br/>
-
-<!-- 5. GITHUB STATS -->
-<h3>📈 Overall Performance</h3>
-<img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Stats" />
-
-<br/><br/>
-
-<!-- 6. STREAK STATS -->
-<h3>🔥 Contribution Streak</h3>
-<img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Streak" />
-
-<br/><br/>
-
-<!-- 7. TOP LANGUAGES -->
-<h3>💻 Tech Stack Usage</h3>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Languages" />
-
-<br/><br/>
-
-<!-- 8. PRODUCTIVE TIME (IST) -->
-<h3>⏰ Peak Productivity (IST +05:30)</h3>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" alt="Productive Time" />
-
-<br/><br/>
-
-<!-- 9. PROFILE DETAILS & HABITS -->
-<h3>🗓️ Habits & Summary</h3>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=frpboy&theme=github_dark" alt="Profile Details" />
-
-<br/><br/>
-
-<!-- 10. REPO BREAKDOWN -->
-<h3>🥧 Repository Breakdown</h3>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=frpboy&theme=github_dark" alt="Repo Pie Chart" />
-
-<br/><br/>
-
-<!-- 11. 3D CITY VIEW -->
-<h3>🏗️ Commit Infrastructure (Isometric)</h3>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=frpboy&theme=github_dark" alt="Isometric Stats" />
-
-<br/><br/>
-
-<!-- 12. ACTIVITY WAVE -->
-<h3>🌊 Activity Wave</h3>
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="Activity Graph" />
-
-<br/><br/>
-
-<!-- 13. TECH JOKE -->
-<h3>⚡ Engineering Humor</h3>
-<img src="https://readme-jokes.vercel.app/api?theme=dark&bg_color=0D1117" width="500" alt="Jokes Card" />
-
-</div>
-
----
+## GitHub activity
 
 <div align="center">
 
-### 🚀 Flagship Systems Status
+<img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="GitHub statistics" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF" height="180" alt="Most used languages" />
 
-| System | Stack | Status |
-| :---: | :---: | :---: |
-| **[sahakar-accounts](https://github.com/frpboy/sahakar-accounts)** | `Next.js` `TS` `PWA` | ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg) ![Size](https://img.shields.io/github/repo-size/frpboy/sahakar-accounts) |
-| **[purchase-order-system](https://github.com/frpboy/purchase-order-system)** | `Apps Script` `Sheets` | ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg) ![Auto](https://img.shields.io/badge/Type-Automation-blue) |
-| **[ZERPAI-ERP](https://github.com/frpboy/ZERPAI-ERP)** | `TypeScript` `ERP` | ![Private](https://img.shields.io/badge/Access-Private_Repo-red) ![Domain](https://img.shields.io/badge/Domain-Pharma-purple) |
-| **[REDDIT-SNIPER](https://github.com/frpboy/REDDIT-SNIPER)** | `Event-Driven` | ![Savings](https://img.shields.io/badge/Savings-%2410k%2Fmo-success) ![Status](https://img.shields.io/badge/Bot-Active-success) |
-| **[his-birthday](https://github.com/frpboy/his-birthday)** | `HTML/JS` `Interaction` | ![Type](https://img.shields.io/badge/Type-Digital_Art-pink) ![Status](https://img.shields.io/badge/Status-Live-success) |
+<br/><br/>
+
+<img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Contribution streak" />
+
+<br/><br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="GitHub contribution activity" />
 
 </div>
 
