@@ -69,18 +69,22 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 ---
 
-## Engineering toolkit
+### 🛠️ The War Room (Tech Stack)
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=ts,js,python,dart,react,nextjs,nodejs,postgres,supabase,docker,githubactions,linux,windows,android,nginx,bash" alt="Technologies" />
+<!-- Tech Marquee -->
+<img src="https://skillicons.dev/icons?i=ts,js,python,dart,react,nodejs,nextjs,postgres,supabase,docker,githubactions,linux,windows,android,gcp,gmail,nginx,bash,vim" alt="Technology stack" />
+
+<br/><br/>
+
+<!-- The Hardware Rig -->
+<img src="https://img.shields.io/badge/OS-Windows_11-0078D6?style=flat&logo=windows&logoColor=white" alt="Operating system: Windows 11" />
+<img src="https://img.shields.io/badge/Mobile-Android_(Rooted)-3DDC84?style=flat&logo=android&logoColor=white" alt="Mobile: Android" />
+<img src="https://img.shields.io/badge/Ecosystem-Samsung-1428A0?style=flat&logo=samsung&logoColor=white" alt="Samsung ecosystem" />
+<img src="https://img.shields.io/badge/Tools-n8n_Automation-FF6584?style=flat&logo=n8n&logoColor=white" alt="Automation: n8n" />
 
 </div>
-
-**Languages & UI:** TypeScript, JavaScript, Dart, React, Next.js, Flutter  
-**Backend & data:** Node.js, REST APIs, PostgreSQL, Supabase  
-**Delivery & operations:** Git, GitHub Actions, Docker, Linux, Windows, deployment workflows  
-**Automation:** Google Apps Script, spreadsheet workflows, n8n-style automation
 
 ---
 
@@ -106,26 +110,73 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 ---
 
-## GitHub activity
+### 📊 DATA CENTER (Comprehensive Analytics)
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="GitHub statistics" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF" height="180" alt="Most used languages" />
+<!-- 4. TROPHIES -->
+<h3>🏆 Achievements</h3>
+<a href="https://github.com/ryo-ma/github-profile-trophy">
+  <img src="https://github-profile-trophy.vercel.app/?username=frpboy&row=1&column=7&margin-w=15&margin-h=15&no-bg=true&theme=gitdimmed" alt="GitHub profile trophies" />
+</a>
 
 <br/><br/>
 
-<img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="Contribution streak" />
+<!-- 5. GITHUB STATS -->
+<h3>📈 Overall Performance</h3>
+<img src="https://github-readme-stats.vercel.app/api?username=frpboy&show_icons=true&count_private=true&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="GitHub statistics" />
 
 <br/><br/>
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="GitHub contribution activity" />
+<!-- 6. STREAK STATS -->
+<h3>🔥 Contribution Streak</h3>
+<img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="GitHub contribution streak" />
+
+<br/><br/>
+
+<!-- 7. TOP LANGUAGES -->
+<h3>💻 Tech Stack Usage</h3>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Most used languages" />
+
+<br/><br/>
+
+<!-- 8. PRODUCTIVE TIME (IST) -->
+<h3>⏰ Peak Productivity (IST +05:30)</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=frpboy&utcOffset=5.5&theme=github_dark" alt="Most productive time, India Standard Time" />
+
+<br/><br/>
+
+<!-- 9. PROFILE DETAILS & HABITS -->
+<h3>🗓️ Habits & Summary</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=frpboy&theme=github_dark" alt="GitHub profile details" />
+
+<br/><br/>
+
+<!-- 10. REPO BREAKDOWN -->
+<h3>🥧 Repository Breakdown</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=frpboy&theme=github_dark" alt="Repositories by language" />
+
+<br/><br/>
+
+<!-- 11. COMMIT INFRASTRUCTURE -->
+<h3>🏗️ Commit Infrastructure (Isometric)</h3>
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=frpboy&theme=github_dark" alt="GitHub summary statistics" />
+
+<br/><br/>
+
+<!-- 12. ACTIVITY WAVE -->
+<h3>🌊 Activity Wave</h3>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="GitHub activity graph" />
+
+<br/><br/>
+
+<!-- 13. TECH JOKE -->
+<h3>⚡ Engineering Humor</h3>
+<img src="https://readme-jokes.vercel.app/api?theme=dark&bg_color=0D1117" width="500" alt="Random programming joke" />
 
 </div>
 
 ---
-
-<div align="center">
 
 ### 🐍 The System Feed
 
