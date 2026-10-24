@@ -145,9 +145,6 @@ The live contribution directory below tracks other public activity separately, i
 
 <div align="center">
 
-<details>
-<summary>🏆 Achievements and trophies</summary>
-
 <!-- 4. TROPHIES -->
 <h3>🏆 Achievements</h3>
 <a href="https://github.com/ryo-ma/github-profile-trophy">
@@ -155,8 +152,6 @@ The live contribution directory below tracks other public activity separately, i
 </a>
 
 <br/><br/>
-
-</details>
 
 <!-- 5. GITHUB STATS -->
 <h3>📈 Overall Performance</h3>
@@ -175,9 +170,6 @@ The live contribution directory below tracks other public activity separately, i
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Most used languages" />
 
 <br/><br/>
-
-<details>
-<summary>📊 More analytics and breakdowns</summary>
 
 <!-- 8. PRODUCTIVE TIME (IST) -->
 <h3>⏰ Peak Productivity (IST +05:30)</h3>
@@ -203,21 +195,15 @@ The live contribution directory below tracks other public activity separately, i
 
 <br/><br/>
 
-</details>
-
 <!-- 12. ACTIVITY WAVE -->
 <h3>🌊 Activity Wave</h3>
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="GitHub activity graph" />
 
 <br/><br/>
 
-<details>
-<summary>⚡ Engineering humor</summary>
-
 <!-- 13. TECH JOKE -->
 <h3>⚡ Engineering Humor</h3>
 <img src="https://readme-jokes.vercel.app/api?theme=dark&bg_color=0D1117" width="500" alt="Random programming joke" />
-</details>
 </div>
 
 ---
