@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Refresh the external-contributions section of the frpboy profile README."""
+"""Refresh public external-contribution evidence in the frpboy profile README.
+
+Only the section between the dedicated README markers is changed. Public search
+results are evidence of activity, not proof of collaborator permissions.
+"""
 
 from __future__ import annotations
 
@@ -21,43 +25,134 @@ START_MARKER = "<!-- EXTERNAL-CONTRIBUTIONS:START -->"
 END_MARKER = "<!-- EXTERNAL-CONTRIBUTIONS:END -->"
 MAX_PAGES_PER_QUERY = 3
 IST = ZoneInfo("Asia/Kolkata")
+API_HEADERS = {
+    "Accept": "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+}
 
 
-def get_json(url: str) -> dict:
+def request_json(url: str, payload: dict | None = None) -> dict:
     headers = {
-        "Accept": "application/vnd.github+json",
+        **API_HEADERS,
         "User-Agent": f"{USERNAME}-profile-contributions-updater",
-        "X-GitHub-Api-Version": "2022-11-28",
     }
+    data = None
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"
-    request = urllib.request.Request(url, headers=headers)
+    if payload is not None:
+        headers["Content-Type"] = "application/json"
+        data = json.dumps(payload).encode("utf-8")
+    request = urllib.request.Request(url, data=data, headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as error:
         body = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"GitHub API returned HTTP {error.code} for {url}: {body[:500]}") from error
+        raise RuntimeError(
+            f"GitHub API returned HTTP {error.code} for {url}: {body[:500]}"
+        ) from error
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
         raise RuntimeError(f"Could not retrieve valid GitHub API data from {url}: {error}") from error
 
 
 def search_items(endpoint: str, query: str) -> list[dict]:
+    """Search issues/PRs or commits, following bounded pagination."""
     collected: list[dict] = []
-    first_page_url = "https://api.github.com/search/" + endpoint
+    base_url = f"https://api.github.com/search/{endpoint}"
     sort_field = "committer-date" if endpoint == "commits" else "updated"
-    pages_data = []
     for page in range(1, MAX_PAGES_PER_QUERY + 1):
         params = urllib.parse.urlencode(
-            {"q": query, "sort": sort_field, "order": "desc", "per_page": 100, "page": page}
+            {
+                "q": query,
+                "sort": sort_field,
+                "order": "desc",
+                "per_page": 100,
+                "page": page,
+            }
         )
-        data = get_json(f"{first_page_url}?{params}")
-        pages_data.append(data)
-        collected.extend(data.get("items", []))
-        total_count = int(data.get("total_count", len(collected)))
-        if page * 100 >= total_count or len(data.get("items", [])) < 100:
+        result = request_json(f"{base_url}?{params}")
+        items = result.get("items", [])
+        collected.extend(items)
+        total_count = int(result.get("total_count", len(collected)))
+        if page * 100 >= total_count or len(items) < 100:
             break
     return collected
+
+
+def search_actual_discussions() -> list[dict]:
+    """Use GraphQL Discussion nodes, never PR/issue comments mislabeled as discussions."""
+    if not TOKEN:
+        print("GITHUB_TOKEN missing; skipping actual GitHub Discussions.", file=sys.stderr)
+        return []
+
+    query_template = """
+    query($q: String!, $cursor: String) {
+      search(query: $q, type: DISCUSSION, first: 100, after: $cursor) {
+        nodes {
+          ... on Discussion {
+            title
+            url
+            updatedAt
+            repository {
+              nameWithOwner
+              owner { login }
+            }
+          }
+        }
+        pageInfo { hasNextPage endCursor }
+      }
+    }
+    """
+    records_by_url: dict[str, dict] = {}
+    for qualifier in (f"author:{USERNAME}", f"commenter:{USERNAME}"):
+        cursor = None
+        for _ in range(MAX_PAGES_PER_QUERY):
+            variables = {"q": qualifier, "cursor": cursor}
+            try:
+                data = request_json(
+                    "https://api.github.com/graphql",
+                    {"query": query_template, "variables": variables},
+                )
+            except RuntimeError as error:
+                print(
+                    f"Could not query actual Discussions ({qualifier}); leaving them out: {error}",
+                    file=sys.stderr,
+                )
+                break
+
+            if data.get("errors"):
+                print(
+                    f"GitHub GraphQL did not return Discussions for {qualifier}; "
+                    f"leaving them out: {str(data['errors'])[:300]}",
+                    file=sys.stderr,
+                )
+                break
+
+            search = (data.get("data") or {}).get("search") or {}
+            for node in search.get("nodes", []):
+                if not node or not node.get("url") or not node.get("repository"):
+                    continue
+                repo = node["repository"]
+                full_name = repo.get("nameWithOwner", "")
+                if not full_name:
+                    continue
+                if full_name.split("/", 1)[0].casefold() == USERNAME.casefold():
+                    continue
+                records_by_url[node["url"]] = {
+                    "repository_full_name": full_name,
+                    "url": node["url"],
+                    "title": node.get("title", "GitHub Discussion"),
+                    "updated_at": node.get("updatedAt", ""),
+                }
+
+            page_info = search.get("pageInfo") or {}
+            if not page_info.get("hasNextPage"):
+                break
+            cursor = page_info.get("endCursor")
+            if not cursor:
+                break
+
+    return list(records_by_url.values())
 
 
 def repository_full_name(item: dict, endpoint: str) -> str | None:
@@ -89,7 +184,8 @@ def parse_timestamp(value: str) -> datetime:
     if not value:
         return datetime.min.replace(tzinfo=timezone.utc)
     try:
-        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
     except ValueError:
         return datetime.min.replace(tzinfo=timezone.utc)
 
@@ -99,18 +195,35 @@ def issue_number(url: str) -> str:
     return match.group(1) if match else "link"
 
 
+def new_group() -> dict:
+    return {
+        "url": "",
+        "latest_date": datetime.min.replace(tzinfo=timezone.utc),
+        "merged_prs": [],
+        "open_prs": [],
+        "closed_prs": [],
+        "reviewed_prs": [],
+        "pr_comments": [],
+        "issues": [],
+        "issue_comments": [],
+        "discussions": [],
+        "commits": [],
+    }
+
+
 def add_items(groups: dict, items: list[dict], endpoint: str, category: str) -> None:
     for item in items:
         full_name = repository_full_name(item, endpoint)
         if not full_name or "/" not in full_name:
             continue
         owner = full_name.split("/", 1)[0]
-        # The section intentionally excludes every repository owned by the profile user.
+        # This section deliberately excludes every repository owned by the profile user.
         if owner.casefold() == USERNAME.casefold():
             continue
         url = item.get("html_url", "")
         if not url.startswith("https://github.com/"):
             continue
+
         group = groups[full_name]
         group["url"] = f"https://github.com/{full_name}"
         date_value = timestamp_for(item, endpoint)
@@ -122,6 +235,7 @@ def add_items(groups: dict, items: list[dict], endpoint: str, category: str) -> 
             "date": date_value,
             "number": issue_number(url),
             "sha": str(item.get("sha", ""))[:7],
+            "title": item.get("title", ""),
         }
         if endpoint == "commits":
             group["commits"].append(entry)
@@ -129,39 +243,75 @@ def add_items(groups: dict, items: list[dict], endpoint: str, category: str) -> 
             group[category].append(entry)
 
 
+def add_discussions(groups: dict, discussions: list[dict]) -> None:
+    for item in discussions:
+        full_name = item.get("repository_full_name", "")
+        url = item.get("url", "")
+        if not full_name or "/" not in full_name or not url.startswith("https://github.com/"):
+            continue
+        if full_name.split("/", 1)[0].casefold() == USERNAME.casefold():
+            continue
+        group = groups[full_name]
+        group["url"] = f"https://github.com/{full_name}"
+        date_value = item.get("updated_at", "")
+        date = parse_timestamp(date_value)
+        if date > group["latest_date"]:
+            group["latest_date"] = date
+        group["discussions"].append(
+            {
+                "url": url,
+                "date": date_value,
+                "number": issue_number(url),
+                "sha": "",
+                "title": item.get("title", ""),
+            }
+        )
+
+
 def unique_newest(items: list[dict]) -> list[dict]:
     by_url = {item["url"]: item for item in items if item.get("url")}
-    return sorted(by_url.values(), key=lambda item: parse_timestamp(item.get("date", "")), reverse=True)
+    return sorted(
+        by_url.values(),
+        key=lambda item: parse_timestamp(item.get("date", "")),
+        reverse=True,
+    )
 
 
 def linked_items(items: list[dict], label: str, limit: int = 2) -> str:
-    items = unique_newest(items)
-    if not items:
+    records = unique_newest(items)
+    if not records:
         return ""
     links = []
-    for item in items[:limit]:
-        item_label = f"{label} #{item['number']}" if label != "commit" else f"commit {item['sha']}"
+    for item in records[:limit]:
+        if label == "commit":
+            item_label = f"commit {item['sha']}"
+        else:
+            item_label = f"{label} #{item['number']}"
         links.append(f"[{item_label}]({item['url']})")
-    suffix = f" +{len(items) - limit} more" if len(items) > limit else ""
-    count_label = f"{len(items)} {label}{'s' if len(items) != 1 else ''}"
+    suffix = f" +{len(records) - limit} more" if len(records) > limit else ""
+    count_label = f"{len(records)} {label}{'s' if len(records) != 1 else ''}"
     return f"{count_label}: " + " · ".join(links) + suffix
 
 
 def render_markdown(groups: dict) -> str:
+    categories = (
+        ("merged_prs", "merged PR"),
+        ("open_prs", "open PR"),
+        ("closed_prs", "closed PR"),
+        ("reviewed_prs", "PR review"),
+        ("pr_comments", "PR comment"),
+        ("issues", "issue opened"),
+        ("issue_comments", "issue comment"),
+        ("discussions", "Discussion"),
+        ("commits", "commit"),
+    )
     populated = []
     for full_name, group in groups.items():
-        evidence = []
-        for key, label in (
-            ("merged_prs", "merged PR"),
-            ("open_prs", "open PR"),
-            ("closed_prs", "closed PR"),
-            ("commits", "commit"),
-            ("issues", "issue"),
-            ("discussions", "discussion"),
-        ):
-            rendered = linked_items(group[key], label)
-            if rendered:
-                evidence.append(rendered)
+        evidence = [
+            rendered
+            for key, label in categories
+            if (rendered := linked_items(group[key], label))
+        ]
         if evidence:
             populated.append((group["latest_date"], full_name, group, "<br>".join(evidence)))
 
@@ -172,20 +322,21 @@ def render_markdown(groups: dict) -> str:
     merged_prs = sum(len(unique_newest(row[2]["merged_prs"])) for row in populated)
     open_prs = sum(len(unique_newest(row[2]["open_prs"])) for row in populated)
     commits = sum(len(unique_newest(row[2]["commits"])) for row in populated)
+    reviewed_prs = sum(len(unique_newest(row[2]["reviewed_prs"])) for row in populated)
 
     lines = [
         START_MARKER,
         "## 🌐 Open Source & Community Contributions",
         "",
-        "> Public repositories beyond my own where I have contributed code, submitted pull requests, opened issues, or participated in discussions. Repository links and activity records are discovered automatically from GitHub.",
+        "> Public repositories beyond my own where I have contributed code, submitted PRs, reviewed pull requests, opened issues, commented, or participated in actual GitHub Discussions. Only public, discoverable records are shown.",
         "",
     ]
     if populated:
         lines.extend(
             [
-                f"**Recent public activity found:** {total_repos} external repositories in this snapshot · {merged_prs} merged PR records · {open_prs} open PR records · {commits} commit records.",
+                f"**Public activity snapshot:** {total_repos} external repositories · {merged_prs} merged PR records · {open_prs} open PR records · {reviewed_prs} PR review records · {commits} commit records.",
                 "",
-                "| Repository | Contribution / participation evidence | Latest activity (IST) |",
+                "| External repository | Verified public activity | Most recent record update (IST) |",
                 "| --- | --- | --- |",
             ]
         )
@@ -198,14 +349,14 @@ def render_markdown(groups: dict) -> str:
             [
                 "No qualifying public contribution or participation records were returned by GitHub search during this run.",
                 "",
-                "Repositories owned by frpboy are intentionally excluded.",
+                f"Repositories owned by {USERNAME} are intentionally excluded.",
             ]
         )
 
     lines.extend(
         [
             "",
-            "<sub>Automatically refreshed by GitHub Actions. This is a search-based snapshot of public activity, not an exhaustive all-time contribution count. Public search cannot reliably identify private collaboration access, and a contribution does not imply collaborator permissions or acceptance by a maintainer.</sub>",
+            "<sub>Updated automatically by GitHub Actions. Search-based snapshot, not an exhaustive all-time count. Record update dates can reflect repository activity after the original contribution. Public activity does not prove collaborator access or maintainer acceptance. Private repositories are excluded.</sub>",
             END_MARKER,
         ]
     )
@@ -220,33 +371,25 @@ def main() -> int:
         print(f"README not found: {README_PATH}", file=sys.stderr)
         return 2
 
-    # Complete every API request before touching the README. A failed request leaves it intact.
-    groups: dict = defaultdict(
-        lambda: {
-            "url": "",
-            "latest_date": datetime.min.replace(tzinfo=timezone.utc),
-            "merged_prs": [],
-            "open_prs": [],
-            "closed_prs": [],
-            "commits": [],
-            "issues": [],
-            "discussions": [],
-        }
-    )
-
+    groups: dict = defaultdict(new_group)
     queries = [
         ("issues", f"author:{USERNAME} is:pr is:merged", "merged_prs"),
         ("issues", f"author:{USERNAME} is:pr is:open", "open_prs"),
         ("issues", f"author:{USERNAME} is:pr is:closed -is:merged", "closed_prs"),
+        ("issues", f"reviewed-by:{USERNAME} is:pr", "reviewed_prs"),
+        ("issues", f"commenter:{USERNAME} is:pr", "pr_comments"),
         ("issues", f"author:{USERNAME} is:issue", "issues"),
-        ("issues", f"commenter:{USERNAME}", "discussions"),
+        ("issues", f"commenter:{USERNAME} is:issue", "issue_comments"),
         ("commits", f"author:{USERNAME}", "commits"),
     ]
 
+    # Do not touch the README until public search requests have completed.
     for endpoint, query, category in queries:
         print(f"Searching GitHub {endpoint}: {query}")
-        items = search_items(endpoint, query)
-        add_items(groups, items, endpoint, category)
+        add_items(groups, search_items(endpoint, query), endpoint, category)
+
+    # GraphQL returns true Discussion nodes; failures skip only this optional category.
+    add_discussions(groups, search_actual_discussions())
 
     with open(README_PATH, "r", encoding="utf-8", newline="") as file:
         original = file.read()
@@ -258,14 +401,14 @@ def main() -> int:
             file=sys.stderr,
         )
         return 2
+
     start = original.index(START_MARKER)
     end = original.index(END_MARKER) + len(END_MARKER)
     if end <= start:
         print("External-contributions markers are out of order. No changes were written.", file=sys.stderr)
         return 2
 
-    replacement = render_markdown(groups)
-    updated = original[:start] + replacement + original[end:]
+    updated = original[:start] + render_markdown(groups) + original[end:]
     if updated == original:
         print("External-contributions section is already up to date.")
         return 0
