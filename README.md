@@ -9,7 +9,7 @@
 
   <!-- 2. TYPING ANIMATION -->
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=800&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Systems+Engineer+%2F+Vibe+Coder;From+Flashing+ROMs+to+Pushing+Code;Reddit+Addict+%7C+Ambivert;Logic+%3E+Hype" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=800&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Full-Stack+Developer;Automation+Engineer;Open-Source+Contributor;From+Flashing+ROMs+to+Shipping+Software;Build%2C+Test%2C+Automate" alt="Typing SVG" />
   </a>
 
   <!-- 3. SOCIALS -->
@@ -32,7 +32,7 @@
 <div align="center">
 
 ### 👨‍💻 Rahul Muraleedharan
-**Full-Stack Developer · Automation Engineer · Independent Builder**
+**Full-Stack Developer · Automation Engineer · Open-Source Contributor**
 
 I build practical software: web applications, automation workflows, developer tools, and data-backed systems. My path started with smartphone diagnostics and software troubleshooting and grew into full-stack development, cloud-connected products, and workflow engineering.
 
@@ -55,17 +55,27 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 ## Featured projects
 
-| Project | What it does | Technologies / status |
-| --- | --- | --- |
-| [AdBlocker Test Lab](https://github.com/frpboy/adblocker-test-lab) | Browser-based test lab for exploring ad-resource blocking, tracking protection, privacy signals, and observable loading behavior. | React · TypeScript · Vite · prototype/active development |
-| [Sahakar Accounts](https://github.com/frpboy/sahakar-accounts) | Multi-outlet accounting and operations workflows designed to reduce manual spreadsheet work. | Next.js · TypeScript · Supabase · PostgreSQL · PWA |
-| [Purchase Order System](https://github.com/frpboy/purchase-order-system) | Automates daily purchase-order workflows across Google Sheets, including logging and MOQ tracking. | Google Apps Script · Google Sheets · automation |
-| [Nah That's Fake](https://github.com/frpboy/NahThatsFake) | Telegram bot and Mini App for deepfake/scam-related checks, link scanning, referrals, and account workflows. | Node.js · TypeScript · Telegram · Supabase |
-| [RepoVerse](https://github.com/frpboy/repo-verse) | Generates a space-themed visualisation of GitHub repositories for profile pages. | TypeScript · SVG · GitHub Actions |
-| [Portfolio OS](https://github.com/frpboy/frpboy-Portfolio) | Interactive portfolio experience presenting projects and the transition from hardware diagnostics to software engineering. | Next.js · React · TypeScript · Tailwind CSS · GSAP · Framer Motion |
-| [Metly](https://github.com/frpboy/Metly) | Flutter UI concept for gold and silver tracking and explanatory market insights. Live prices are currently mocked. | Flutter · Dart · Dio · Firebase/Cloudflare integration planned |
+| Project | What it does | Technologies / status | Demo / documentation |
+| --- | --- | --- | --- |
+| [AdBlocker Test Lab](https://github.com/frpboy/adblocker-test-lab) | Browser-based test lab for exploring ad-resource blocking, tracking protection, privacy signals, and observable loading behavior. | React · TypeScript · Vite · prototype/active development  | [Docs](https://github.com/frpboy/adblocker-test-lab/tree/main/docs) · Prototype |
+| [Sahakar Accounts](https://github.com/frpboy/sahakar-accounts) | Multi-outlet accounting and operations workflows designed to reduce manual spreadsheet work. | Next.js · TypeScript · Supabase · PostgreSQL · PWA  | [Source & README](https://github.com/frpboy/sahakar-accounts#readme) |
+| [Purchase Order System](https://github.com/frpboy/purchase-order-system) | Automates daily purchase-order workflows across Google Sheets, including logging and MOQ tracking. | Google Apps Script · Google Sheets · automation  | [README](https://github.com/frpboy/purchase-order-system#readme) |
+| [Nah That's Fake](https://github.com/frpboy/NahThatsFake) | Telegram bot and Mini App for deepfake/scam-related checks, link scanning, referrals, and account workflows. | Node.js · TypeScript · Telegram · Supabase  | [Source & README](https://github.com/frpboy/NahThatsFake#readme) |
+| [RepoVerse](https://github.com/frpboy/repo-verse) | Generates a space-themed visualisation of GitHub repositories for profile pages. | TypeScript · SVG · GitHub Actions  | [SVG preview](https://raw.githubusercontent.com/frpboy/repo-verse/main/public/universe.svg) · [README](https://github.com/frpboy/repo-verse#readme) |
+| [Portfolio OS](https://github.com/frpboy/frpboy-Portfolio) | Interactive portfolio experience presenting projects and the transition from hardware diagnostics to software engineering. | Next.js · React · TypeScript · Tailwind CSS · GSAP · Framer Motion  | [Live site](https://www.frpboy.in/) · [Source README](https://github.com/frpboy/frpboy-Portfolio#readme) |
+| [Metly](https://github.com/frpboy/Metly) | Flutter UI concept for gold and silver tracking and explanatory market insights. Live prices are currently mocked. | Flutter · Dart · Dio · Firebase/Cloudflare integration planned  | [README](https://github.com/frpboy/Metly#readme) · Prototype; prices mocked |
 
 > These are selected projects from the repositories I can publicly showcase. Features, deployment, and release status vary by project; see each repository for its current source and documentation.
+
+## ✅ Selected Open-Source Contributions
+
+A few concrete upstream contributions, with their current merged status verified against GitHub on **24 October 2026**.
+
+- **[Neat Browser — session recovery and CI checks](https://github.com/neatbrowser/neat/pull/9)** · [PR #9](https://github.com/neatbrowser/neat/pull/9) and [PR #10](https://github.com/neatbrowser/neat/pull/10) — merged. Added session-recovery self-checks and wired existing vault/capture self-checks into CI.
+- **[The Last Signal — packet tests and CI validation](https://github.com/The-last-signal-project/The-last-signal-/pull/183)** · [PR #183](https://github.com/The-last-signal-project/The-last-signal-/pull/183) and [PR #184](https://github.com/The-last-signal-project/The-last-signal-/pull/184) — merged. Added packet encode/decode test coverage and a pull-request validation workflow for Python and Rust.
+- **[CommonsLens — consistent cancellation errors](https://github.com/commonslens/commonslens.github.io/pull/1)** · [PR #1](https://github.com/commonslens/commonslens.github.io/pull/1) — merged. Standardised the cancellation error surfaced when a retry wait is cancelled.
+
+The live contribution directory below tracks other public activity separately, including open work such as [React PR #37974](https://github.com/react/react/pull/37974), which is **open and not presented as merged**.
 
 <!-- EXTERNAL-CONTRIBUTIONS:START -->
 ## 🌐 Open Source & Community Contributions
@@ -134,6 +144,9 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 <div align="center">
 
+<details>
+<summary>🏆 Achievements and trophies</summary>
+
 <!-- 4. TROPHIES -->
 <h3>🏆 Achievements</h3>
 <a href="https://github.com/ryo-ma/github-profile-trophy">
@@ -141,6 +154,8 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 </a>
 
 <br/><br/>
+
+</details>
 
 <!-- 5. GITHUB STATS -->
 <h3>📈 Overall Performance</h3>
@@ -159,6 +174,9 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=frpboy&layout=compact&hide_border=true&theme=react&bg_color=0D1117&title_color=58A6FF&icon_color=58A6FF" height="180" alt="Most used languages" />
 
 <br/><br/>
+
+<details>
+<summary>📊 More analytics and breakdowns</summary>
 
 <!-- 8. PRODUCTIVE TIME (IST) -->
 <h3>⏰ Peak Productivity (IST +05:30)</h3>
@@ -184,16 +202,21 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 <br/><br/>
 
+</details>
+
 <!-- 12. ACTIVITY WAVE -->
 <h3>🌊 Activity Wave</h3>
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=frpboy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=FFFFFF&hide_border=true" width="100%" alt="GitHub activity graph" />
 
 <br/><br/>
 
+<details>
+<summary>⚡ Engineering humor</summary>
+
 <!-- 13. TECH JOKE -->
 <h3>⚡ Engineering Humor</h3>
 <img src="https://readme-jokes.vercel.app/api?theme=dark&bg_color=0D1117" width="500" alt="Random programming joke" />
-
+</details>
 </div>
 
 ---
