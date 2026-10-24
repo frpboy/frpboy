@@ -67,6 +67,18 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 > These are selected projects from the repositories I can publicly showcase. Features, deployment, and release status vary by project; see each repository for its current source and documentation.
 
+<!-- EXTERNAL-CONTRIBUTIONS:START -->
+## 🌐 Open Source & Community Contributions
+
+> Public repositories beyond my own where I have contributed code, submitted pull requests, opened issues, or participated in discussions. This section is refreshed automatically from public GitHub activity.
+
+| Repository | Contribution / participation evidence | Latest activity (IST) |
+| --- | --- | --- |
+| _The first GitHub Actions run will populate this section with discoverable public activity._ | — | — |
+
+<sub>Repositories owned by frpboy are intentionally excluded. Public search cannot reliably identify private collaborator access; contribution activity does not by itself imply collaborator permissions or maintainer acceptance.</sub>
+<!-- EXTERNAL-CONTRIBUTIONS:END -->
+
 ---
 
 ### 🛠️ The War Room (Tech Stack)
