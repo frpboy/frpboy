@@ -1,0 +1,51 @@
+name: Update External Contributions
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 09:00 India Standard Time (03:30 UTC).
+    - cron: "30 3 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/external-contributions.yml"
+      - "scripts/update_external_contributions.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: external-contributions-readme
+  cancel-in-progress: false
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate external contribution section
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: frpboy
+        run: python scripts/update_external_contributions.py
+
+      - name: Commit README changes when needed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "The generated section is already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore(profile): refresh external contributions"
+          git push
