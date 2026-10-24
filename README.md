@@ -70,13 +70,21 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 <!-- EXTERNAL-CONTRIBUTIONS:START -->
 ## 🌐 Open Source & Community Contributions
 
-> Public repositories beyond my own where I have contributed code, submitted pull requests, opened issues, or participated in discussions. This section is refreshed automatically from public GitHub activity.
+> Public repositories beyond my own where I have contributed code, submitted pull requests, opened issues, or participated in discussions. Repository links and activity records are discovered automatically from GitHub.
+
+**Recent public activity found:** 7 external repositories in this snapshot · 14 merged PR records · 6 open PR records · 30 commit records.
 
 | Repository | Contribution / participation evidence | Latest activity (IST) |
 | --- | --- | --- |
-| _The first GitHub Actions run will populate this section with discoverable public activity._ | — | — |
+| [react/react](https://github.com/react/react) | 1 open PR: [open PR #37974](https://github.com/react/react/pull/37974) | 24 Oct 2026 |
+| [The-last-signal-project/The-last-signal-](https://github.com/The-last-signal-project/The-last-signal-) | 5 merged PRs: [merged PR #183](https://github.com/The-last-signal-project/The-last-signal-/pull/183) · [merged PR #184](https://github.com/The-last-signal-project/The-last-signal-/pull/184) +3 more<br>1 open PR: [open PR #187](https://github.com/The-last-signal-project/The-last-signal-/pull/187)<br>1 closed PR: [closed PR #188](https://github.com/The-last-signal-project/The-last-signal-/pull/188)<br>18 commits: [commit 6787530](https://github.com/The-last-signal-project/The-last-signal-/commit/678753065e025970b19b4575181a02735eaee7e0) · [commit c2fc821](https://github.com/The-last-signal-project/The-last-signal-/commit/c2fc821ad0cc22e1fbdc17d1dd765977369b9de7) +16 more | 24 Oct 2026 |
+| [neatbrowser/neat](https://github.com/neatbrowser/neat) | 2 merged PRs: [merged PR #9](https://github.com/neatbrowser/neat/pull/9) · [merged PR #10](https://github.com/neatbrowser/neat/pull/10)<br>11 commits: [commit fd7c9a0](https://github.com/neatbrowser/neat/commit/fd7c9a0362a95aeff00828761b116f919b68007f) · [commit 53c74e1](https://github.com/neatbrowser/neat/commit/53c74e1db271e1f46953dde7441e823b319185b7) +9 more<br>1 discussion: [discussion #9](https://github.com/neatbrowser/neat/pull/9) | 23 Oct 2026 |
+| [commonslens/commonslens.github.io](https://github.com/commonslens/commonslens.github.io) | 1 merged PR: [merged PR #1](https://github.com/commonslens/commonslens.github.io/pull/1)<br>1 commit: [commit e83d459](https://github.com/commonslens/commonslens.github.io/commit/e83d459915356e6497a8718a8438a2f92d8a319d) | 23 Oct 2026 |
+| [FedericoTartarini/fly-log](https://github.com/FedericoTartarini/fly-log) | 4 open PRs: [open PR #87](https://github.com/FedericoTartarini/fly-log/pull/87) · [open PR #88](https://github.com/FedericoTartarini/fly-log/pull/88) +2 more | 23 Oct 2026 |
+| [flutter/flutter](https://github.com/flutter/flutter) | 1 issue: [issue #186183](https://github.com/flutter/flutter/issues/186183)<br>1 discussion: [discussion #185234](https://github.com/flutter/flutter/issues/185234) | 26 May 2026 |
+| [yvgude/lean-ctx](https://github.com/yvgude/lean-ctx) | 6 merged PRs: [merged PR #104](https://github.com/yvgude/lean-ctx/pull/104) · [merged PR #103](https://github.com/yvgude/lean-ctx/pull/103) +4 more<br>2 discussions: [discussion #122](https://github.com/yvgude/lean-ctx/pull/122) · [discussion #94](https://github.com/yvgude/lean-ctx/pull/94) | 19 Apr 2026 |
 
-<sub>Repositories owned by frpboy are intentionally excluded. Public search cannot reliably identify private collaborator access; contribution activity does not by itself imply collaborator permissions or maintainer acceptance.</sub>
+<sub>Automatically refreshed by GitHub Actions. This is a search-based snapshot of public activity, not an exhaustive all-time contribution count. Public search cannot reliably identify private collaboration access, and a contribution does not imply collaborator permissions or acceptance by a maintainer.</sub>
 <!-- EXTERNAL-CONTRIBUTIONS:END -->
 
 ---
