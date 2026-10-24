@@ -2,7 +2,7 @@
   <!-- 1. HEADER: LIVE COUNTERS & BADGES -->
   <img src="https://komarev.com/ghpvc/?username=frpboy&label=TOTAL%20VIEWS&color=0e75b6&style=for-the-badge" alt="Profile Views" />
   <img src="https://img.shields.io/github/followers/frpboy?label=Followers&style=for-the-badge&color=success" alt="Followers" />
-  <img src="https://img.shields.io/badge/Location-Kerala,_India_🇮🇳-FF9900?style=for-the-badge&logo=google-maps&logoColor=white" />
+  <img src="https://img.shields.io/badge/Location-Perinthalmanna,_Kerala,_India_🇮🇳-FF9900?style=for-the-badge&logo=google-maps&logoColor=white" alt="Location: Perinthalmanna, Kerala, India" />
   <img src="https://img.shields.io/badge/Timezone-IST_(UTC+05:30)-blueviolet?style=for-the-badge&logo=clock&logoColor=white" />
   <br />
   <br />
