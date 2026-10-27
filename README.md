@@ -83,10 +83,11 @@ The live contribution directory below tracks other public activity separately, i
 
 > Public repositories beyond my own where I have contributed code, submitted PRs, reviewed pull requests, opened issues, commented, or participated in actual GitHub Discussions. Only public, discoverable records are shown.
 
-**Public activity snapshot:** 7 external repositories · 19 merged PR records · 1 open PR records · 0 PR review records · 44 commit records.
+**Public activity snapshot:** 8 external repositories · 19 merged PR records · 4 open PR records · 0 PR review records · 44 commit records.
 
 | External repository | Verified public activity | Most recent record update (IST) |
 | --- | --- | --- |
+| [supabase/supabase](https://github.com/supabase/supabase) | 3 open PRs: [open PR #52364](https://github.com/supabase/supabase/pull/52364) · [open PR #52366](https://github.com/supabase/supabase/pull/52366) +1 more | 27 Oct 2026 |
 | [The-last-signal-project/The-last-signal-](https://github.com/The-last-signal-project/The-last-signal-) | 6 merged PRs: [merged PR #187](https://github.com/The-last-signal-project/The-last-signal-/pull/187) · [merged PR #183](https://github.com/The-last-signal-project/The-last-signal-/pull/183) +4 more<br>1 closed PR: [closed PR #188](https://github.com/The-last-signal-project/The-last-signal-/pull/188)<br>1 PR comment: [PR comment #187](https://github.com/The-last-signal-project/The-last-signal-/pull/187)<br>21 commits: [commit 6787530](https://github.com/The-last-signal-project/The-last-signal-/commit/678753065e025970b19b4575181a02735eaee7e0) · [commit c2fc821](https://github.com/The-last-signal-project/The-last-signal-/commit/c2fc821ad0cc22e1fbdc17d1dd765977369b9de7) +19 more | 25 Oct 2026 |
 | [FedericoTartarini/fly-log](https://github.com/FedericoTartarini/fly-log) | 4 merged PRs: [merged PR #88](https://github.com/FedericoTartarini/fly-log/pull/88) · [merged PR #87](https://github.com/FedericoTartarini/fly-log/pull/87) +2 more<br>11 commits: [commit b8a812b](https://github.com/FedericoTartarini/fly-log/commit/b8a812bd011ac056f379754cc216cb2caff93118) · [commit 1707ac0](https://github.com/FedericoTartarini/fly-log/commit/1707ac0a8790b37e0be8aa3682dad6a76799aec0) +9 more | 25 Oct 2026 |
 | [react/react](https://github.com/react/react) | 1 open PR: [open PR #37974](https://github.com/react/react/pull/37974) | 24 Oct 2026 |
