@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Refresh public external-contribution evidence in the frpboy profile README.
+"""Refresh dated profile-contribution metadata and public activity evidence.
 
-Only the section between the dedicated README markers is changed. Public search
-results are evidence of activity, not proof of collaborator permissions.
+The workflow updates the selected-contributions refresh date and only the marked
+external-contributions section. Public search results are evidence of activity,
+not proof of collaborator permissions.
 """
 
 from __future__ import annotations
@@ -23,6 +24,8 @@ TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
 README_PATH = os.environ.get("README_PATH", "README.md")
 START_MARKER = "<!-- EXTERNAL-CONTRIBUTIONS:START -->"
 END_MARKER = "<!-- EXTERNAL-CONTRIBUTIONS:END -->"
+REFRESH_DATE_START_MARKER = "<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:START -->"
+REFRESH_DATE_END_MARKER = "<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:END -->"
 MAX_PAGES_PER_QUERY = 3
 IST = ZoneInfo("Asia/Kolkata")
 API_HEADERS = {
@@ -394,7 +397,28 @@ def main() -> int:
     with open(README_PATH, "r", encoding="utf-8", newline="") as file:
         original = file.read()
 
-    if original.count(START_MARKER) != 1 or original.count(END_MARKER) != 1:
+    if (
+        original.count(REFRESH_DATE_START_MARKER) != 1
+        or original.count(REFRESH_DATE_END_MARKER) != 1
+    ):
+        print(
+            "README must contain exactly one selected-contributions refresh-date marker pair. "
+            "No changes were written.",
+            file=sys.stderr,
+        )
+        return 2
+
+    date_start = original.index(REFRESH_DATE_START_MARKER) + len(REFRESH_DATE_START_MARKER)
+    date_end = original.index(REFRESH_DATE_END_MARKER)
+    if date_end < date_start:
+        print("Selected-contributions refresh-date markers are out of order. No changes were written.", file=sys.stderr)
+        return 2
+
+    # This is a refresh timestamp, not a claim that every historical PR was re-audited.
+    refresh_date = datetime.now(IST).strftime("%d %B %Y")
+    working = original[:date_start] + refresh_date + original[date_end:]
+
+    if working.count(START_MARKER) != 1 or working.count(END_MARKER) != 1:
         print(
             "README must contain exactly one external-contributions start and end marker. "
             "No changes were written.",
@@ -402,15 +426,15 @@ def main() -> int:
         )
         return 2
 
-    start = original.index(START_MARKER)
-    end = original.index(END_MARKER) + len(END_MARKER)
+    start = working.index(START_MARKER)
+    end = working.index(END_MARKER) + len(END_MARKER)
     if end <= start:
         print("External-contributions markers are out of order. No changes were written.", file=sys.stderr)
         return 2
 
-    updated = original[:start] + render_markdown(groups) + original[end:]
+    updated = working[:start] + render_markdown(groups) + working[end:]
     if updated == original:
-        print("External-contributions section is already up to date.")
+        print("Profile contribution data is already up to date.")
         return 0
 
     temporary_path = README_PATH + ".tmp"
