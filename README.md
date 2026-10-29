@@ -162,6 +162,18 @@ The live contribution directory below tracks other public activity separately, i
 
 <br/><br/>
 
+<br/><br/>
+
+<!-- GITSCORE: COMMUNITY SCORE -->
+<h3>🏅 GitScore</h3>
+<a href="https://gitscore.live/frpboy">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://gitscore.live/api/badge/frpboy?style=card&theme=dark" />
+    <img src="https://gitscore.live/api/badge/frpboy?style=card" alt="GitScore for frpboy" />
+  </picture>
+</a>
+
+<br/><br/>
 <!-- 6. STREAK STATS -->
 <h3>🔥 Contribution Streak</h3>
 <img src="https://streak-stats.demolab.com?user=frpboy&theme=react&hide_border=true&background=0D1117&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF" height="180" alt="GitHub contribution streak" />
