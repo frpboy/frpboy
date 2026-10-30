@@ -70,7 +70,7 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 ## ✅ Selected Open-Source Contributions
 
-A few concrete upstream contributions are highlighted below; each linked pull request is the source of truth for its current status. Profile snapshot refreshed automatically on **<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:START -->29 October 2026<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:END -->**.
+A few concrete upstream contributions are highlighted below; each linked pull request is the source of truth for its current status. Profile snapshot refreshed automatically on **<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:START -->30 October 2026<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:END -->**.
 
 - **[Neat Browser — session recovery and CI checks](https://github.com/neatbrowser/neat/pull/9)** · [PR #9](https://github.com/neatbrowser/neat/pull/9) and [PR #10](https://github.com/neatbrowser/neat/pull/10) — merged. Added session-recovery self-checks and wired existing vault/capture self-checks into CI.
 - **[The Last Signal — packet tests and CI validation](https://github.com/The-last-signal-project/The-last-signal-/pull/183)** · [PR #183](https://github.com/The-last-signal-project/The-last-signal-/pull/183) and [PR #184](https://github.com/The-last-signal-project/The-last-signal-/pull/184) — merged. Added packet encode/decode test coverage and a pull-request validation workflow for Python and Rust.
