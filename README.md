@@ -70,7 +70,7 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 
 ## ✅ Selected Open-Source Contributions
 
-A few concrete upstream contributions are highlighted below; each linked pull request is the source of truth for its current status. Profile snapshot refreshed automatically on **<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:START -->01 November 2026<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:END -->**.
+A few concrete upstream contributions are highlighted below; each linked pull request is the source of truth for its current status. Profile snapshot refreshed automatically on **<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:START -->02 November 2026<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:END -->**.
 
 - **[Neat Browser — session recovery and CI checks](https://github.com/neatbrowser/neat/pull/9)** · [PR #9](https://github.com/neatbrowser/neat/pull/9) and [PR #10](https://github.com/neatbrowser/neat/pull/10) — merged. Added session-recovery self-checks and wired existing vault/capture self-checks into CI.
 - **[The Last Signal — packet tests and CI validation](https://github.com/The-last-signal-project/The-last-signal-/pull/183)** · [PR #183](https://github.com/The-last-signal-project/The-last-signal-/pull/183) and [PR #184](https://github.com/The-last-signal-project/The-last-signal-/pull/184) — merged. Added packet encode/decode test coverage and a pull-request validation workflow for Python and Rust.
@@ -81,25 +81,26 @@ The live contribution directory below tracks other public activity separately, i
 <!-- EXTERNAL-CONTRIBUTIONS:START -->
 ## 🌐 Open Source & Community Contributions
 
-> Public repositories beyond my own where I have contributed code, submitted PRs, reviewed pull requests, opened issues, commented, or participated in actual GitHub Discussions. Only public, discoverable records are shown.
+> Selected public activity in repositories I do not own. PR status is taken from the live pull request; records are not counted as accepted contributions until merged. This is a curated activity index, not a complete count of all GitHub events.
 
-**Public activity snapshot:** 11 external repositories · 21 merged PR records · 7 open PR records · 0 PR review records · 56 commit records.
+**Latest verified addition (02 November 2026):** [Mornye PR #786](https://github.com/mornyeapp/Mornye/pull/786) — open. Test-only maintenance fix passing the declared Dart formatting, Flutter analysis, and Flutter test checks in its PR description.
 
-| External repository | Verified public activity | Most recent record update (IST) |
+### Selected external contributions
+
+| Repository | Contribution | Current status |
 | --- | --- | --- |
-| [Ahmadkhattak1/awesome-downloader](https://github.com/Ahmadkhattak1/awesome-downloader) | 2 merged PRs: [merged PR #50](https://github.com/Ahmadkhattak1/awesome-downloader/pull/50) · [merged PR #49](https://github.com/Ahmadkhattak1/awesome-downloader/pull/49)<br>3 open PRs: [open PR #73](https://github.com/Ahmadkhattak1/awesome-downloader/pull/73) · [open PR #72](https://github.com/Ahmadkhattak1/awesome-downloader/pull/72) +1 more<br>3 closed PRs: [closed PR #52](https://github.com/Ahmadkhattak1/awesome-downloader/pull/52) · [closed PR #51](https://github.com/Ahmadkhattak1/awesome-downloader/pull/51) +1 more<br>3 issue comments: [issue comment #13](https://github.com/Ahmadkhattak1/awesome-downloader/issues/13) · [issue comment #41](https://github.com/Ahmadkhattak1/awesome-downloader/issues/41) +1 more<br>4 commits: [commit 6973546](https://github.com/Ahmadkhattak1/awesome-downloader/commit/6973546d5aadb0a378ccc1fdcd3410dd0c3f01d6) · [commit d8e5e23](https://github.com/Ahmadkhattak1/awesome-downloader/commit/d8e5e23b74f680077e6973659f0e34b58816fee6) +2 more | 31 Oct 2026 |
-| [Sandeep-Presents/awesome-downloader](https://github.com/Sandeep-Presents/awesome-downloader) | 4 commits: [commit 6973546](https://github.com/Sandeep-Presents/awesome-downloader/commit/6973546d5aadb0a378ccc1fdcd3410dd0c3f01d6) · [commit d8e5e23](https://github.com/Sandeep-Presents/awesome-downloader/commit/d8e5e23b74f680077e6973659f0e34b58816fee6) +2 more | 28 Oct 2026 |
-| [abzgif/awesome-downloader-mac](https://github.com/abzgif/awesome-downloader-mac) | 4 commits: [commit 00a14fe](https://github.com/abzgif/awesome-downloader-mac/commit/00a14feadb951146471800a2676db13a0a191bb3) · [commit 3e12fe6](https://github.com/abzgif/awesome-downloader-mac/commit/3e12fe60279307e3b7ff53df94e5b8e386900dc2) +2 more | 28 Oct 2026 |
-| [supabase/supabase](https://github.com/supabase/supabase) | 3 open PRs: [open PR #52364](https://github.com/supabase/supabase/pull/52364) · [open PR #52366](https://github.com/supabase/supabase/pull/52366) +1 more | 27 Oct 2026 |
-| [The-last-signal-project/The-last-signal-](https://github.com/The-last-signal-project/The-last-signal-) | 6 merged PRs: [merged PR #187](https://github.com/The-last-signal-project/The-last-signal-/pull/187) · [merged PR #183](https://github.com/The-last-signal-project/The-last-signal-/pull/183) +4 more<br>1 closed PR: [closed PR #188](https://github.com/The-last-signal-project/The-last-signal-/pull/188)<br>1 PR comment: [PR comment #187](https://github.com/The-last-signal-project/The-last-signal-/pull/187)<br>21 commits: [commit 6787530](https://github.com/The-last-signal-project/The-last-signal-/commit/678753065e025970b19b4575181a02735eaee7e0) · [commit c2fc821](https://github.com/The-last-signal-project/The-last-signal-/commit/c2fc821ad0cc22e1fbdc17d1dd765977369b9de7) +19 more | 25 Oct 2026 |
-| [FedericoTartarini/fly-log](https://github.com/FedericoTartarini/fly-log) | 4 merged PRs: [merged PR #88](https://github.com/FedericoTartarini/fly-log/pull/88) · [merged PR #87](https://github.com/FedericoTartarini/fly-log/pull/87) +2 more<br>11 commits: [commit b8a812b](https://github.com/FedericoTartarini/fly-log/commit/b8a812bd011ac056f379754cc216cb2caff93118) · [commit 1707ac0](https://github.com/FedericoTartarini/fly-log/commit/1707ac0a8790b37e0be8aa3682dad6a76799aec0) +9 more | 25 Oct 2026 |
-| [react/react](https://github.com/react/react) | 1 open PR: [open PR #37974](https://github.com/react/react/pull/37974) | 24 Oct 2026 |
-| [neatbrowser/neat](https://github.com/neatbrowser/neat) | 2 merged PRs: [merged PR #9](https://github.com/neatbrowser/neat/pull/9) · [merged PR #10](https://github.com/neatbrowser/neat/pull/10)<br>1 PR comment: [PR comment #9](https://github.com/neatbrowser/neat/pull/9)<br>11 commits: [commit fd7c9a0](https://github.com/neatbrowser/neat/commit/fd7c9a0362a95aeff00828761b116f919b68007f) · [commit 53c74e1](https://github.com/neatbrowser/neat/commit/53c74e1db271e1f46953dde7441e823b319185b7) +9 more | 23 Oct 2026 |
-| [commonslens/commonslens.github.io](https://github.com/commonslens/commonslens.github.io) | 1 merged PR: [merged PR #1](https://github.com/commonslens/commonslens.github.io/pull/1)<br>1 commit: [commit e83d459](https://github.com/commonslens/commonslens.github.io/commit/e83d459915356e6497a8718a8438a2f92d8a319d) | 23 Oct 2026 |
-| [flutter/flutter](https://github.com/flutter/flutter) | 1 issue opened: [issue opened #186183](https://github.com/flutter/flutter/issues/186183)<br>1 issue comment: [issue comment #185234](https://github.com/flutter/flutter/issues/185234) | 26 May 2026 |
-| [yvgude/lean-ctx](https://github.com/yvgude/lean-ctx) | 6 merged PRs: [merged PR #104](https://github.com/yvgude/lean-ctx/pull/104) · [merged PR #103](https://github.com/yvgude/lean-ctx/pull/103) +4 more<br>2 PR comments: [PR comment #122](https://github.com/yvgude/lean-ctx/pull/122) · [PR comment #94](https://github.com/yvgude/lean-ctx/pull/94) | 19 Apr 2026 |
+| [Mornye](https://github.com/mornyeapp/Mornye) | [PR #786 — pass empty cover references to native cleanup](https://github.com/mornyeapp/Mornye/pull/786) | Open · 02 Nov 2026 |
+| [React](https://github.com/facebook/react) | [PR #37974](https://github.com/react/react/pull/37974) | Open · review/merge not claimed |
+| [Neat Browser](https://github.com/neatbrowser/neat) | [PR #9](https://github.com/neatbrowser/neat/pull/9), [PR #10](https://github.com/neatbrowser/neat/pull/10) | Merged |
+| [The Last Signal](https://github.com/The-last-signal-project/The-last-signal-) | [PR #183](https://github.com/The-last-signal-project/The-last-signal-/pull/183), [PR #184](https://github.com/The-last-signal-project/The-last-signal-/pull/184) | Merged |
+| [CommonsLens](https://github.com/commonslens/commonslens.github.io) | [PR #1](https://github.com/commonslens/commonslens.github.io/pull/1) | Merged |
+| [Fly Log](https://github.com/FedericoTartarini/fly-log) | [PR #88](https://github.com/FedericoTartarini/fly-log/pull/88), [PR #87](https://github.com/FedericoTartarini/fly-log/pull/87) | Merged |
+| [Lean Context](https://github.com/yvgude/lean-ctx) | [PR #104](https://github.com/yvgude/lean-ctx/pull/104), [PR #103](https://github.com/yvgude/lean-ctx/pull/103) | Merged |
+| [awesome-downloader](https://github.com/Ahmadkhattak1/awesome-downloader) | [PR #73](https://github.com/Ahmadkhattak1/awesome-downloader/pull/73), [PR #72](https://github.com/Ahmadkhattak1/awesome-downloader/pull/72) | Open at last check |
 
-<sub>Updated automatically by GitHub Actions. Search-based snapshot, not an exhaustive all-time count. Record update dates can reflect repository activity after the original contribution. Public activity does not prove collaborator access or maintainer acceptance. Private repositories are excluded.</sub>
+> **Counting policy:** A pull request is one PR record regardless of how many commits it contains. A commit is counted separately only when authored by this account and discoverable in the public repository. Reviews, comments, and issues are listed as separate activity types and are never mixed into PR totals. Fork-owned repositories and private work are excluded from this external section.
+>
+> The automated snapshot is best-effort and bounded by GitHub search visibility/rate limits; no exact all-time aggregate is claimed. The links above are individually verifiable sources of status.
 <!-- EXTERNAL-CONTRIBUTIONS:END -->
 
 ---
