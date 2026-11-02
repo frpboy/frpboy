@@ -320,15 +320,18 @@ def main() -> int:
         raise RuntimeError(f"README not found: {README_PATH}")
 
     groups: dict = defaultdict(new_group)
+    # Exclude repositories owned by this account at the API query level,
+    # rather than downloading thousands of personal-repo records and discarding them.
+    external_scope = f"-user:{USERNAME}"
     queries = [
-        ("issues", f"author:{USERNAME} is:pr is:merged", "merged_prs"),
-        ("issues", f"author:{USERNAME} is:pr is:open", "open_prs"),
-        ("issues", f"author:{USERNAME} is:pr is:closed -is:merged", "closed_prs"),
-        ("issues", f"reviewed-by:{USERNAME} is:pr", "reviewed_prs"),
-        ("issues", f"commenter:{USERNAME} is:pr", "pr_comments"),
-        ("issues", f"author:{USERNAME} is:issue", "issues"),
-        ("issues", f"commenter:{USERNAME} is:issue", "issue_comments"),
-        ("commits", f"author:{USERNAME}", "commits"),
+        ("issues", f"author:{USERNAME} {external_scope} is:pr is:merged", "merged_prs"),
+        ("issues", f"author:{USERNAME} {external_scope} is:pr is:open", "open_prs"),
+        ("issues", f"author:{USERNAME} {external_scope} is:pr is:closed -is:merged", "closed_prs"),
+        ("issues", f"reviewed-by:{USERNAME} {external_scope} is:pr", "reviewed_prs"),
+        ("issues", f"commenter:{USERNAME} {external_scope} is:pr", "pr_comments"),
+        ("issues", f"author:{USERNAME} {external_scope} is:issue", "issues"),
+        ("issues", f"commenter:{USERNAME} {external_scope} is:issue", "issue_comments"),
+        ("commits", f"author:{USERNAME} {external_scope}", "commits"),
     ]
     # All required queries must succeed before touching README.
     for endpoint, query, category in queries:
