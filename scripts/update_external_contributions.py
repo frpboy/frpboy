@@ -288,6 +288,7 @@ def render_markdown(groups: dict) -> str:
     repo_count = len(rows)
     merged = sum(len(row[2]["records"]["merged_prs"]) for row in rows)
     opened = sum(len(row[2]["records"]["open_prs"]) for row in rows)
+    closed = sum(len(row[2]["records"]["closed_prs"]) for row in rows)
     reviewed = sum(len(row[2]["records"]["reviewed_prs"]) for row in rows)
     commits = sum(len(row[2]["records"]["commits"]) for row in rows)
 
@@ -297,7 +298,7 @@ def render_markdown(groups: dict) -> str:
         "",
         "> Complete indexed public activity in repositories not owned by this account. Every discovered repository is listed, and every PR number is shown individually. Reviews, comments, issues, discussions and commits remain separate activity types; none implies maintainer acceptance or collaborator access.",
         "",
-        f"**Indexed activity:** {repo_count} external repositories · {merged} merged PRs · {opened} open PRs · {reviewed} reviewed PRs · {commits} authored commit records.",
+        f"**Indexed activity:** {repo_count} external repositories · {merged} merged PRs · {opened} open PRs · {closed} closed PRs (not merged) · {reviewed} reviewed PRs · {commits} authored commit records.",
         "",
         "| External repository | Public activity evidence | Most recent contribution event (IST) |",
         "| --- | --- | --- |",
