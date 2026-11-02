@@ -20,7 +20,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 USERNAME = os.environ.get("GITHUB_USERNAME", "frpboy").strip()
@@ -65,24 +65,50 @@ def request_json(url: str, payload: dict | None = None) -> dict:
     raise RuntimeError(f"GitHub API request failed after retries: {url}")
 
 def search_items(endpoint: str, query: str) -> list[dict]:
-    """Fetch every available result, and reject capped searches as incomplete."""
+    """Fetch every matching result, partitioning date ranges when Search hits its cap."""
     base = f"https://api.github.com/search/{endpoint}"
-    params_base = {"q": query, "sort": "updated", "order": "desc", "per_page": PER_PAGE}
-    first_url = f"{base}?{urllib.parse.urlencode({**params_base, 'page': 1})}"
-    first = request_json(first_url)
-    total = int(first.get("total_count", 0))
-    if total >= MAX_SEARCH_RESULTS:
-        raise RuntimeError(
-            f"Search is capped at {MAX_SEARCH_RESULTS} results for query {query!r}; "
-            "refusing to publish incomplete counts. Narrow the query or use a GraphQL ledger."
-        )
-    collected = list(first.get("items", []))
-    pages = (total + PER_PAGE - 1) // PER_PAGE
-    for page in range(2, pages + 1):
-        url = f"{base}?{urllib.parse.urlencode({**params_base, 'page': page})}"
-        result = request_json(url)
-        collected.extend(result.get("items", []))
-    return collected
+    date_field = "author-date" if endpoint == "commits" else "created"
+    sort_field = "author-date" if endpoint == "commits" else "updated"
+    today = datetime.now(timezone.utc).date()
+
+    def fetch_partition(partition_query: str, start: date | None = None,
+                        end: date | None = None) -> list[dict]:
+        params_base = {
+            "q": partition_query,
+            "sort": sort_field,
+            "order": "desc",
+            "per_page": PER_PAGE,
+        }
+        first_url = f"{base}?{urllib.parse.urlencode({**params_base, 'page': 1})}"
+        first = request_json(first_url)
+        total = int(first.get("total_count", 0))
+
+        if total >= MAX_SEARCH_RESULTS:
+            range_start = start or date(2008, 1, 1)
+            range_end = end or today
+            if range_start >= range_end:
+                raise RuntimeError(
+                    f"GitHub Search still reaches its {MAX_SEARCH_RESULTS}-result cap "
+                    f"for {partition_query!r} on {range_start}; unable to guarantee completeness."
+                )
+            midpoint = range_start + (range_end - range_start) // 2
+            left_query = f"{partition_query} {date_field}:{range_start.isoformat()}..{midpoint.isoformat()}"
+            right_start = midpoint + timedelta(days=1)
+            right_query = f"{partition_query} {date_field}:{right_start.isoformat()}..{range_end.isoformat()}"
+            return (
+                fetch_partition(left_query, range_start, midpoint)
+                + fetch_partition(right_query, right_start, range_end)
+            )
+
+        collected = list(first.get("items", []))
+        pages = (total + PER_PAGE - 1) // PER_PAGE
+        for page in range(2, pages + 1):
+            url = f"{base}?{urllib.parse.urlencode({**params_base, 'page': page})}"
+            result = request_json(url)
+            collected.extend(result.get("items", []))
+        return collected
+
+    return fetch_partition(query)
 
 def parse_timestamp(value: str) -> datetime:
     if not value:
@@ -210,18 +236,33 @@ def search_actual_discussions() -> list[dict]:
 def sorted_records(records: dict) -> list[dict]:
     return sorted(records.values(), key=lambda x: parse_timestamp(x.get("date", "")), reverse=True)
 
-def render_links(records: dict, label: str, limit: int = 3) -> str:
+def render_links(records: dict, label: str) -> str:
     items = sorted_records(records)
     if not items:
         return ""
+
+    pr_categories = {"merged PR", "open PR", "closed PR", "reviewed PR", "PR comment"}
+    issue_categories = {"issue opened", "issue comment"}
+    # Every PR number is displayed. Non-PR activity keeps a compact sample to
+    # prevent commit/comment-heavy repositories from overwhelming the README.
+    selected = items if label in pr_categories else items[:3]
     links = []
-    for item in items[:limit]:
+    for item in selected:
+        url = item["url"]
         if label == "commit":
             name = f"commit {item['sha']}"
+        elif label in pr_categories:
+            match = re.search(r"/pull/(\d+)(?:$|[?#])", url)
+            name = f"PR #{match.group(1)}" if match else "PR"
+        elif label in issue_categories:
+            match = re.search(r"/issues/(\d+)(?:$|[?#])", url)
+            name = f"Issue #{match.group(1)}" if match else "Issue"
         else:
-            name = f"{label} — {item['title'][:58]}" if item.get("title") else label
-        links.append(f"[{name}]({item['url']})")
-    extra = len(items) - limit
+            title = item.get("title", "")
+            name = f"Discussion — {title[:48]}" if title else "Discussion"
+        links.append(f"[{name}]({url})")
+
+    extra = len(items) - len(selected)
     suffix = f" · +{extra} more" if extra else ""
     return f"{len(items)} {label}{'s' if len(items) != 1 else ''}: " + " · ".join(links) + suffix
 
@@ -246,7 +287,6 @@ def render_markdown(groups: dict) -> str:
         if evidence:
             rows.append((group["latest_date"], full_name, group, "<br>".join(evidence)))
     rows.sort(key=lambda row: row[0], reverse=True)
-    rows = rows[:30]
     repo_count = len(rows)
     merged = sum(len(row[2]["records"]["merged_prs"]) for row in rows)
     opened = sum(len(row[2]["records"]["open_prs"]) for row in rows)
@@ -257,7 +297,7 @@ def render_markdown(groups: dict) -> str:
         START_MARKER,
         "## 🌐 Open Source & Community Contributions",
         "",
-        "> Public activity in repositories not owned by this account. This directory separates PRs, reviews, comments, issues, discussions and commits; it does not imply maintainer acceptance or collaborator access.",
+        "> Complete indexed public activity in repositories not owned by this account. Every discovered repository is listed, and every PR number is shown individually. Reviews, comments, issues, discussions and commits remain separate activity types; none implies maintainer acceptance or collaborator access.",
         "",
         f"**Indexed activity:** {repo_count} external repositories · {merged} merged PRs · {opened} open PRs · {reviewed} reviewed PRs · {commits} authored commit records.",
         "",
@@ -270,7 +310,7 @@ def render_markdown(groups: dict) -> str:
         lines.append(f"| [{safe_name}]({group['url']}) | {evidence} | {latest} |")
     lines.extend([
         "",
-        "<sub>Generated automatically from GitHub Search and Discussions APIs. Search indexing may omit records; searches reaching GitHub's 1,000-result cap fail the workflow rather than publishing partial aggregates. Repositories owned by this account and private activity are excluded. Latest dates use contribution event dates, not later edits by other users.</sub>",
+        "<sub>Generated automatically from GitHub Search and Discussions APIs. Searches are partitioned by creation/author date when they approach GitHub's 1,000-result cap. All discovered external repositories and all PR numbers are displayed; non-PR records may be summarized to keep the table readable. GitHub indexing limitations still apply. Repositories owned by this account and private activity are excluded. Latest dates use contribution event dates, not later edits by other users.</sub>",
         END_MARKER,
     ])
     return "\n".join(lines)
