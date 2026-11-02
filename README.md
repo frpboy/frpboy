@@ -83,7 +83,7 @@ The live contribution directory below tracks other public activity separately, i
 
 > Complete indexed public activity in repositories not owned by this account. Every discovered repository is listed, and every PR number is shown individually. Reviews, comments, issues, discussions and commits remain separate activity types; none implies maintainer acceptance or collaborator access.
 
-**Indexed activity:** 16 external repositories · 21 merged PRs · 8 open PRs · 0 reviewed PRs · 519 authored commit records.
+**Indexed activity:** 16 external repositories · 21 merged PRs · 8 open PRs · 11 closed PRs (not merged) · 0 reviewed PRs · 519 authored commit records.
 
 | External repository | Public activity evidence | Most recent contribution event (IST) |
 | --- | --- | --- |
