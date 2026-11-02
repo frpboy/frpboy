@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Refresh dated profile-contribution metadata and public activity evidence.
+"""Generate a conservative, clearly scoped external-contribution index.
 
-The workflow updates the selected-contributions refresh date and only the marked
-external-contributions section. Public search results are evidence of activity,
-not proof of collaborator permissions.
+GitHub Search is an index, not an event ledger. This generator therefore:
+- exhausts available search pages up to GitHub's 1,000-result search cap;
+- fails rather than silently publishing when a query hits the cap;
+- uses creation/merge dates for contribution events, not last-updated dates;
+- keeps PRs, reviews, comments, issues, discussions and commits separate;
+- avoids presenting incomplete all-time counts as authoritative.
 """
 
 from __future__ import annotations
@@ -12,6 +15,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -26,162 +30,59 @@ START_MARKER = "<!-- EXTERNAL-CONTRIBUTIONS:START -->"
 END_MARKER = "<!-- EXTERNAL-CONTRIBUTIONS:END -->"
 REFRESH_DATE_START_MARKER = "<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:START -->"
 REFRESH_DATE_END_MARKER = "<!-- SELECTED-CONTRIBUTIONS-REFRESH-DATE:END -->"
-MAX_PAGES_PER_QUERY = 3
+MAX_SEARCH_RESULTS = 1000
+PER_PAGE = 100
 IST = ZoneInfo("Asia/Kolkata")
 API_HEADERS = {
     "Accept": "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
 }
 
-
 def request_json(url: str, payload: dict | None = None) -> dict:
-    headers = {
-        **API_HEADERS,
-        "User-Agent": f"{USERNAME}-profile-contributions-updater",
-    }
-    data = None
+    headers = {**API_HEADERS, "User-Agent": f"{USERNAME}-profile-contributions-updater"}
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"
-    if payload is not None:
+    data = json.dumps(payload).encode("utf-8") if payload is not None else None
+    if data is not None:
         headers["Content-Type"] = "application/json"
-        data = json.dumps(payload).encode("utf-8")
     request = urllib.request.Request(url, data=data, headers=headers)
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as error:
-        body = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(
-            f"GitHub API returned HTTP {error.code} for {url}: {body[:500]}"
-        ) from error
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
-        raise RuntimeError(f"Could not retrieve valid GitHub API data from {url}: {error}") from error
-
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as error:
+            body = error.read().decode("utf-8", errors="replace")
+            if error.code in (403, 429) and attempt < 3:
+                retry_after = error.headers.get("Retry-After")
+                delay = int(retry_after) if retry_after and retry_after.isdigit() else 2 ** (attempt + 1)
+                time.sleep(min(delay, 30))
+                continue
+            raise RuntimeError(f"GitHub API HTTP {error.code} for {url}: {body[:500]}") from error
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:
+            if attempt == 3:
+                raise RuntimeError(f"GitHub API request failed for {url}: {error}") from error
+            time.sleep(2 ** attempt)
+    raise RuntimeError(f"GitHub API request failed after retries: {url}")
 
 def search_items(endpoint: str, query: str) -> list[dict]:
-    """Search issues/PRs or commits, following bounded pagination."""
-    collected: list[dict] = []
-    base_url = f"https://api.github.com/search/{endpoint}"
-    sort_field = "committer-date" if endpoint == "commits" else "updated"
-    for page in range(1, MAX_PAGES_PER_QUERY + 1):
-        params = urllib.parse.urlencode(
-            {
-                "q": query,
-                "sort": sort_field,
-                "order": "desc",
-                "per_page": 100,
-                "page": page,
-            }
+    """Fetch every available result, and reject capped searches as incomplete."""
+    base = f"https://api.github.com/search/{endpoint}"
+    params_base = {"q": query, "sort": "updated", "order": "desc", "per_page": PER_PAGE}
+    first_url = f"{base}?{urllib.parse.urlencode({**params_base, 'page': 1})}"
+    first = request_json(first_url)
+    total = int(first.get("total_count", 0))
+    if total >= MAX_SEARCH_RESULTS:
+        raise RuntimeError(
+            f"Search is capped at {MAX_SEARCH_RESULTS} results for query {query!r}; "
+            "refusing to publish incomplete counts. Narrow the query or use a GraphQL ledger."
         )
-        result = request_json(f"{base_url}?{params}")
-        items = result.get("items", [])
-        collected.extend(items)
-        total_count = int(result.get("total_count", len(collected)))
-        if page * 100 >= total_count or len(items) < 100:
-            break
+    collected = list(first.get("items", []))
+    pages = (total + PER_PAGE - 1) // PER_PAGE
+    for page in range(2, pages + 1):
+        url = f"{base}?{urllib.parse.urlencode({**params_base, 'page': page})}"
+        result = request_json(url)
+        collected.extend(result.get("items", []))
     return collected
-
-
-def search_actual_discussions() -> list[dict]:
-    """Use GraphQL Discussion nodes, never PR/issue comments mislabeled as discussions."""
-    if not TOKEN:
-        print("GITHUB_TOKEN missing; skipping actual GitHub Discussions.", file=sys.stderr)
-        return []
-
-    query_template = """
-    query($q: String!, $cursor: String) {
-      search(query: $q, type: DISCUSSION, first: 100, after: $cursor) {
-        nodes {
-          ... on Discussion {
-            title
-            url
-            updatedAt
-            repository {
-              nameWithOwner
-              owner { login }
-            }
-          }
-        }
-        pageInfo { hasNextPage endCursor }
-      }
-    }
-    """
-    records_by_url: dict[str, dict] = {}
-    for qualifier in (f"author:{USERNAME}", f"commenter:{USERNAME}"):
-        cursor = None
-        for _ in range(MAX_PAGES_PER_QUERY):
-            variables = {"q": qualifier, "cursor": cursor}
-            try:
-                data = request_json(
-                    "https://api.github.com/graphql",
-                    {"query": query_template, "variables": variables},
-                )
-            except RuntimeError as error:
-                print(
-                    f"Could not query actual Discussions ({qualifier}); leaving them out: {error}",
-                    file=sys.stderr,
-                )
-                break
-
-            if data.get("errors"):
-                print(
-                    f"GitHub GraphQL did not return Discussions for {qualifier}; "
-                    f"leaving them out: {str(data['errors'])[:300]}",
-                    file=sys.stderr,
-                )
-                break
-
-            search = (data.get("data") or {}).get("search") or {}
-            for node in search.get("nodes", []):
-                if not node or not node.get("url") or not node.get("repository"):
-                    continue
-                repo = node["repository"]
-                full_name = repo.get("nameWithOwner", "")
-                if not full_name:
-                    continue
-                if full_name.split("/", 1)[0].casefold() == USERNAME.casefold():
-                    continue
-                records_by_url[node["url"]] = {
-                    "repository_full_name": full_name,
-                    "url": node["url"],
-                    "title": node.get("title", "GitHub Discussion"),
-                    "updated_at": node.get("updatedAt", ""),
-                }
-
-            page_info = search.get("pageInfo") or {}
-            if not page_info.get("hasNextPage"):
-                break
-            cursor = page_info.get("endCursor")
-            if not cursor:
-                break
-
-    return list(records_by_url.values())
-
-
-def repository_full_name(item: dict, endpoint: str) -> str | None:
-    repository = item.get("repository") or {}
-    full_name = repository.get("full_name")
-    if full_name:
-        return str(full_name)
-    repository_url = item.get("repository_url", "")
-    match = re.search(r"/repos/([^/]+/[^/]+)$", repository_url)
-    if match:
-        return match.group(1)
-    if endpoint == "commits":
-        match = re.search(r"github\.com/([^/]+/[^/]+)/commit/", item.get("html_url", ""))
-        if match:
-            return match.group(1)
-    return None
-
-
-def timestamp_for(item: dict, endpoint: str) -> str:
-    if endpoint == "commits":
-        commit = item.get("commit") or {}
-        author = commit.get("author") or {}
-        committer = commit.get("committer") or {}
-        return author.get("date") or committer.get("date") or ""
-    return item.get("updated_at") or item.get("created_at") or ""
-
 
 def parse_timestamp(value: str) -> datetime:
     if not value:
@@ -192,187 +93,193 @@ def parse_timestamp(value: str) -> datetime:
     except ValueError:
         return datetime.min.replace(tzinfo=timezone.utc)
 
+def item_repo(item: dict, endpoint: str) -> str | None:
+    repository = item.get("repository") or {}
+    full_name = repository.get("full_name") or repository.get("nameWithOwner")
+    if full_name:
+        return str(full_name)
+    repo_url = item.get("repository_url", "")
+    match = re.search(r"/repos/([^/]+/[^/]+)$", repo_url)
+    if match:
+        return match.group(1)
+    if endpoint == "commits":
+        match = re.search(r"github\.com/([^/]+/[^/]+)/commit/", item.get("html_url", ""))
+        if match:
+            return match.group(1)
+    return None
 
-def issue_number(url: str) -> str:
-    match = re.search(r"/(\d+)(?:$|[?#])", url)
-    return match.group(1) if match else "link"
-
+def contribution_date(item: dict, category: str, endpoint: str) -> str:
+    # Event dates, not updated_at: a later comment from someone else must not
+    # make the contributor's original action appear newly authored.
+    if category == "merged_prs":
+        return item.get("pull_request", {}).get("merged_at") or item.get("created_at", "")
+    if endpoint == "commits":
+        commit = item.get("commit") or {}
+        author = commit.get("author") or {}
+        return author.get("date") or (commit.get("committer") or {}).get("date", "")
+    return item.get("created_at", "")
 
 def new_group() -> dict:
     return {
         "url": "",
         "latest_date": datetime.min.replace(tzinfo=timezone.utc),
-        "merged_prs": [],
-        "open_prs": [],
-        "closed_prs": [],
-        "reviewed_prs": [],
-        "pr_comments": [],
-        "issues": [],
-        "issue_comments": [],
-        "discussions": [],
-        "commits": [],
+        "records": defaultdict(dict),
     }
-
 
 def add_items(groups: dict, items: list[dict], endpoint: str, category: str) -> None:
     for item in items:
-        full_name = repository_full_name(item, endpoint)
-        if not full_name or "/" not in full_name:
-            continue
-        owner = full_name.split("/", 1)[0]
-        # This section deliberately excludes every repository owned by the profile user.
-        if owner.casefold() == USERNAME.casefold():
-            continue
+        full_name = item_repo(item, endpoint)
         url = item.get("html_url", "")
-        if not url.startswith("https://github.com/"):
-            continue
-
-        group = groups[full_name]
-        group["url"] = f"https://github.com/{full_name}"
-        date_value = timestamp_for(item, endpoint)
-        date = parse_timestamp(date_value)
-        if date > group["latest_date"]:
-            group["latest_date"] = date
-        entry = {
-            "url": url,
-            "date": date_value,
-            "number": issue_number(url),
-            "sha": str(item.get("sha", ""))[:7],
-            "title": item.get("title", ""),
-        }
-        if endpoint == "commits":
-            group["commits"].append(entry)
-        else:
-            group[category].append(entry)
-
-
-def add_discussions(groups: dict, discussions: list[dict]) -> None:
-    for item in discussions:
-        full_name = item.get("repository_full_name", "")
-        url = item.get("url", "")
         if not full_name or "/" not in full_name or not url.startswith("https://github.com/"):
             continue
         if full_name.split("/", 1)[0].casefold() == USERNAME.casefold():
             continue
+        date_value = contribution_date(item, category, endpoint)
+        date = parse_timestamp(date_value)
+        record = {
+            "url": url,
+            "date": date_value,
+            "title": item.get("title", ""),
+            "sha": str(item.get("sha", ""))[:7],
+        }
+        groups[full_name]["url"] = f"https://github.com/{full_name}"
+        groups[full_name]["records"][category][url] = record
+        if date > groups[full_name]["latest_date"]:
+            groups[full_name]["latest_date"] = date
+
+def add_discussions(groups: dict, discussions: list[dict]) -> None:
+    for item in discussions:
+        full_name, url = item.get("repository_full_name", ""), item.get("url", "")
+        if not full_name or "/" not in full_name or not url.startswith("https://github.com/"):
+            continue
+        if full_name.split("/", 1)[0].casefold() == USERNAME.casefold():
+            continue
+        date_value = item.get("created_at") or item.get("updated_at", "")
+        date = parse_timestamp(date_value)
         group = groups[full_name]
         group["url"] = f"https://github.com/{full_name}"
-        date_value = item.get("updated_at", "")
-        date = parse_timestamp(date_value)
+        group["records"]["discussions"][url] = {
+            "url": url, "date": date_value, "title": item.get("title", ""), "sha": ""
+        }
         if date > group["latest_date"]:
             group["latest_date"] = date
-        group["discussions"].append(
-            {
-                "url": url,
-                "date": date_value,
-                "number": issue_number(url),
-                "sha": "",
-                "title": item.get("title", ""),
-            }
-        )
 
+def search_actual_discussions() -> list[dict]:
+    if not TOKEN:
+        print("GITHUB_TOKEN missing; actual Discussions are omitted.", file=sys.stderr)
+        return []
+    query = """
+    query($q: String!, $cursor: String) {
+      search(query: $q, type: DISCUSSION, first: 100, after: $cursor) {
+        nodes { ... on Discussion {
+          title url createdAt updatedAt
+          repository { nameWithOwner }
+        }}
+        pageInfo { hasNextPage endCursor }
+      }
+    }
+    """
+    found = {}
+    for qualifier in (f"author:{USERNAME}", f"commenter:{USERNAME}"):
+        cursor = None
+        while True:
+            data = request_json("https://api.github.com/graphql", {
+                "query": query, "variables": {"q": qualifier, "cursor": cursor}
+            })
+            if data.get("errors"):
+                raise RuntimeError(f"GitHub Discussions query failed: {data['errors']}")
+            search = data.get("data", {}).get("search", {})
+            for node in search.get("nodes", []):
+                repo = node.get("repository") or {}
+                if repo.get("nameWithOwner") and node.get("url"):
+                    found[node["url"]] = {
+                        "repository_full_name": repo["nameWithOwner"],
+                        "url": node["url"],
+                        "title": node.get("title", ""),
+                        "created_at": node.get("createdAt", ""),
+                        "updated_at": node.get("updatedAt", ""),
+                    }
+            info = search.get("pageInfo") or {}
+            if not info.get("hasNextPage"):
+                break
+            cursor = info.get("endCursor")
+            if not cursor:
+                raise RuntimeError("Discussions pagination returned hasNextPage without endCursor.")
+    return list(found.values())
 
-def unique_newest(items: list[dict]) -> list[dict]:
-    by_url = {item["url"]: item for item in items if item.get("url")}
-    return sorted(
-        by_url.values(),
-        key=lambda item: parse_timestamp(item.get("date", "")),
-        reverse=True,
-    )
+def sorted_records(records: dict) -> list[dict]:
+    return sorted(records.values(), key=lambda x: parse_timestamp(x.get("date", "")), reverse=True)
 
-
-def linked_items(items: list[dict], label: str, limit: int = 2) -> str:
-    records = unique_newest(items)
-    if not records:
+def render_links(records: dict, label: str, limit: int = 3) -> str:
+    items = sorted_records(records)
+    if not items:
         return ""
     links = []
-    for item in records[:limit]:
+    for item in items[:limit]:
         if label == "commit":
-            item_label = f"commit {item['sha']}"
+            name = f"commit {item['sha']}"
         else:
-            item_label = f"{label} #{item['number']}"
-        links.append(f"[{item_label}]({item['url']})")
-    suffix = f" +{len(records) - limit} more" if len(records) > limit else ""
-    count_label = f"{len(records)} {label}{'s' if len(records) != 1 else ''}"
-    return f"{count_label}: " + " · ".join(links) + suffix
-
+            name = f"{label} — {item['title'][:58]}" if item.get("title") else label
+        links.append(f"[{name}]({item['url']})")
+    extra = len(items) - limit
+    suffix = f" · +{extra} more" if extra else ""
+    return f"{len(items)} {label}{'s' if len(items) != 1 else ''}: " + " · ".join(links) + suffix
 
 def render_markdown(groups: dict) -> str:
-    categories = (
+    labels = (
         ("merged_prs", "merged PR"),
         ("open_prs", "open PR"),
         ("closed_prs", "closed PR"),
-        ("reviewed_prs", "PR review"),
+        ("reviewed_prs", "reviewed PR"),
         ("pr_comments", "PR comment"),
         ("issues", "issue opened"),
         ("issue_comments", "issue comment"),
         ("discussions", "Discussion"),
         ("commits", "commit"),
     )
-    populated = []
+    rows = []
     for full_name, group in groups.items():
         evidence = [
-            rendered
-            for key, label in categories
-            if (rendered := linked_items(group[key], label))
+            rendered for key, label in labels
+            if (rendered := render_links(group["records"][key], label))
         ]
         if evidence:
-            populated.append((group["latest_date"], full_name, group, "<br>".join(evidence)))
-
-    populated.sort(key=lambda row: row[0], reverse=True)
-    populated = populated[:30]
-
-    total_repos = len(populated)
-    merged_prs = sum(len(unique_newest(row[2]["merged_prs"])) for row in populated)
-    open_prs = sum(len(unique_newest(row[2]["open_prs"])) for row in populated)
-    commits = sum(len(unique_newest(row[2]["commits"])) for row in populated)
-    reviewed_prs = sum(len(unique_newest(row[2]["reviewed_prs"])) for row in populated)
+            rows.append((group["latest_date"], full_name, group, "<br>".join(evidence)))
+    rows.sort(key=lambda row: row[0], reverse=True)
+    rows = rows[:30]
+    repo_count = len(rows)
+    merged = sum(len(row[2]["records"]["merged_prs"]) for row in rows)
+    opened = sum(len(row[2]["records"]["open_prs"]) for row in rows)
+    reviewed = sum(len(row[2]["records"]["reviewed_prs"]) for row in rows)
+    commits = sum(len(row[2]["records"]["commits"]) for row in rows)
 
     lines = [
         START_MARKER,
         "## 🌐 Open Source & Community Contributions",
         "",
-        "> Public repositories beyond my own where I have contributed code, submitted PRs, reviewed pull requests, opened issues, commented, or participated in actual GitHub Discussions. Only public, discoverable records are shown.",
+        "> Public activity in repositories not owned by this account. This directory separates PRs, reviews, comments, issues, discussions and commits; it does not imply maintainer acceptance or collaborator access.",
         "",
+        f"**Indexed activity:** {repo_count} external repositories · {merged} merged PRs · {opened} open PRs · {reviewed} reviewed PRs · {commits} authored commit records.",
+        "",
+        "| External repository | Public activity evidence | Most recent contribution event (IST) |",
+        "| --- | --- | --- |",
     ]
-    if populated:
-        lines.extend(
-            [
-                f"**Public activity snapshot:** {total_repos} external repositories · {merged_prs} merged PR records · {open_prs} open PR records · {reviewed_prs} PR review records · {commits} commit records.",
-                "",
-                "| External repository | Verified public activity | Most recent record update (IST) |",
-                "| --- | --- | --- |",
-            ]
-        )
-        for date, full_name, group, evidence in populated:
-            latest = date.astimezone(IST).strftime("%d %b %Y") if date.year > 1 else "—"
-            safe_name = full_name.replace("|", "\\|")
-            lines.append(f"| [{safe_name}]({group['url']}) | {evidence} | {latest} |")
-    else:
-        lines.extend(
-            [
-                "No qualifying public contribution or participation records were returned by GitHub search during this run.",
-                "",
-                f"Repositories owned by {USERNAME} are intentionally excluded.",
-            ]
-        )
-
-    lines.extend(
-        [
-            "",
-            "<sub>Updated automatically by GitHub Actions. Search-based snapshot, not an exhaustive all-time count. Record update dates can reflect repository activity after the original contribution. Public activity does not prove collaborator access or maintainer acceptance. Private repositories are excluded.</sub>",
-            END_MARKER,
-        ]
-    )
+    for date, full_name, group, evidence in rows:
+        latest = date.astimezone(IST).strftime("%d %b %Y") if date.year > 1 else "—"
+        safe_name = full_name.replace("|", "\\|")
+        lines.append(f"| [{safe_name}]({group['url']}) | {evidence} | {latest} |")
+    lines.extend([
+        "",
+        "<sub>Generated automatically from GitHub Search and Discussions APIs. Search indexing may omit records; searches reaching GitHub's 1,000-result cap fail the workflow rather than publishing partial aggregates. Repositories owned by this account and private activity are excluded. Latest dates use contribution event dates, not later edits by other users.</sub>",
+        END_MARKER,
+    ])
     return "\n".join(lines)
-
 
 def main() -> int:
     if not USERNAME:
-        print("GITHUB_USERNAME must not be empty.", file=sys.stderr)
-        return 2
+        raise RuntimeError("GITHUB_USERNAME must not be empty.")
     if not os.path.isfile(README_PATH):
-        print(f"README not found: {README_PATH}", file=sys.stderr)
-        return 2
+        raise RuntimeError(f"README not found: {README_PATH}")
 
     groups: dict = defaultdict(new_group)
     queries = [
@@ -385,65 +292,44 @@ def main() -> int:
         ("issues", f"commenter:{USERNAME} is:issue", "issue_comments"),
         ("commits", f"author:{USERNAME}", "commits"),
     ]
-
-    # Do not touch the README until public search requests have completed.
+    # All required queries must succeed before touching README.
     for endpoint, query, category in queries:
-        print(f"Searching GitHub {endpoint}: {query}")
+        print(f"Searching {endpoint}: {query}", flush=True)
         add_items(groups, search_items(endpoint, query), endpoint, category)
-
-    # GraphQL returns true Discussion nodes; failures skip only this optional category.
     add_discussions(groups, search_actual_discussions())
 
     with open(README_PATH, "r", encoding="utf-8", newline="") as file:
         original = file.read()
-
-    if (
-        original.count(REFRESH_DATE_START_MARKER) != 1
-        or original.count(REFRESH_DATE_END_MARKER) != 1
-    ):
-        print(
-            "README must contain exactly one selected-contributions refresh-date marker pair. "
-            "No changes were written.",
-            file=sys.stderr,
-        )
-        return 2
-
+    if original.count(REFRESH_DATE_START_MARKER) != 1 or original.count(REFRESH_DATE_END_MARKER) != 1:
+        raise RuntimeError("README must contain exactly one selected-contributions refresh marker pair.")
     date_start = original.index(REFRESH_DATE_START_MARKER) + len(REFRESH_DATE_START_MARKER)
     date_end = original.index(REFRESH_DATE_END_MARKER)
     if date_end < date_start:
-        print("Selected-contributions refresh-date markers are out of order. No changes were written.", file=sys.stderr)
-        return 2
-
-    # This is a refresh timestamp, not a claim that every historical PR was re-audited.
+        raise RuntimeError("Selected-contributions refresh markers are out of order.")
     refresh_date = datetime.now(IST).strftime("%d %B %Y")
     working = original[:date_start] + refresh_date + original[date_end:]
 
     if working.count(START_MARKER) != 1 or working.count(END_MARKER) != 1:
-        print(
-            "README must contain exactly one external-contributions start and end marker. "
-            "No changes were written.",
-            file=sys.stderr,
-        )
-        return 2
-
+        raise RuntimeError("README must contain exactly one external-contributions marker pair.")
     start = working.index(START_MARKER)
     end = working.index(END_MARKER) + len(END_MARKER)
     if end <= start:
-        print("External-contributions markers are out of order. No changes were written.", file=sys.stderr)
-        return 2
-
+        raise RuntimeError("External-contributions markers are out of order.")
     updated = working[:start] + render_markdown(groups) + working[end:]
     if updated == original:
-        print("Profile contribution data is already up to date.")
+        print("Profile contribution data is already up to date.", flush=True)
         return 0
 
-    temporary_path = README_PATH + ".tmp"
-    with open(temporary_path, "w", encoding="utf-8", newline="") as file:
+    temporary = README_PATH + ".tmp"
+    with open(temporary, "w", encoding="utf-8", newline="") as file:
         file.write(updated)
-    os.replace(temporary_path, README_PATH)
-    print(f"Updated only the marked section in {README_PATH}.")
+    os.replace(temporary, README_PATH)
+    print("Updated only the generated README sections.", flush=True)
     return 0
 
-
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except Exception as error:
+        print(f"Contribution snapshot failed closed: {error}", file=sys.stderr)
+        raise SystemExit(1)
