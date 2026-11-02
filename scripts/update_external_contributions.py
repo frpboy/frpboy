@@ -71,8 +71,11 @@ def search_items(endpoint: str, query: str) -> list[dict]:
     sort_field = "author-date" if endpoint == "commits" else "updated"
     today = datetime.now(timezone.utc).date()
 
-    def fetch_partition(partition_query: str, start: date | None = None,
+    def fetch_partition(start: date | None = None,
                         end: date | None = None) -> list[dict]:
+        partition_query = query
+        if start is not None and end is not None:
+            partition_query = f"{query} {date_field}:{start.isoformat()}..{end.isoformat()}"
         params_base = {
             "q": partition_query,
             "sort": sort_field,
@@ -92,13 +95,8 @@ def search_items(endpoint: str, query: str) -> list[dict]:
                     f"for {partition_query!r} on {range_start}; unable to guarantee completeness."
                 )
             midpoint = range_start + (range_end - range_start) // 2
-            left_query = f"{partition_query} {date_field}:{range_start.isoformat()}..{midpoint.isoformat()}"
             right_start = midpoint + timedelta(days=1)
-            right_query = f"{partition_query} {date_field}:{right_start.isoformat()}..{range_end.isoformat()}"
-            return (
-                fetch_partition(left_query, range_start, midpoint)
-                + fetch_partition(right_query, right_start, range_end)
-            )
+            return fetch_partition(range_start, midpoint) + fetch_partition(right_start, range_end)
 
         collected = list(first.get("items", []))
         pages = (total + PER_PAGE - 1) // PER_PAGE
@@ -108,7 +106,7 @@ def search_items(endpoint: str, query: str) -> list[dict]:
             collected.extend(result.get("items", []))
         return collected
 
-    return fetch_partition(query)
+    return fetch_partition()
 
 def parse_timestamp(value: str) -> datetime:
     if not value:
