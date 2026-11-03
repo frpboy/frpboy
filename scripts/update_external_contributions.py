@@ -54,8 +54,28 @@ def request_json(url: str, payload: dict | None = None) -> dict:
             body = error.read().decode("utf-8", errors="replace")
             if error.code in (403, 429) and attempt < 3:
                 retry_after = error.headers.get("Retry-After")
-                delay = int(retry_after) if retry_after and retry_after.isdigit() else 2 ** (attempt + 1)
-                time.sleep(min(delay, 30))
+                reset_at = error.headers.get("X-RateLimit-Reset")
+                remaining = error.headers.get("X-RateLimit-Remaining")
+
+                if retry_after and retry_after.isdigit():
+                    delay = int(retry_after)
+                elif remaining == "0" and reset_at and reset_at.isdigit():
+                    delay = max(1, int(reset_at) - int(time.time()) + 1)
+                else:
+                    delay = min(2 ** (attempt + 1), 30)
+
+                # Search API limits normally reset quickly. Do not burn most of
+                # the job timeout waiting for an installation-wide hourly reset;
+                # fail with an actionable message so a higher-limit token can be used.
+                if delay > 120:
+                    raise RuntimeError(
+                        "GitHub API rate limit is exhausted and resets in about "
+                        f"{delay} seconds. Configure the optional PROFILE_ACTIVITY_TOKEN "
+                        f"repository secret with a fine-grained token, then retry. "
+                        f"Last response: {body[:300]}"
+                    ) from error
+
+                time.sleep(delay)
                 continue
             raise RuntimeError(f"GitHub API HTTP {error.code} for {url}: {body[:500]}") from error
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as error:

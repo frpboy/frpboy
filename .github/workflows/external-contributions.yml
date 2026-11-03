@@ -3,8 +3,11 @@ name: Update External Contributions
 on:
   workflow_dispatch:
   schedule:
-    # 09:00 India Standard Time (03:30 UTC).
-    - cron: "30 3 * * *"
+    # Primary refresh at 09:07 IST (03:37 UTC).
+    # Fallback refresh at 14:07 IST (08:37 UTC) if the first scheduled event is delayed or dropped.
+    # Keep both away from the start of the hour to reduce schedule contention.
+    - cron: "37 3 * * *"
+    - cron: "37 8 * * *"
   push:
     branches:
       - main
@@ -36,7 +39,9 @@ jobs:
 
       - name: Generate external contribution section
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional fine-grained token for higher API rate limits. GitHub's
+          # built-in token remains the fallback and is still used by checkout for pushes.
+          GITHUB_TOKEN: ${{ secrets.PROFILE_ACTIVITY_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_USERNAME: frpboy
         run: python scripts/update_external_contributions.py
 
