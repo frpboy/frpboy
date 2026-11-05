@@ -23,6 +23,9 @@
     <a href="https://github.com/frpboy">
       <img src="https://img.shields.io/badge/GitHub-frpboy-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
     </a>
+    <a href="https://www.buymeacoffee.com/frpboy" target="_blank">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="28" />
+    </a>
   </p>
 </div>
 
