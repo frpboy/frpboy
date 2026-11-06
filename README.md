@@ -26,7 +26,7 @@
     <a href="https://www.buymeacoffee.com/frpboy" target="_blank">
       <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="28" />
     </a>
-    <a href="https://www.patreon.com/frpboy" target="_blank">
+    <a href="https://www.patreon.com/c/FrpBoy" target="_blank">
       <img src="https://img.shields.io/badge/Patreon-Support%20me-F96854?style=for-the-badge&logo=patreon&logoColor=white" alt="Become a Patron on Patreon" height="28" />
     </a>
   </p>
