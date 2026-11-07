@@ -1,0 +1,66 @@
+name: Profile Statistics Refresh
+
+on:
+  schedule:
+    # Hourly at :43 - offset from the existing :37 contribution workflows and
+    # away from top-of-hour schedule contention. GitHub may delay scheduled
+    # runs under load; the collector tolerates gaps by design.
+    - cron: "43 * * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/profile-stats.yml"
+      - "scripts/collect-profile-stats.js"
+      - "src/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-stats-data
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out main (collector code)
+        uses: actions/checkout@v4
+
+      - name: Run tests before collecting
+        run: node --test tests/*.test.js
+
+      - name: Collect profile statistics
+        env:
+          # Optional user-scoped token for higher rate limits. The built-in
+          # GITHUB_TOKEN (public data only) is the default and is sufficient.
+          GITHUB_TOKEN: ${{ secrets.PROFILE_ACTIVITY_TOKEN || secrets.GITHUB_TOKEN }}
+        run: node scripts/collect-profile-stats.js
+
+      - name: Stage snapshot
+        run: cp data/profile-stats.json /tmp/profile-stats-new.json
+
+      - name: Publish snapshot to stats-data branch
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin stats-data >/dev/null 2>&1; then
+            git fetch origin stats-data
+            git checkout -B stats-data origin/stats-data
+          else
+            git checkout --orphan stats-data
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+          mkdir -p data
+          cp -f /tmp/profile-stats-new.json data/profile-stats.json
+          git add data/profile-stats.json
+          if git diff --cached --quiet; then
+            echo "Snapshot unchanged; nothing to publish."
+            exit 0
+          fi
+          git commit -m "chore(stats): refresh profile statistics snapshot"
+          git push origin stats-data || { git pull --rebase origin stats-data && git push origin stats-data; }

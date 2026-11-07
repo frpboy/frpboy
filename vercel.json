@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "ignoreCommand": "files=$(git show --pretty= --name-only HEAD 2>/dev/null); if [ -z \"$files\" ]; then exit 1; fi; if echo \"$files\" | grep -qv '^data/'; then exit 1; fi; exit 0",
   "crons": [
     {
       "path": "/api/profile-refresh",
