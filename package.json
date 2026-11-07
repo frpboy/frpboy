@@ -1,0 +1,13 @@
+{
+  "name": "frpboy-profile",
+  "version": "1.1.0",
+  "private": true,
+  "description": "GitHub profile README, contribution inventory watchdog, and self-hosted profile statistics cards.",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "collect": "node scripts/collect-profile-stats.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
