@@ -234,8 +234,10 @@ async function collect(previous, { token, fetchImpl, paceMs, now = new Date(), l
       log(`Backfilled ${backfillMonth}: ${res.items.length} commits${res.capped ? " (capped)" : ""}`);
     }
   }
+  // Only months verified "complete" count; a "partial" (page-capped) month
+  // must never be reported as the oldest complete month.
   completeness.oldest_complete_month = backfillMonth
-    ? Object.keys(completeness.months).filter((m) => completeness.months[m] !== "current").sort()[0] || null
+    ? Object.keys(completeness.months).filter((m) => completeness.months[m] === "complete").sort()[0] || null
     : accountMonth;
   const historyComplete = (() => {
     for (let m = prevMonth(currentMonth); m >= accountMonth; m = prevMonth(m)) {

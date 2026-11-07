@@ -64,6 +64,15 @@ How it is collected:
 | `GET /search/commits` | Commit events, recent window and monthly backfill | Paced under 30 req/min; months over the 300-item page cap are refined as two half-month queries; still-capped months stay `partial` and are lower bounds. |
 | `GET /search/issues` | PR and issue counts (authored, merged, open) | `type:pr` / `type:issue` queries; all-time coverage. |
 
+### Search scope: default branch only, totals are lower bounds
+
+GitHub's Search API indexes each repository's **default branch** only.
+Commits that exist solely on other branches (unmerged feature branches,
+abandoned spikes) are not indexed and therefore not counted. All Search-derived
+totals (commits, PRs, issues) are exact for default-branch history and a lower
+bound for overall activity. Combined with the per-month page-cap rule above,
+every number the cards print is a floor, never an inflation.
+
 ### Commit timestamps: committer date vs author date
 
 Commit events are searched and bucketed by **committer date**

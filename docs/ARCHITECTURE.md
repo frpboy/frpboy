@@ -24,7 +24,7 @@ no new secrets.
 
 ```
 GitHub REST + Search APIs (public data, GITHUB_TOKEN)
-(contribution calendar route implemented but disabled - see DATA-SOURCES.md)
+(plus GitHub's public contribution calendar - see DATA-SOURCES.md)
         |
         v
 scripts/collect-profile-stats.js  (GitHub Actions, hourly)
@@ -89,8 +89,8 @@ so GitHub's Camo proxy and browsers cache briefly and tolerate staleness.
 
 ## Incremental collection and backfill
 
-Each run collects the events ledger (the contribution-calendar route is
-implemented but disabled for privacy - see DATA-SOURCES.md):
+Each run collects the contribution calendar (see DATA-SOURCES.md) and the
+events ledger:
 
 - Profile fields and public repo metadata (repos/languages refresh at most
   every 12 hours; reused otherwise).
