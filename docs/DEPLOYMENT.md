@@ -35,6 +35,24 @@
    backfill reaches the account-creation month (one month per run; months with
    heavy commit volume take an extra run for half-month refinement).
 
+## Required: private repository exclusions
+
+The collector refuses to run (fail closed, nothing is published) without
+two repository secrets:
+
+- `PROFILE_EXCLUDE_REPOS`: comma-separated `owner/repo` slugs that must not
+  appear in any published statistic. Missing, empty, or malformed values
+  abort the run with a generic error.
+- `PROFILE_EXCLUDE_SALT`: a random string (32+ characters) used solely to
+  salt the private configuration fingerprint so it cannot be
+  dictionary-attacked. Any random value works; rotating it forces one full
+  filtered rebuild.
+
+Changing `PROFILE_EXCLUDE_REPOS` is detected automatically via the
+fingerprint cache and forces a full filtered rebuild of the events ledger;
+no manual cleanup is needed. See `docs/DATA-SOURCES.md` for the fail-closed
+rules and the limits of the mechanism.
+
 ## Optional: higher rate limits
 
 The collector defaults to the built-in Actions `GITHUB_TOKEN`, which is

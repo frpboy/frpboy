@@ -31,6 +31,8 @@ function makeFakeGitHub(overrides = {}) {
       { name: "beta", fork: false, archived: false, language: "Python", stargazers_count: 3, forks_count: 1, pushed_at: "2026-10-01T00:00:00Z" },
     ],
     calendar: overrides.calendar || { "2026-11-05": 3, "2026-11-06": 1, "2026-11-07": 2 },
+    prItems: overrides.prItems || null,
+    issueItems: overrides.issueItems || null,
   };
   const headers = new Map();
   const fetchImpl = async (url) => {
@@ -58,7 +60,7 @@ function makeFakeGitHub(overrides = {}) {
       const [from, to] = m ? [m[1], m[2]] : ["0000-01-01", "9999-12-31"];
       const items = state.commits
         .filter((c) => c.date.slice(0, 10) >= from && c.date.slice(0, 10) <= to)
-        .map((c) => ({ sha: c.sha, commit: { committer: { date: c.date } } }));
+        .map((c) => ({ sha: c.sha, commit: { committer: { date: c.date } }, ...(c.repo ? { repository: { full_name: c.repo } } : {}) }));
       return json({ total_count: items.length, items });
     }
     if (u.pathname === "/search/issues") {
@@ -66,8 +68,14 @@ function makeFakeGitHub(overrides = {}) {
       const base = { total_count: 0, items: [] };
       if (q.includes("type:pr is:merged")) return json({ total_count: 1, items: [] });
       if (q.includes("type:pr is:open")) return json({ total_count: 0, items: [] });
-      if (q.includes("type:pr")) return json({ total_count: 2, items: [{ id: 11, created_at: "2026-11-05T08:00:00Z" }] });
-      if (q.includes("type:issue")) return json({ total_count: 1, items: [{ id: 22, created_at: "2026-11-04T08:00:00Z" }] });
+      if (q.includes("type:pr")) {
+        const items = state.prItems || [{ id: 11, created_at: "2026-11-05T08:00:00Z" }];
+        return json({ total_count: 2, items });
+      }
+      if (q.includes("type:issue")) {
+        const items = state.issueItems || [{ id: 22, created_at: "2026-11-04T08:00:00Z" }];
+        return json({ total_count: 1, items });
+      }
       return json(base);
     }
     throw new Error(`Unexpected URL in fake: ${url}`);
