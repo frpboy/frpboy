@@ -45,9 +45,11 @@ module.exports = async function handler(req, res) {
     });
   }
 
-  const card = CARDS[name];
+  // Vercel may pass the catch-all segment with or without the .svg suffix;
+  // accept both so /api/cards/streak and /api/cards/streak.svg resolve alike.
+  const card = CARDS[name] || CARDS[name + ".svg"];
   if (!card) {
-    res.setHeader(CARD_HEADERS["Content-Type"].split(";")[0], "image/svg+xml; charset=utf-8");
+    res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
     res.setHeader("Cache-Control", "no-store");
     const theme = THEMES.dark;
     return res.status(404).send(fallbackCard(495, 120, theme, "Unknown card", "This card does not exist. Check the README for valid card URLs."));
