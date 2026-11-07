@@ -8,10 +8,10 @@
 
 const { computeAll } = require("../../src/analytics/index");
 const { loadSnapshot } = require("../../src/cache/snapshot");
+const { routeName } = require("../../src/http/route-name");
 
 module.exports = async function handler(req, res) {
-  const segments = [].concat(req.query.path || []);
-  const name = segments.join("/");
+  const name = routeName(req, "/api/github/");
   res.setHeader("Cache-Control", "public, max-age=300, stale-while-revalidate=3600");
 
   const { snapshot, stale, source, error } = await loadSnapshot();

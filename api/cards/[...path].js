@@ -15,6 +15,7 @@ const { fallbackCard } = require("../../src/cards/svg");
 const { computeAll } = require("../../src/analytics/index");
 const { loadSnapshot } = require("../../src/cache/snapshot");
 const { oneOf } = require("../../src/security/escape");
+const { routeName } = require("../../src/http/route-name");
 
 const CARD_HEADERS = {
   "Content-Type": "image/svg+xml; charset=utf-8",
@@ -22,8 +23,7 @@ const CARD_HEADERS = {
 };
 
 module.exports = async function handler(req, res) {
-  const segments = [].concat(req.query.path || []);
-  const name = segments.join("/");
+  const name = routeName(req, "/api/cards/");
 
   if (name === "health") {
     const { snapshot, stale, source, error } = await loadSnapshot();
