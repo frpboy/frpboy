@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  actions: write # manage the private exclusion-config fingerprint cache
 
 concurrency:
   group: profile-stats-data
@@ -33,11 +34,58 @@ jobs:
       - name: Run tests before collecting
         run: node --test tests/*.test.js
 
+      # Private bookkeeping: a salted, non-reversible fingerprint of the
+      # normalized exclusion configuration, kept in the Actions cache (never
+      # in the repo, the snapshot, or logs). The salt makes the hash immune
+      # to dictionary attacks over the account's public repo names. A changed
+      # or unrecorded fingerprint forces a full filtered rebuild, because the
+      # events ledger carries no per-repo attribution and cannot be cleaned
+      # retroactively. Cache eviction fails closed into a rebuild.
+      - name: Restore exclusion configuration fingerprint
+        uses: actions/cache/restore@v4
+        with:
+          path: .exclusions-fp-previous
+          key: exclusions-fingerprint-v1
+
+      - name: Compare exclusion configuration fingerprint
+        env:
+          PROFILE_EXCLUDE_REPOS: ${{ secrets.PROFILE_EXCLUDE_REPOS }}
+          # Random salt secret; required so the fingerprint cannot be
+          # dictionary-attacked even if it ever leaks.
+          PROFILE_EXCLUDE_SALT: ${{ secrets.PROFILE_EXCLUDE_SALT }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PYEOF'
+          import hashlib, os
+          raw = os.environ.get("PROFILE_EXCLUDE_REPOS", "")
+          slugs = sorted(set(s.strip().lower() for s in raw.replace(",", " ").split() if s.strip()))
+          salt = os.environ.get("PROFILE_EXCLUDE_SALT", "")
+          fp = hashlib.sha256(("\n".join(slugs) + "|" + salt).encode()).hexdigest()
+          with open(".exclusions-fp-current", "w") as f:
+              f.write(fp + "\n")
+          PYEOF
+          if [ ! -f .exclusions-fp-previous ]; then
+            echo "No exclusion configuration fingerprint on record; forcing a full filtered rebuild."
+            echo "PROFILE_FORCE_REBUILD=1" >> "$GITHUB_ENV"
+          elif ! cmp -s .exclusions-fp-previous .exclusions-fp-current; then
+            echo "Exclusion configuration changed; forcing a full filtered rebuild."
+            echo "PROFILE_FORCE_REBUILD=1" >> "$GITHUB_ENV"
+          else
+            echo "Exclusion configuration unchanged."
+          fi
+          rm -f .exclusions-fp-previous
+
       - name: Collect profile statistics
         env:
           # Optional user-scoped token for higher rate limits. The built-in
           # GITHUB_TOKEN (public data only) is the default and is sufficient.
           GITHUB_TOKEN: ${{ secrets.PROFILE_ACTIVITY_TOKEN || secrets.GITHUB_TOKEN }}
+          # REQUIRED private exclusion list: comma-separated owner/repo slugs
+          # that must not appear in any published statistic. Kept as a secret
+          # so the configured values never enter the repo, logs, or snapshot.
+          # The collector FAILS CLOSED when this is unset, empty, or malformed:
+          # no statistics are published at all rather than unfiltered ones.
+          PROFILE_EXCLUDE_REPOS: ${{ secrets.PROFILE_EXCLUDE_REPOS }}
         run: node scripts/collect-profile-stats.js
 
       - name: Stage snapshot
@@ -64,3 +112,19 @@ jobs:
           fi
           git commit -m "chore(stats): refresh profile statistics snapshot"
           git push origin stats-data || { git pull --rebase origin stats-data && git push origin stats-data; }
+
+      # Record the new fingerprint only after a successful publish, and only
+      # when a rebuild was forced (first run or configuration change). The
+      # save action refuses an existing key, so delete the old entry first.
+      - name: Delete stale fingerprint cache entry
+        if: success() && env.PROFILE_FORCE_REBUILD == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh cache delete exclusions-fingerprint-v1 --repo "$GITHUB_REPOSITORY" || true
+
+      - name: Save exclusion configuration fingerprint
+        if: success() && env.PROFILE_FORCE_REBUILD == '1'
+        uses: actions/cache/save@v4
+        with:
+          path: .exclusions-fp-current
+          key: exclusions-fingerprint-v1

@@ -14,6 +14,7 @@
 
 const { istDateString, istHour, istWeekday, monthOf, monthStart, monthEnd, prevMonth, istToday, addDays, daysBetween } = require("../utils/time");
 const { collectCalendar } = require("./calendar");
+const { makeExcluder, makeRedactor } = require("./exclusions");
 
 const ACCOUNT = "frpboy";
 const API = "https://api.github.com";
@@ -27,7 +28,7 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function createClient(token, fetchImpl = fetch, paceMs = SEARCH_PACE_MS) {
+function createClient(token, fetchImpl = fetch, paceMs = SEARCH_PACE_MS, redact = (s) => s) {
   let searchBudgetResetLog = [];
   async function request(path, { search = false } = {}, attempt = 0) {
     const url = path.startsWith("http") ? path : `${API}${path}`;
@@ -49,10 +50,12 @@ function createClient(token, fetchImpl = fetch, paceMs = SEARCH_PACE_MS) {
         await sleep(waitMs);
         return request(path, { search }, attempt + 1);
       }
-      throw new Error(`GitHub rate limit exceeded for ${path} (reset too far out)`);
+      // Errors reach public Actions logs: redact the path (search query
+      // strings can carry private exclusion slugs) before composing.
+      throw new Error(`GitHub rate limit exceeded for ${redact(path)} (reset too far out)`);
     }
     if (res.status === 404) return { notFound: true, data: null, headers: res.headers };
-    if (!res.ok) throw new Error(`GitHub API ${res.status} for ${path}: ${(await res.text()).slice(0, 200)}`);
+    if (!res.ok) throw new Error(`GitHub API ${res.status} for ${redact(path)}: ${redact((await res.text()).slice(0, 200))}`);
     return { notFound: false, data: await res.json(), headers: res.headers };
   }
 
@@ -81,9 +84,11 @@ async function collectProfile(client) {
   };
 }
 
-/** List public repos owned by the account (paginated). */
-async function collectRepos(client) {
+/** List public repos owned by the account (paginated). Configured private
+ * exclusions drop repos by slug before they can reach any snapshot field. */
+async function collectRepos(client, excluder) {
   const repos = [];
+  let excluded = 0;
   for (let page = 1; page <= 10; page++) {
     const { data } = await client.request(`/users/${ACCOUNT}/repos?type=owner&sort=pushed&per_page=100&page=${page}`);
     if (!Array.isArray(data) || data.length === 0) break;
@@ -91,6 +96,10 @@ async function collectRepos(client) {
       // Defense in depth: /users/{name}/repos only ever returns public repos,
       // but drop anything flagged private so no private repo name can leak.
       if (r.private) continue;
+      if (excluder.isExcludedRepo(r.name)) {
+        excluded += 1;
+        continue;
+      }
       repos.push({
         name: r.name,
         fork: r.fork,
@@ -103,7 +112,7 @@ async function collectRepos(client) {
     }
     if (data.length < 100) break;
   }
-  return repos;
+  return { list: repos, excluded };
 }
 
 /** Language byte counts per public repo. Forks are included and flagged downstream. */
@@ -130,18 +139,24 @@ async function collectLanguages(client, repos) {
   return { bytes, repos_covered: repos.length - reposWithout - failures.length, repos_without_language: reposWithout, failed_repos: failures };
 }
 
-function commitQuery(dateFrom, dateTo) {
-  return `author:${ACCOUNT}+committer-date:${dateFrom}..${dateTo}`;
+function commitQuery(dateFrom, dateTo, excluder) {
+  return excluder.guardQueryLength(`author:${ACCOUNT}+committer-date:${dateFrom}..${dateTo}${excluder.queryFragment()}`);
 }
 
 /** Fetch commit items (sha + committer date) for a date range, up to maxPages pages. */
-async function fetchCommitItems(client, dateFrom, dateTo, maxPages) {
+async function fetchCommitItems(client, dateFrom, dateTo, maxPages, excluder) {
   const items = [];
   let capped = false;
   for (let page = 1; page <= maxPages; page++) {
-    const data = await client.search(`/search/commits?q=${commitQuery(dateFrom, dateTo)}&sort=committer-date&order=desc&per_page=100&page=${page}`);
+    const data = await client.search(`/search/commits?q=${commitQuery(dateFrom, dateTo, excluder)}&sort=committer-date&order=desc&per_page=100&page=${page}`);
     const list = (data && data.items) || [];
     for (const item of list) {
+      // Fail closed if the API returns anything attributable to an excluded
+      // repo (i.e. it ignored the -repo: qualifiers). Generic message only.
+      const fullName = item.repository && item.repository.full_name;
+      if (fullName && excluder.isExcludedSlug(fullName)) {
+        throw new Error("Search returned excluded content; refusing to collect.");
+      }
       items.push({
         id: item.sha,
         date: item.commit && item.commit.committer && item.commit.committer.date,
@@ -153,16 +168,28 @@ async function fetchCommitItems(client, dateFrom, dateTo, maxPages) {
   return { items, capped };
 }
 
-/** Count PRs and issues authored by the account (public). Returns totals + recent items. */
-async function collectPullsAndIssues(client) {
-  const prData = await client.search(`/search/issues?q=author:${ACCOUNT}+type:pr&per_page=1`);
-  const prMerged = await client.search(`/search/issues?q=author:${ACCOUNT}+type:pr+is:merged&per_page=1`);
-  const prOpen = await client.search(`/search/issues?q=author:${ACCOUNT}+type:pr+is:open&per_page=1`);
-  const issueData = await client.search(`/search/issues?q=author:${ACCOUNT}+type:issue&per_page=1`);
-  const recentPrs = await client.search(`/search/issues?q=author:${ACCOUNT}+type:pr&sort=created&order=desc&per_page=100`);
-  const recentIssues = await client.search(`/search/issues?q=author:${ACCOUNT}+type:issue&sort=created&order=desc&per_page=100`);
+/** Count PRs and issues authored by the account (public). Returns totals + recent items.
+ * Configured exclusions add -repo: qualifiers so excluded activity never enters
+ * the events ledger or the totals. */
+async function collectPullsAndIssues(client, excluder) {
+  const qf = excluder.queryFragment();
+  const q = (base) => excluder.guardQueryLength(`${base}${qf}`);
+  const prData = await client.search(`/search/issues?q=${q(`author:${ACCOUNT}+type:pr`)}&per_page=1`);
+  const prMerged = await client.search(`/search/issues?q=${q(`author:${ACCOUNT}+type:pr+is:merged`)}&per_page=1`);
+  const prOpen = await client.search(`/search/issues?q=${q(`author:${ACCOUNT}+type:pr+is:open`)}&per_page=1`);
+  const issueData = await client.search(`/search/issues?q=${q(`author:${ACCOUNT}+type:issue`)}&per_page=1`);
+  const recentPrs = await client.search(`/search/issues?q=${q(`author:${ACCOUNT}+type:pr`)}&sort=created&order=desc&per_page=100`);
+  const recentIssues = await client.search(`/search/issues?q=${q(`author:${ACCOUNT}+type:issue`)}&sort=created&order=desc&per_page=100`);
   const toItems = (data, type) =>
-    ((data && data.items) || []).map((it) => ({ type, id: `${ACCOUNT}#${it.id}`, date: it.created_at }));
+    ((data && data.items) || []).map((it) => {
+      // Fail closed if the API ignored the -repo: qualifiers (repository_url
+      // is https://api.github.com/repos/<owner>/<name>).
+      const slug = typeof it.repository_url === "string" ? it.repository_url.split("/repos/")[1] : null;
+      if (slug && excluder.isExcludedSlug(slug)) {
+        throw new Error("Search returned excluded content; refusing to collect.");
+      }
+      return { type, id: `${ACCOUNT}#${it.id}`, date: it.created_at };
+    });
   return {
     totals: {
       prs: (prData && prData.total_count) || 0,
@@ -178,11 +205,22 @@ async function collectPullsAndIssues(client) {
  * Main collection entry. `previous` is the prior snapshot state (or null).
  * Returns the next snapshot state; throws only when nothing can be produced.
  */
-async function collect(previous, { token, fetchImpl, paceMs, now = new Date(), log = console.log, contributionCalendar = false } = {}) {
-  const client = createClient(token, fetchImpl, paceMs);
+async function collect(previous, { token, fetchImpl, paceMs, now = new Date(), log = console.log, contributionCalendar = false, excludeRepos = [] } = {}) {
+  const excluder = makeExcluder(excludeRepos, ACCOUNT);
+  // Redact exclusion slugs from any error text before it can reach public logs.
+  const redact = makeRedactor(excludeRepos);
+  const client = createClient(token, fetchImpl, paceMs, redact);
+  if (excluder.count > 0) log(`Repository exclusions configured: ${excluder.count} (values kept private)`);
   const today = istToday(now);
   const notes = [];
-  const state = previous && previous.schema_version === 1 ? JSON.parse(JSON.stringify(previous)) : null;
+  let state = previous && previous.schema_version === 1 ? JSON.parse(JSON.stringify(previous)) : null;
+  if (excluder.count > 0 && state && !state.exclusions_applied) {
+    // The events ledger carries no per-repo attribution, so a snapshot built
+    // without exclusions can contain excluded activity that cannot be
+    // filtered out. Fail closed: discard it and rebuild the ledger fresh.
+    state = null;
+    log("Previous snapshot predates exclusion configuration; rebuilding the events ledger from scratch (attribution is stripped at collection time)");
+  }
 
   const profile = await collectProfile(client);
 
@@ -192,7 +230,7 @@ async function collect(previous, { token, fetchImpl, paceMs, now = new Date(), l
 
   // 1. Recent commits: last ~300 public commits, every run.
   const recentFrom = addDays(today, -120);
-  const recent = await fetchCommitItems(client, recentFrom, today, RECENT_PAGES);
+  const recent = await fetchCommitItems(client, recentFrom, today, RECENT_PAGES, excluder);
   for (const c of recent.items) if (c.date) events.set(`commit:${c.id}`, { type: "commit", id: `commit:${c.id}`, date: c.date });
   if (recent.capped) notes.push("Recent commit window exceeded 300 items; oldest recent commits may be missing this run.");
 
@@ -219,15 +257,15 @@ async function collect(previous, { token, fetchImpl, paceMs, now = new Date(), l
       // A full-month query already hit the page cap; refine in two half-month
       // queries so heavy months (over 300 public commits) converge.
       const mid = `${backfillMonth}-15`;
-      const h1 = await fetchCommitItems(client, from, mid, BACKFILL_PAGES_PER_MONTH);
-      const h2 = await fetchCommitItems(client, addDays(mid, 1), to, BACKFILL_PAGES_PER_MONTH);
+      const h1 = await fetchCommitItems(client, from, mid, BACKFILL_PAGES_PER_MONTH, excluder);
+      const h2 = await fetchCommitItems(client, addDays(mid, 1), to, BACKFILL_PAGES_PER_MONTH, excluder);
       for (const c of [...h1.items, ...h2.items]) if (c.date) events.set(`commit:${c.id}`, { type: "commit", id: `commit:${c.id}`, date: c.date });
       const stillCapped = h1.capped || h2.capped;
       completeness.months[backfillMonth] = stillCapped ? "partial" : "complete";
       if (stillCapped) notes.push(`Month ${backfillMonth} still exceeds ${BACKFILL_PAGES_PER_MONTH * 100} public commits per half; counts for that month are a lower bound.`);
       log(`Refined ${backfillMonth}: ${h1.items.length}+${h2.items.length} commits${stillCapped ? " (still capped)" : ""}`);
     } else {
-      const res = await fetchCommitItems(client, from, to, BACKFILL_PAGES_PER_MONTH);
+      const res = await fetchCommitItems(client, from, to, BACKFILL_PAGES_PER_MONTH, excluder);
       for (const c of res.items) if (c.date) events.set(`commit:${c.id}`, { type: "commit", id: `commit:${c.id}`, date: c.date });
       completeness.months[backfillMonth] = res.capped ? "partial" : "complete";
       if (res.capped) notes.push(`Month ${backfillMonth} exceeded ${BACKFILL_PAGES_PER_MONTH * 100} public commits; refining in halves next run.`);
@@ -247,18 +285,23 @@ async function collect(previous, { token, fetchImpl, paceMs, now = new Date(), l
   })();
 
   // 3. PRs and issues.
-  const pi = await collectPullsAndIssues(client);
+  const pi = await collectPullsAndIssues(client, excluder);
   for (const e of pi.events) events.set(`${e.type}:${e.id}`, e);
 
   // 4. Repos + languages (12h cadence).
   let reposData = state && state.repos && Array.isArray(state.repos.list) ? state.repos.list : null;
   let languages = state && state.languages ? state.languages : null;
   const lastRepoRefresh = state && state.repos_collected_at ? Date.parse(state.repos_collected_at) : 0;
-  if (now.getTime() - lastRepoRefresh > REPO_REFRESH_MS || !reposData) {
-    reposData = await collectRepos(client);
+  // Cached language byte aggregates cannot be un-mixed per repo, so any run
+  // with exclusions configured re-collects repos/languages fresh instead of
+  // reusing a possibly contaminated cache (config changes are undetectable).
+  if (excluder.count > 0 || now.getTime() - lastRepoRefresh > REPO_REFRESH_MS || !reposData) {
+    const rc = await collectRepos(client, excluder);
+    reposData = rc.list;
     languages = await collectLanguages(client, reposData);
-    log(`Repos refreshed: ${reposData.length} public repos, ${Object.keys(languages.bytes).length} languages`);
+    log(`Repos refreshed: ${reposData.length} public repos, ${Object.keys(languages.bytes).length} languages${rc.excluded ? `, ${rc.excluded} excluded by configuration` : ""}`);
   } else {
+    reposData = reposData.filter((r) => !excluder.isExcludedRepo(r.name));
     log("Repos/languages within 12h freshness window; reusing previous snapshot values");
   }
 
@@ -332,6 +375,9 @@ async function collect(previous, { token, fetchImpl, paceMs, now = new Date(), l
     account: ACCOUNT,
     timezone: "Asia/Kolkata",
     data_scope: "public",
+    // Non-identifying transition marker: snapshots built with exclusions can
+    // only merge with snapshots also built with exclusions.
+    exclusions_applied: excluder.count > 0,
     completeness: {
       public_only: true,
       history_complete: historyComplete,

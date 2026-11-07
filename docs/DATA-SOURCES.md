@@ -106,6 +106,66 @@ hours worked."
 `validateSnapshot` in `src/analytics/index.js` rejects malformed snapshots; the
 API layer falls back to the last good snapshot rather than serving bad data.
 
+## Private repository exclusions (required, fail closed)
+
+A required exclusion list removes specific repositories from every published
+statistic. Configuration lives in the `PROFILE_EXCLUDE_REPOS` Actions secret
+(comma-separated `owner/repo` slugs) so the configured values never enter the
+repo, workflow logs, docs, tests, or the snapshot; logs report only the count.
+
+The collector FAILS CLOSED - it aborts and publishes nothing when:
+
+- the configuration is missing, empty, or has any malformed entry (no silent
+  "no exclusions" fallback);
+- a search query with its `-repo:` qualifiers would exceed GitHub's query
+  length limit (256 characters; GitHub answers over-long queries with 422
+  "Validation failed", never silent truncation, and we guard before the
+  request is even made);
+- any search result item is attributable to an excluded repository (catches
+  the API ignoring the `-repo:` qualifiers, which GitHub documents as
+  standard logical-NOT qualifier syntax);
+- the finished snapshot contains any excluded name (scanned before publish).
+
+Error text is redacted before printing: GitHub's secret masking covers only
+the whole secret value, not individual slugs embedded in a query string, so
+client errors and the entry point both pass messages through a redactor.
+
+Where exclusions apply, before any aggregation:
+
+- The repo list (`repos.list`) and its star/fork totals.
+- Language byte aggregates (excluded repos are never fetched).
+- Every search query (commits, PRs, issues) via `-repo:` qualifiers, so
+  excluded activity never enters the events ledger or totals.
+
+Transition safety:
+
+- Snapshots built with exclusions carry a non-identifying
+  `exclusions_applied: true` marker. A previous snapshot WITHOUT the marker
+  is never reused or merged: the events ledger carries no per-repo
+  attribution, so unfiltered history cannot be cleaned after the fact and is
+  rebuilt from scratch instead.
+- Configuration CHANGES between filtered snapshots are detected with a
+  salted SHA-256 fingerprint of the normalized exclusion list, stored only
+  in the private Actions cache (never in the repo, snapshot, or logs). The
+  salt (a second secret, `PROFILE_EXCLUDE_SALT`) makes the fingerprint
+  immune to dictionary attacks over the account's public repository names.
+  A changed or unrecorded fingerprint forces a full filtered rebuild
+  (`PROFILE_FORCE_REBUILD=1`); a missing/evicted cache fails closed into a
+  rebuild as well. The new fingerprint is recorded only after a successful
+  publish.
+- Cached language byte aggregates cannot be un-mixed per repository, so any
+  run with exclusions configured re-collects repos/languages fresh rather
+  than reusing the 12h cache.
+
+Limits to be transparent about:
+
+- Source 1 (GitHub's own contribution calendar) is a fixed all-visible
+  aggregate that GitHub does not allow filtering per repository. It can still
+  include excluded repositories' activity as anonymized numbers, exactly as
+  the public profile graph does. Cards label this source accordingly.
+- The query length limit bounds the practical number of exclusions; each one
+  adds a `-repo:` qualifier to every search query.
+
 ## Refresh cadence
 
 - Workflow: hourly at `:43` (`profile-stats.yml`), offset from the existing
