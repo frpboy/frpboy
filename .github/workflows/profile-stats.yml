@@ -42,7 +42,7 @@ jobs:
       # events ledger carries no per-repo attribution and cannot be cleaned
       # retroactively. Cache eviction fails closed into a rebuild.
       - name: Restore exclusion configuration fingerprint
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: .exclusions-fp-previous
           key: exclusions-fingerprint-v1
@@ -124,7 +124,7 @@ jobs:
 
       - name: Save exclusion configuration fingerprint
         if: success() && env.PROFILE_FORCE_REBUILD == '1'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: .exclusions-fp-current
           key: exclusions-fingerprint-v1
