@@ -1,50 +1,16 @@
 <div align="center">
-  <!-- 1. HEADER: LIVE COUNTERS & BADGES -->
-  <img src="https://komarev.com/ghpvc/?username=frpboy&label=TOTAL%20VIEWS&color=0e75b6&style=for-the-badge" alt="Profile Views" />
-  <img src="https://img.shields.io/github/followers/frpboy?label=Followers&style=for-the-badge&color=success" alt="Followers" />
-  <img src="https://img.shields.io/badge/Location-Perinthalmanna,_Kerala,_India_🇮🇳-FF9900?style=for-the-badge&logo=google-maps&logoColor=white" alt="Location: Perinthalmanna, Kerala, India" />
-  <img src="https://img.shields.io/badge/Timezone-IST_(UTC+05:30)-blueviolet?style=for-the-badge&logo=clock&logoColor=white" />
-  <br />
-  <br />
 
-  <!-- 2. TYPING ANIMATION -->
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=800&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Full-Stack+Developer;Automation+Engineer;Open-Source+Contributor;From+Flashing+ROMs+to+Shipping+Software;Build%2C+Test%2C+Automate" alt="Typing SVG" />
-  </a>
+# Rahul Muraleedharan
 
-  <!-- 3. SOCIALS -->
-  <p>
-    <a href="mailto:frpboy12@gmail.com">
-      <img src="https://img.shields.io/badge/Email-frpboy12%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email" />
-    </a>
-    <a href="https://www.linkedin.com/in/rahul-muraleedharan-it">
-      <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
-    </a>
-    <a href="https://github.com/frpboy">
-      <img src="https://img.shields.io/badge/GitHub-frpboy-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
-    </a>
-    <a href="https://www.buymeacoffee.com/frpboy" target="_blank">
-      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="28" />
-    </a>
-    <a href="https://www.patreon.com/c/FrpBoy" target="_blank">
-      <img src="https://img.shields.io/badge/Patreon-Support%20me-F96854?style=for-the-badge&logo=patreon&logoColor=white" alt="Become a Patron on Patreon" height="28" />
-    </a>
-  </p>
-</div>
+**Full Stack Developer & Automation Specialist | Web, Android, Python, Google Apps Script**
 
+*K4NN4N / FrpBoy*
 
----
-
-<div align="center">
-
-### 👨‍💻 Rahul Muraleedharan
-**Full-Stack Developer · Automation Engineer · Open-Source Contributor**
-
-I build practical software: web applications, automation workflows, developer tools, and data-backed systems. My path started with smartphone diagnostics and software troubleshooting and grew into full-stack development, cloud-connected products, and workflow engineering.
-
-[Portfolio](https://www.frpboy.in/) · [GitHub](https://github.com/frpboy) · [LinkedIn](https://www.linkedin.com/in/rahul-muraleedharan-it) · [Email](mailto:frpboy12@gmail.com)
+[Portfolio](https://www.frpboy.in/) · [GitHub](https://github.com/frpboy) · [LinkedIn](https://www.linkedin.com/in/rahul-muraleedharan-it/) · [Buy Me a Coffee](https://www.buymeacoffee.com/frpboy)
 
 </div>
+
+I build practical web and Android applications, Python automation, and Google Apps Script workflows. My work focuses on understanding the underlying problem, designing maintainable systems, and validating the result with clear tests and evidence.
 
 ---
 
@@ -64,11 +30,11 @@ I care about evidence over hype: clear behavior, useful logs, secure defaults, r
 | Project | What it does | Technologies / status | Demo / documentation |
 | --- | --- | --- | --- |
 | [AdBlocker Test Lab](https://github.com/frpboy/adblocker-test-lab) | Browser-based test lab for exploring ad-resource blocking, tracking protection, privacy signals, and observable loading behavior. | React · TypeScript · Vite · prototype/active development  | [Docs](https://github.com/frpboy/adblocker-test-lab/tree/main/docs) · Prototype |
-| **Private Enterprise System** | Internal accounting and operations workflows. Source code and implementation details are not publicly available. | Private repository · Enterprise/internal use | No public repository |
-| **Private Enterprise Automation** | Internal purchase-order workflow automation. Source code and implementation details are not publicly available. | Private repository · Enterprise/internal use | No public repository |
 | [Nah That's Fake](https://github.com/frpboy/NahThatsFake) | Telegram bot and Mini App for deepfake/scam-related checks, link scanning, referrals, and account workflows. | Node.js · TypeScript · Telegram · Supabase  | [Source & README](https://github.com/frpboy/NahThatsFake#readme) |
-| [Scrobblix](https://github.com/frpboy/Scrobblix) | Windows listening companion for playback detection, local listening history, and reliable scrobble submission. | C# · .NET 10 · WinUI 3 · TypeScript WebExtension · pre-release | [Source & status](https://github.com/frpboy/Scrobblix#readme) · Pre-release |
+| [Scrobblix](https://github.com/frpboy/Scrobblix) | Local-first listening history and Last.fm scrobbling for Windows and Android, with transparent submission outcomes. | C# · .NET 10 · WinUI 3 · TypeScript WebExtension · Windows beta 11 / Android alpha 2 previews | [Windows beta 11](https://github.com/frpboy/Scrobblix/releases/tag/windows-v0.1.0-beta.11) · [Android alpha 2](https://github.com/frpboy/Scrobblix/releases/tag/android-v0.1.0-alpha.2) · [Source](https://github.com/frpboy/Scrobblix) |
+| [Seali](https://github.com/frpboy/Seali) | Independently maintained Android video/audio downloader based on the upstream Seal project; upstream authorship and notices remain credited. | Kotlin · Jetpack Compose · yt-dlp · FFmpeg · GPL-3.0 · alpha prerelease | [Project site](https://seali.frpboy.in/) · [Releases](https://github.com/frpboy/Seali/releases) · [Attribution](https://github.com/frpboy/Seali/blob/main/CREDITS.md) |
 | [RepoVerse](https://github.com/frpboy/repo-verse) | Generates a space-themed visualisation of GitHub repositories for profile pages. | TypeScript · SVG · GitHub Actions  | [SVG preview](https://raw.githubusercontent.com/frpboy/repo-verse/main/public/universe.svg) · [README](https://github.com/frpboy/repo-verse#readme) |
+| [AutoREADME](https://github.com/frpboy/autoreadme) | Generates project README files from repository structure using templates and optional AI support. | TypeScript · Node.js · CLI · Apache-2.0 | [Source & README](https://github.com/frpboy/autoreadme#readme) |
 | [Portfolio OS](https://github.com/frpboy/frpboy-Portfolio) | Interactive portfolio experience presenting projects and the transition from hardware diagnostics to software engineering. | Next.js · React · TypeScript · Tailwind CSS · GSAP · Framer Motion  | [Live site](https://www.frpboy.in/) · [Source README](https://github.com/frpboy/frpboy-Portfolio#readme) |
 | [Metly](https://github.com/frpboy/Metly) | Flutter UI concept for gold and silver tracking and explanatory market insights. Live prices are currently mocked. | Flutter · Dart · Dio · Firebase/Cloudflare integration planned  | [README](https://github.com/frpboy/Metly#readme) · Prototype; prices mocked |
 
@@ -153,8 +119,7 @@ The live contribution directory below tracks other public activity separately, i
 <div align="center">
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-frpboy.in-58A6FF?style=for-the-badge&logo=googlechrome&logoColor=white)](https://www.frpboy.in/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rahul-muraleedharan-it)
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:frpboy12@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rahul-muraleedharan-it/)
 
 </div>
 
@@ -249,7 +214,6 @@ The live contribution directory below tracks other public activity separately, i
 
 <br/>
 
-<p>📍 <b>Thiruvalla ➡️ Perinthalmanna</b></p>
 <p><i>"Replacing spreadsheets with systems since Day 1."</i></p>
 
 </div>
