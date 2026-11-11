@@ -34,8 +34,6 @@
   </a>
 </p>
 
-</div>
-
 # Rahul Muraleedharan
 
 **Full Stack Developer & Automation Specialist | Web, Android, Python, Google Apps Script**
