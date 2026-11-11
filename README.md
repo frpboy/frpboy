@@ -1,5 +1,41 @@
 <div align="center">
 
+<!-- Live profile counters and identity badges -->
+<img src="https://komarev.com/ghpvc/?username=frpboy&label=TOTAL%20VIEWS&color=0e75b6&style=for-the-badge" alt="Profile Views" />
+<img src="https://img.shields.io/github/followers/frpboy?label=Followers&style=for-the-badge&color=success" alt="GitHub Followers" />
+<img src="https://img.shields.io/badge/Location-Perinthalmanna%2C_Kerala%2C_India_%F0%9F%87%AE%F0%9F%87%B3-FF9900?style=for-the-badge&logo=google-maps&logoColor=white" alt="Location: Perinthalmanna, Kerala, India" />
+<img src="https://img.shields.io/badge/Timezone-IST_%28UTC%2B05%3A30%29-blueviolet?style=for-the-badge&logo=clock&logoColor=white" alt="Timezone: IST (UTC+05:30)" />
+
+<br/><br/>
+
+<!-- Animated role and identity headline -->
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=800&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Rahul+Muraleedharan;Full-Stack+Developer;Automation+Engineer;Open-Source+Contributor;From+Flashing+ROMs+to+Shipping+Software;Build%2C+Test%2C+Automate" alt="Typing animation: Rahul Muraleedharan, developer and automation engineer" />
+</a>
+
+<br/><br/>
+
+<!-- Social and support links -->
+<p>
+  <a href="mailto:frpboy12@gmail.com">
+    <img src="https://img.shields.io/badge/Email-frpboy12%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email frpboy12@gmail.com" />
+  </a>
+  <a href="https://www.linkedin.com/in/rahul-muraleedharan-it/">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>
+  <a href="https://github.com/frpboy">
+    <img src="https://img.shields.io/badge/GitHub-frpboy-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub: frpboy" />
+  </a>
+  <a href="https://www.buymeacoffee.com/frpboy" target="_blank" rel="noopener noreferrer">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="28" />
+  </a>
+  <a href="https://www.patreon.com/c/FrpBoy" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/badge/Patreon-Support%20me-F96854?style=for-the-badge&logo=patreon&logoColor=white" alt="Become a Patron on Patreon" height="28" />
+  </a>
+</p>
+
+</div>
+
 # Rahul Muraleedharan
 
 **Full Stack Developer & Automation Specialist | Web, Android, Python, Google Apps Script**
