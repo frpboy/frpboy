@@ -6,7 +6,7 @@
 
 *K4NN4N / FrpBoy*
 
-[Portfolio](https://www.frpboy.in/) · [GitHub](https://github.com/frpboy) · [LinkedIn](https://www.linkedin.com/in/rahul-muraleedharan-it//) · [Buy Me a Coffee](https://www.buymeacoffee.com/frpboy)
+[Portfolio](https://www.frpboy.in/) · [GitHub](https://github.com/frpboy) · [LinkedIn](https://www.linkedin.com/in/rahul-muraleedharan-it/) · [Buy Me a Coffee](https://www.buymeacoffee.com/frpboy)
 
 </div>
 
