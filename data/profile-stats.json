@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T17:23:06.036Z",
+  "generated_at": "2026-11-13T22:52:44.966Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -39,24 +39,24 @@
   },
   "languages": {
     "bytes": {
-      "Kotlin": 3089112,
-      "Java": 157652,
       "Python": 2873218,
-      "Shell": 503997,
       "Rust": 50625151,
+      "Shell": 503997,
       "PowerShell": 93979,
       "RenderScript": 2,
+      "JavaScript": 10694766,
+      "TypeScript": 39948349,
+      "CSS": 733674,
+      "Kotlin": 3089112,
+      "Java": 157652,
       "Dart": 16822931,
       "HTML": 2578836,
       "C++": 149476,
       "CMake": 76938,
-      "JavaScript": 10694766,
       "Swift": 192494,
       "C": 1155773,
       "Objective-C": 7850,
-      "TypeScript": 39948349,
       "PLpgSQL": 76105,
-      "CSS": 733674,
       "Dockerfile": 12920,
       "C#": 1266506,
       "Inno Setup": 8415,
@@ -86,13 +86,31 @@
   "repos": {
     "list": [
       {
-        "name": "youtubedl-android",
+        "name": "The-last-signal-",
         "fork": true,
         "archived": false,
-        "language": null,
+        "language": "Python",
         "stars": 0,
         "forks": 0,
-        "pushed_at": "2026-11-13T16:58:20Z"
+        "pushed_at": "2026-11-13T22:36:09Z"
+      },
+      {
+        "name": "frpboy",
+        "fork": false,
+        "archived": false,
+        "language": "JavaScript",
+        "stars": 1,
+        "forks": 0,
+        "pushed_at": "2026-11-13T19:27:37Z"
+      },
+      {
+        "name": "repo-verse",
+        "fork": true,
+        "archived": false,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-13T18:50:09Z"
       },
       {
         "name": "Seali",
@@ -101,16 +119,16 @@
         "language": "Kotlin",
         "stars": 0,
         "forks": 0,
-        "pushed_at": "2026-11-13T16:14:42Z"
+        "pushed_at": "2026-11-13T17:26:47Z"
       },
       {
-        "name": "The-last-signal-",
+        "name": "youtubedl-android",
         "fork": true,
         "archived": false,
-        "language": "Python",
+        "language": null,
         "stars": 0,
         "forks": 0,
-        "pushed_at": "2026-11-13T16:11:07Z"
+        "pushed_at": "2026-11-13T17:24:15Z"
       },
       {
         "name": "Metly",
@@ -147,24 +165,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-13T12:52:58Z"
-      },
-      {
-        "name": "frpboy",
-        "fork": false,
-        "archived": false,
-        "language": "JavaScript",
-        "stars": 1,
-        "forks": 0,
-        "pushed_at": "2026-11-13T08:46:48Z"
-      },
-      {
-        "name": "repo-verse",
-        "fork": true,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-13T03:44:42Z"
       },
       {
         "name": "autoreadme",
@@ -455,9 +455,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-13T17:23:06.036Z"
+    "collected_at": "2026-11-13T22:52:44.966Z"
   },
-  "repos_collected_at": "2026-11-13T17:23:06.036Z",
+  "repos_collected_at": "2026-11-13T22:52:44.966Z",
   "activity": {
     "days": {
       "2026-05-07": 1,
@@ -818,6 +818,7 @@
       "2026-10-24": 108,
       "2026-10-31": 112,
       "2026-11-07": 153,
+      "2026-11-14": 0,
       "2025-01-05": 0,
       "2025-01-12": 0,
       "2025-01-19": 0,
@@ -1189,7 +1190,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-13T17:23:45.194Z",
+    "fetched_at": "2026-11-13T22:53:22.917Z",
     "notes": []
   },
   "productivity": {
@@ -1230,7 +1231,7 @@
     ],
     "sample_commits": 590,
     "window_from": "2026-05-07",
-    "window_to": "2026-11-13"
+    "window_to": "2026-11-14"
   },
   "events": [
     {
