@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T08:46:06.452Z",
+  "generated_at": "2026-11-13T17:23:06.036Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -32,37 +32,37 @@
     "stars_received": 1,
     "forks_received": 1,
     "commits_collected": 590,
-    "prs": 874,
+    "prs": 878,
     "prs_merged": 328,
-    "prs_open": 159,
+    "prs_open": 163,
     "issues": 97
   },
   "languages": {
     "bytes": {
-      "Python": 2873218,
-      "Rust": 50625151,
-      "Shell": 503997,
-      "PowerShell": 93979,
-      "RenderScript": 2,
-      "JavaScript": 10694766,
-      "TypeScript": 39948349,
-      "CSS": 733674,
-      "Handlebars": 1052,
-      "PLpgSQL": 76105,
       "Kotlin": 3089112,
       "Java": 157652,
-      "HTML": 2578836,
-      "C#": 1266506,
+      "Python": 2873218,
+      "Shell": 503997,
+      "Rust": 50625151,
+      "PowerShell": 93979,
+      "RenderScript": 2,
       "Dart": 16822931,
+      "HTML": 2578836,
       "C++": 149476,
       "CMake": 76938,
+      "JavaScript": 10694766,
       "Swift": 192494,
       "C": 1155773,
       "Objective-C": 7850,
-      "Ruby": 6032,
-      "Inno Setup": 8415,
-      "GLSL": 4005,
+      "TypeScript": 39948349,
+      "PLpgSQL": 76105,
+      "CSS": 733674,
       "Dockerfile": 12920,
+      "C#": 1266506,
+      "Inno Setup": 8415,
+      "Ruby": 6032,
+      "GLSL": 4005,
+      "Handlebars": 1052,
       "CoffeeScript": 18688,
       "Lean": 42510,
       "Go": 41457,
@@ -86,13 +86,67 @@
   "repos": {
     "list": [
       {
+        "name": "youtubedl-android",
+        "fork": true,
+        "archived": false,
+        "language": null,
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-13T16:58:20Z"
+      },
+      {
+        "name": "Seali",
+        "fork": false,
+        "archived": false,
+        "language": "Kotlin",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-13T16:14:42Z"
+      },
+      {
         "name": "The-last-signal-",
         "fork": true,
         "archived": false,
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "pushed_at": "2026-11-13T07:54:02Z"
+        "pushed_at": "2026-11-13T16:11:07Z"
+      },
+      {
+        "name": "Metly",
+        "fork": false,
+        "archived": false,
+        "language": "Dart",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-13T15:35:50Z"
+      },
+      {
+        "name": "NahThatsFake",
+        "fork": false,
+        "archived": false,
+        "language": "HTML",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-13T14:26:49Z"
+      },
+      {
+        "name": "Scrobblix",
+        "fork": false,
+        "archived": false,
+        "language": "C#",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-13T13:46:29Z"
+      },
+      {
+        "name": "Mornye",
+        "fork": true,
+        "archived": false,
+        "language": "Dart",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-13T12:52:58Z"
       },
       {
         "name": "frpboy",
@@ -101,7 +155,7 @@
         "language": "JavaScript",
         "stars": 1,
         "forks": 0,
-        "pushed_at": "2026-11-13T06:05:12Z"
+        "pushed_at": "2026-11-13T08:46:48Z"
       },
       {
         "name": "repo-verse",
@@ -129,24 +183,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-12T13:40:09Z"
-      },
-      {
-        "name": "Seali",
-        "fork": false,
-        "archived": false,
-        "language": "Kotlin",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-12T05:55:57Z"
-      },
-      {
-        "name": "youtubedl-android",
-        "fork": true,
-        "archived": false,
-        "language": null,
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-12T03:38:31Z"
       },
       {
         "name": "awesome-downloader",
@@ -185,15 +221,6 @@
         "pushed_at": "2026-11-11T18:14:28Z"
       },
       {
-        "name": "Metly",
-        "fork": false,
-        "archived": false,
-        "language": "Dart",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-11T18:04:17Z"
-      },
-      {
         "name": "Threadly",
         "fork": false,
         "archived": false,
@@ -201,33 +228,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-11T14:57:20Z"
-      },
-      {
-        "name": "Mornye",
-        "fork": true,
-        "archived": false,
-        "language": "Dart",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-11T13:59:45Z"
-      },
-      {
-        "name": "Scrobblix",
-        "fork": false,
-        "archived": false,
-        "language": "C#",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-11T13:49:07Z"
-      },
-      {
-        "name": "NahThatsFake",
-        "fork": false,
-        "archived": false,
-        "language": "HTML",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-11T07:33:40Z"
       },
       {
         "name": "YouPI-PG",
@@ -455,9 +455,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-13T08:46:06.452Z"
+    "collected_at": "2026-11-13T17:23:06.036Z"
   },
-  "repos_collected_at": "2026-11-13T08:46:06.452Z",
+  "repos_collected_at": "2026-11-13T17:23:06.036Z",
   "activity": {
     "days": {
       "2026-05-07": 1,
@@ -474,10 +474,11 @@
       "2026-11-06": 103,
       "2026-11-07": 44,
       "2026-11-08": 22,
-      "2026-11-09": 58,
+      "2026-11-09": 54,
       "2026-11-10": 65,
       "2026-11-11": 86,
-      "2026-11-12": 14
+      "2026-11-12": 14,
+      "2026-11-13": 4
     },
     "commit_days": {
       "2026-10-22": 74,
@@ -771,7 +772,7 @@
       "2026-10-23": 206,
       "2026-10-30": 274,
       "2026-11-06": 231,
-      "2026-11-13": 0,
+      "2026-11-13": 7,
       "2026-01-03": 34,
       "2026-01-10": 0,
       "2026-01-17": 2,
@@ -1188,7 +1189,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-13T08:46:45.788Z",
+    "fetched_at": "2026-11-13T17:23:45.194Z",
     "notes": []
   },
   "productivity": {
@@ -4133,16 +4134,6 @@
       "date": "2026-11-09T13:29:10.000+05:30"
     },
     {
-      "type": "pr",
-      "id": "frpboy#6287047091",
-      "date": "2026-11-09T13:31:59Z"
-    },
-    {
-      "type": "pr",
-      "id": "frpboy#6287055609",
-      "date": "2026-11-09T13:32:31Z"
-    },
-    {
       "type": "commit",
       "id": "commit:9d7fe520ce2e60addbf874185679dd2920f3755b",
       "date": "2026-11-09T13:34:04.000+05:30"
@@ -4161,16 +4152,6 @@
       "type": "commit",
       "id": "commit:d99dbe0e9edfec1c07bbe735e1a1990323d919bf",
       "date": "2026-11-09T13:46:12.000+05:00"
-    },
-    {
-      "type": "pr",
-      "id": "frpboy#6287324416",
-      "date": "2026-11-09T13:49:08Z"
-    },
-    {
-      "type": "pr",
-      "id": "frpboy#6287400541",
-      "date": "2026-11-09T13:53:50Z"
     },
     {
       "type": "pr",
@@ -5166,6 +5147,26 @@
       "type": "commit",
       "id": "commit:5da1aa7426bda1f5242e85caa2610a03718828af",
       "date": "2026-11-12T19:10:26.000+05:30"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6371645455",
+      "date": "2026-11-13T12:53:04Z"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6371874659",
+      "date": "2026-11-13T13:07:10Z"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6371891240",
+      "date": "2026-11-13T13:08:11Z"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6373274915",
+      "date": "2026-11-13T14:27:00Z"
     }
   ]
 }
