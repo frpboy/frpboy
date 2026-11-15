@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-14T21:41:23.044Z",
+  "generated_at": "2026-11-15T01:20:20.831Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -39,16 +39,16 @@
   },
   "languages": {
     "bytes": {
+      "JavaScript": 10695105,
       "Python": 3078939,
+      "TypeScript": 39948416,
       "Rust": 50625151,
       "Shell": 548137,
       "PowerShell": 93979,
       "RenderScript": 2,
       "Kotlin": 3173274,
       "C": 1208276,
-      "TypeScript": 39948416,
       "CSS": 733674,
-      "JavaScript": 10695105,
       "Handlebars": 1052,
       "Dart": 16822931,
       "HTML": 2578836,
@@ -86,6 +86,15 @@
   "repos": {
     "list": [
       {
+        "name": "frpboy",
+        "fork": false,
+        "archived": false,
+        "language": "JavaScript",
+        "stars": 1,
+        "forks": 0,
+        "pushed_at": "2026-11-14T21:41:59Z"
+      },
+      {
         "name": "The-last-signal-",
         "fork": true,
         "archived": false,
@@ -111,15 +120,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-14T17:22:40Z"
-      },
-      {
-        "name": "frpboy",
-        "fork": false,
-        "archived": false,
-        "language": "JavaScript",
-        "stars": 1,
-        "forks": 0,
-        "pushed_at": "2026-11-14T17:19:06Z"
       },
       {
         "name": "autoreadme",
@@ -455,9 +455,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-14T21:41:23.044Z"
+    "collected_at": "2026-11-15T01:20:20.831Z"
   },
-  "repos_collected_at": "2026-11-14T21:41:23.044Z",
+  "repos_collected_at": "2026-11-15T01:20:20.831Z",
   "activity": {
     "days": {
       "2026-05-07": 1,
@@ -1195,7 +1195,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-14T21:41:57.929Z",
+    "fetched_at": "2026-11-15T01:20:55.305Z",
     "notes": []
   },
   "productivity": {
