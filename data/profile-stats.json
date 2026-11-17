@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-16T18:55:43.393Z",
+  "generated_at": "2026-11-17T02:37:37.547Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -39,22 +39,22 @@
   },
   "languages": {
     "bytes": {
+      "TypeScript": 39890775,
+      "CSS": 732885,
       "JavaScript": 10696587,
       "Python": 3154612,
-      "TypeScript": 39890775,
+      "Rust": 50625151,
+      "Shell": 548137,
+      "PowerShell": 93979,
+      "RenderScript": 2,
       "Kotlin": 3302760,
       "C": 1208276,
-      "Shell": 548137,
       "Dart": 16822931,
       "HTML": 2589062,
       "C++": 149476,
       "CMake": 76938,
       "Swift": 192494,
       "Objective-C": 7850,
-      "CSS": 732885,
-      "Rust": 50625151,
-      "PowerShell": 93979,
-      "RenderScript": 2,
       "PLpgSQL": 73884,
       "Dockerfile": 12920,
       "C#": 1295377,
@@ -86,13 +86,31 @@
   "repos": {
     "list": [
       {
+        "name": "repo-verse",
+        "fork": true,
+        "archived": false,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-16T21:19:06Z"
+      },
+      {
+        "name": "The-last-signal-",
+        "fork": true,
+        "archived": false,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-16T20:21:23Z"
+      },
+      {
         "name": "frpboy",
         "fork": false,
         "archived": false,
         "language": "JavaScript",
         "stars": 1,
         "forks": 0,
-        "pushed_at": "2026-11-16T18:53:18Z"
+        "pushed_at": "2026-11-16T18:56:25Z"
       },
       {
         "name": "Seali",
@@ -122,15 +140,6 @@
         "pushed_at": "2026-11-16T14:08:07Z"
       },
       {
-        "name": "The-last-signal-",
-        "fork": true,
-        "archived": false,
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-16T09:38:35Z"
-      },
-      {
         "name": "NahThatsFake",
         "fork": false,
         "archived": false,
@@ -138,15 +147,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-16T08:08:06Z"
-      },
-      {
-        "name": "repo-verse",
-        "fork": true,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-16T03:22:00Z"
       },
       {
         "name": "Scrobblix",
@@ -455,9 +455,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-16T18:55:43.393Z"
+    "collected_at": "2026-11-17T02:37:37.547Z"
   },
-  "repos_collected_at": "2026-11-16T18:55:43.393Z",
+  "repos_collected_at": "2026-11-17T02:37:37.547Z",
   "activity": {
     "days": {
       "2026-05-07": 1,
@@ -1198,7 +1198,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-16T18:56:23.380Z",
+    "fetched_at": "2026-11-17T02:38:13.961Z",
     "notes": []
   },
   "productivity": {
