@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-19T18:40:31.743Z",
+  "generated_at": "2026-11-20T00:56:02.555Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -39,24 +39,24 @@
   },
   "languages": {
     "bytes": {
-      "Dart": 16820682,
-      "C++": 149476,
-      "CMake": 76938,
-      "JavaScript": 10718285,
-      "HTML": 2448570,
-      "Swift": 192494,
-      "C": 1208276,
-      "Kotlin": 3373913,
-      "Objective-C": 7850,
-      "TypeScript": 39962523,
-      "PLpgSQL": 140235,
-      "CSS": 736062,
-      "Dockerfile": 12920,
       "Python": 3160911,
       "Rust": 50625151,
       "Shell": 548137,
       "PowerShell": 93979,
       "RenderScript": 2,
+      "TypeScript": 39962523,
+      "CSS": 736062,
+      "JavaScript": 10718285,
+      "Dart": 16820682,
+      "C++": 149476,
+      "CMake": 76938,
+      "HTML": 2448570,
+      "Swift": 192494,
+      "C": 1208276,
+      "Kotlin": 3373913,
+      "Objective-C": 7850,
+      "PLpgSQL": 140235,
+      "Dockerfile": 12920,
       "MDX": 12359750,
       "C#": 1295377,
       "Inno Setup": 8415,
@@ -86,6 +86,33 @@
   "repos": {
     "list": [
       {
+        "name": "The-last-signal-",
+        "fork": true,
+        "archived": false,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-19T21:29:25Z"
+      },
+      {
+        "name": "repo-verse",
+        "fork": true,
+        "archived": false,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-19T19:40:21Z"
+      },
+      {
+        "name": "frpboy",
+        "fork": false,
+        "archived": false,
+        "language": "JavaScript",
+        "stars": 1,
+        "forks": 0,
+        "pushed_at": "2026-11-19T18:41:11Z"
+      },
+      {
         "name": "Metly",
         "fork": false,
         "archived": false,
@@ -104,15 +131,6 @@
         "pushed_at": "2026-11-19T17:34:13Z"
       },
       {
-        "name": "The-last-signal-",
-        "fork": true,
-        "archived": false,
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-19T13:07:01Z"
-      },
-      {
         "name": "Seali",
         "fork": false,
         "archived": false,
@@ -122,15 +140,6 @@
         "pushed_at": "2026-11-19T12:11:20Z"
       },
       {
-        "name": "frpboy",
-        "fork": false,
-        "archived": false,
-        "language": "JavaScript",
-        "stars": 1,
-        "forks": 0,
-        "pushed_at": "2026-11-19T09:31:00Z"
-      },
-      {
         "name": "frpboy-Portfolio",
         "fork": false,
         "archived": false,
@@ -138,15 +147,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-19T08:23:03Z"
-      },
-      {
-        "name": "repo-verse",
-        "fork": true,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-19T04:40:35Z"
       },
       {
         "name": "Threadly",
@@ -455,9 +455,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-19T18:40:31.743Z"
+    "collected_at": "2026-11-20T00:56:02.555Z"
   },
-  "repos_collected_at": "2026-11-19T18:40:31.743Z",
+  "repos_collected_at": "2026-11-20T00:56:02.555Z",
   "activity": {
     "days": {
       "2026-05-07": 1,
@@ -1206,7 +1206,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-19T18:41:09.919Z",
+    "fetched_at": "2026-11-20T00:56:39.213Z",
     "notes": []
   },
   "productivity": {
