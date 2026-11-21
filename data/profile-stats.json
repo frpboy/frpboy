@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-21T00:15:24.274Z",
+  "generated_at": "2026-11-21T07:42:12.507Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -39,18 +39,20 @@
   },
   "languages": {
     "bytes": {
+      "TypeScript": 39999840,
+      "PLpgSQL": 140235,
+      "JavaScript": 10718285,
+      "CSS": 736062,
+      "MDX": 12359750,
       "Python": 3160911,
+      "HTML": 2448570,
       "Rust": 50625151,
       "Shell": 548137,
       "PowerShell": 93979,
       "RenderScript": 2,
-      "JavaScript": 10718285,
-      "TypeScript": 39999840,
       "C#": 1295377,
       "Kotlin": 3375567,
       "Inno Setup": 8415,
-      "CSS": 736062,
-      "HTML": 2448570,
       "C": 1208276,
       "Dart": 16858234,
       "Swift": 192494,
@@ -60,9 +62,7 @@
       "Objective-C": 7850,
       "Ruby": 6032,
       "GLSL": 4005,
-      "PLpgSQL": 140235,
       "Dockerfile": 12920,
-      "MDX": 12359750,
       "Handlebars": 1052,
       "CoffeeScript": 18688,
       "Lean": 42510,
@@ -86,13 +86,13 @@
   "repos": {
     "list": [
       {
-        "name": "The-last-signal-",
-        "fork": true,
+        "name": "frpboy-Portfolio",
+        "fork": false,
         "archived": false,
-        "language": "Python",
+        "language": "TypeScript",
         "stars": 0,
         "forks": 0,
-        "pushed_at": "2026-11-20T20:05:48Z"
+        "pushed_at": "2026-11-21T07:14:46Z"
       },
       {
         "name": "frpboy",
@@ -101,7 +101,34 @@
         "language": "JavaScript",
         "stars": 1,
         "forks": 0,
-        "pushed_at": "2026-11-20T19:52:16Z"
+        "pushed_at": "2026-11-21T06:39:41Z"
+      },
+      {
+        "name": "Threadly",
+        "fork": false,
+        "archived": false,
+        "language": "HTML",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-21T05:55:29Z"
+      },
+      {
+        "name": "repo-verse",
+        "fork": true,
+        "archived": false,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-21T04:25:28Z"
+      },
+      {
+        "name": "The-last-signal-",
+        "fork": true,
+        "archived": false,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-21T03:18:20Z"
       },
       {
         "name": "Scrobblix",
@@ -111,24 +138,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-20T19:35:08Z"
-      },
-      {
-        "name": "repo-verse",
-        "fork": true,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-20T19:18:12Z"
-      },
-      {
-        "name": "Threadly",
-        "fork": false,
-        "archived": false,
-        "language": "HTML",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-20T18:25:48Z"
       },
       {
         "name": "Seali",
@@ -174,15 +183,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-19T17:34:13Z"
-      },
-      {
-        "name": "frpboy-Portfolio",
-        "fork": false,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-19T08:23:03Z"
       },
       {
         "name": "autoreadme",
@@ -464,9 +464,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-21T00:15:24.274Z"
+    "collected_at": "2026-11-21T07:42:12.507Z"
   },
-  "repos_collected_at": "2026-11-21T00:15:24.274Z",
+  "repos_collected_at": "2026-11-21T07:42:12.507Z",
   "activity": {
     "days": {
       "2026-10-22": 73,
@@ -1214,7 +1214,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-21T00:16:01.347Z",
+    "fetched_at": "2026-11-21T07:42:48.645Z",
     "notes": []
   },
   "productivity": {
