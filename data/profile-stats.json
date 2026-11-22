@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-21T21:11:55.487Z",
+  "generated_at": "2026-11-22T01:35:14.401Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -39,14 +39,14 @@
   },
   "languages": {
     "bytes": {
-      "TypeScript": 40000273,
-      "CSS": 736062,
-      "JavaScript": 10718285,
       "Python": 3160911,
       "Rust": 50625151,
       "Shell": 548137,
       "PowerShell": 93979,
       "RenderScript": 2,
+      "JavaScript": 10718285,
+      "TypeScript": 40000273,
+      "CSS": 736062,
       "PLpgSQL": 140235,
       "MDX": 12359750,
       "Dart": 16867350,
@@ -86,22 +86,13 @@
   "repos": {
     "list": [
       {
-        "name": "repo-verse",
-        "fork": true,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-21T18:19:55Z"
-      },
-      {
         "name": "The-last-signal-",
         "fork": true,
         "archived": false,
         "language": "Python",
         "stars": 0,
         "forks": 0,
-        "pushed_at": "2026-11-21T17:27:05Z"
+        "pushed_at": "2026-11-21T23:08:20Z"
       },
       {
         "name": "frpboy",
@@ -110,7 +101,16 @@
         "language": "JavaScript",
         "stars": 1,
         "forks": 0,
-        "pushed_at": "2026-11-21T15:40:18Z"
+        "pushed_at": "2026-11-21T21:12:34Z"
+      },
+      {
+        "name": "repo-verse",
+        "fork": true,
+        "archived": false,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-21T18:19:55Z"
       },
       {
         "name": "frpboy-Portfolio",
@@ -464,9 +464,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-21T21:11:55.487Z"
+    "collected_at": "2026-11-22T01:35:14.401Z"
   },
-  "repos_collected_at": "2026-11-21T21:11:55.487Z",
+  "repos_collected_at": "2026-11-22T01:35:14.401Z",
   "activity": {
     "days": {
       "2026-10-22": 72,
@@ -1215,7 +1215,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-21T21:12:32.151Z",
+    "fetched_at": "2026-11-22T01:35:48.880Z",
     "notes": []
   },
   "productivity": {
