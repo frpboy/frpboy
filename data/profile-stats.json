@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-26T19:16:37.743Z",
+  "generated_at": "2026-11-27T02:24:45.737Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -39,17 +39,17 @@
   },
   "languages": {
     "bytes": {
-      "JavaScript": 10741246,
       "Python": 3160911,
-      "TypeScript": 40142494,
-      "HTML": 2533890,
-      "PLpgSQL": 157870,
-      "CSS": 736339,
-      "MDX": 12359750,
       "Rust": 50625151,
       "Shell": 548137,
       "PowerShell": 93979,
       "RenderScript": 2,
+      "TypeScript": 40142494,
+      "CSS": 736339,
+      "JavaScript": 10741246,
+      "HTML": 2533890,
+      "PLpgSQL": 157870,
+      "MDX": 12359750,
       "Dockerfile": 12921,
       "Dart": 16867350,
       "C++": 149476,
@@ -86,13 +86,31 @@
   "repos": {
     "list": [
       {
+        "name": "The-last-signal-",
+        "fork": true,
+        "archived": false,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-26T23:52:16Z"
+      },
+      {
+        "name": "repo-verse",
+        "fork": true,
+        "archived": false,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-26T20:36:07Z"
+      },
+      {
         "name": "frpboy",
         "fork": false,
         "archived": false,
         "language": "JavaScript",
         "stars": 1,
         "forks": 0,
-        "pushed_at": "2026-11-26T18:37:52Z"
+        "pushed_at": "2026-11-26T19:17:16Z"
       },
       {
         "name": "frpboy-Portfolio",
@@ -111,24 +129,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-26T18:06:57Z"
-      },
-      {
-        "name": "The-last-signal-",
-        "fork": true,
-        "archived": false,
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-26T15:16:29Z"
-      },
-      {
-        "name": "repo-verse",
-        "fork": true,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-26T05:37:25Z"
       },
       {
         "name": "NahThatsFake",
@@ -464,9 +464,9 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-26T19:16:37.743Z"
+    "collected_at": "2026-11-27T02:24:45.737Z"
   },
-  "repos_collected_at": "2026-11-26T19:16:37.743Z",
+  "repos_collected_at": "2026-11-27T02:24:45.737Z",
   "activity": {
     "days": {
       "2026-10-22": 72,
@@ -1223,7 +1223,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-26T19:17:14.586Z",
+    "fetched_at": "2026-11-27T02:25:23.107Z",
     "notes": []
   },
   "productivity": {
