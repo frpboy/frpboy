@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-28T02:57:35.672Z",
+  "generated_at": "2026-11-28T12:23:21.288Z",
   "account": "frpboy",
   "timezone": "Asia/Kolkata",
   "data_scope": "public",
@@ -25,34 +25,37 @@
     "created_at": "2023-05-28T07:39:08Z",
     "followers": 11,
     "following": 22,
-    "public_repos": 44
+    "public_repos": 46
   },
   "totals": {
-    "repos_public": 42,
+    "repos_public": 44,
     "stars_received": 2,
     "forks_received": 1,
-    "commits_collected": 589,
-    "prs": 998,
-    "prs_merged": 421,
-    "prs_open": 177,
-    "issues": 121
+    "commits_collected": 590,
+    "prs": 1002,
+    "prs_merged": 422,
+    "prs_open": 179,
+    "issues": 122
   },
   "languages": {
     "bytes": {
-      "HTML": 2590342,
-      "TypeScript": 40211524,
-      "JavaScript": 10858585,
-      "PLpgSQL": 158487,
-      "CSS": 737177,
-      "Dockerfile": 12921,
+      "JavaScript": 11068372,
       "Python": 3160911,
+      "TypeScript": 40665861,
+      "Go": 692564,
+      "CSS": 842616,
+      "Batchfile": 10416,
+      "Shell": 557707,
+      "PowerShell": 142347,
+      "Makefile": 12112,
+      "HTML": 2590997,
+      "Dockerfile": 13575,
       "Rust": 50625151,
-      "Shell": 548137,
-      "PowerShell": 93979,
       "RenderScript": 2,
-      "MDX": 12361824,
       "Kotlin": 3386413,
       "C": 1208276,
+      "PLpgSQL": 158487,
+      "MDX": 12361824,
       "Dart": 16867350,
       "C++": 149476,
       "CMake": 76938,
@@ -66,11 +69,9 @@
       "Handlebars": 1052,
       "CoffeeScript": 18688,
       "Lean": 42510,
-      "Go": 41457,
       "Emacs Lisp": 4726,
       "Tape": 4627,
       "Lua": 3706,
-      "Makefile": 11076,
       "Vim Script": 83,
       "Vue": 74720,
       "Astro": 21292,
@@ -79,12 +80,75 @@
       "Elixir": 1103,
       "Nix": 1543
     },
-    "repos_covered": 41,
+    "repos_covered": 43,
     "repos_without_language": 1,
     "failed_repos": []
   },
   "repos": {
     "list": [
+      {
+        "name": "frpboy",
+        "fork": false,
+        "archived": false,
+        "language": "JavaScript",
+        "stars": 1,
+        "forks": 0,
+        "pushed_at": "2026-11-28T12:14:26Z"
+      },
+      {
+        "name": "internet-monitor",
+        "fork": true,
+        "archived": false,
+        "language": null,
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-28T11:50:48Z"
+      },
+      {
+        "name": "zerpai-governance",
+        "fork": false,
+        "archived": false,
+        "language": "PowerShell",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-28T11:19:41Z"
+      },
+      {
+        "name": "adblocker-test-lab",
+        "fork": false,
+        "archived": false,
+        "language": "JavaScript",
+        "stars": 0,
+        "forks": 1,
+        "pushed_at": "2026-11-28T10:46:00Z"
+      },
+      {
+        "name": "The-last-signal-",
+        "fork": true,
+        "archived": false,
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-28T10:20:10Z"
+      },
+      {
+        "name": "Seali",
+        "fork": false,
+        "archived": false,
+        "language": "Kotlin",
+        "stars": 1,
+        "forks": 0,
+        "pushed_at": "2026-11-28T08:15:56Z"
+      },
+      {
+        "name": "repo-verse",
+        "fork": true,
+        "archived": false,
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "pushed_at": "2026-11-28T05:07:32Z"
+      },
       {
         "name": "NahThatsFake",
         "fork": false,
@@ -95,42 +159,6 @@
         "pushed_at": "2026-11-28T02:18:07Z"
       },
       {
-        "name": "The-last-signal-",
-        "fork": true,
-        "archived": false,
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-28T02:02:17Z"
-      },
-      {
-        "name": "repo-verse",
-        "fork": true,
-        "archived": false,
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "pushed_at": "2026-11-27T20:22:53Z"
-      },
-      {
-        "name": "frpboy",
-        "fork": false,
-        "archived": false,
-        "language": "JavaScript",
-        "stars": 1,
-        "forks": 0,
-        "pushed_at": "2026-11-27T20:19:44Z"
-      },
-      {
-        "name": "adblocker-test-lab",
-        "fork": false,
-        "archived": false,
-        "language": "JavaScript",
-        "stars": 0,
-        "forks": 1,
-        "pushed_at": "2026-11-27T14:06:59Z"
-      },
-      {
         "name": "frpboy-Portfolio",
         "fork": false,
         "archived": false,
@@ -138,15 +166,6 @@
         "stars": 0,
         "forks": 0,
         "pushed_at": "2026-11-27T13:14:47Z"
-      },
-      {
-        "name": "Seali",
-        "fork": false,
-        "archived": false,
-        "language": "Kotlin",
-        "stars": 1,
-        "forks": 0,
-        "pushed_at": "2026-11-27T11:42:45Z"
       },
       {
         "name": "ai-black-hole",
@@ -464,13 +483,13 @@
         "pushed_at": "2026-01-19T19:12:38Z"
       }
     ],
-    "collected_at": "2026-11-28T02:57:35.672Z"
+    "collected_at": "2026-11-28T12:23:21.288Z"
   },
-  "repos_collected_at": "2026-11-28T02:57:35.672Z",
+  "repos_collected_at": "2026-11-28T12:23:21.288Z",
   "activity": {
     "days": {
       "2026-10-22": 72,
-      "2026-10-23": 119,
+      "2026-10-23": 118,
       "2026-10-24": 23,
       "2026-10-28": 92,
       "2026-10-29": 5,
@@ -484,7 +503,7 @@
       "2026-11-08": 1,
       "2026-11-09": 1,
       "2026-11-11": 2,
-      "2026-11-15": 55,
+      "2026-11-15": 39,
       "2026-11-16": 23,
       "2026-11-17": 9,
       "2026-11-18": 33,
@@ -495,9 +514,9 @@
       "2026-11-23": 3,
       "2026-11-24": 2,
       "2026-11-25": 19,
-      "2026-11-26": 42,
+      "2026-11-26": 52,
       "2026-11-27": 58,
-      "2026-11-28": 4
+      "2026-11-28": 12
     },
     "commit_days": {
       "2026-10-22": 72,
@@ -506,7 +525,7 @@
       "2026-10-28": 70,
       "2026-10-29": 1,
       "2026-10-30": 6,
-      "2026-11-15": 45,
+      "2026-11-15": 33,
       "2026-11-16": 16,
       "2026-11-17": 2,
       "2026-11-18": 18,
@@ -517,9 +536,9 @@
       "2026-11-23": 1,
       "2026-11-24": 1,
       "2026-11-25": 8,
-      "2026-11-26": 36,
+      "2026-11-26": 46,
       "2026-11-27": 45,
-      "2026-11-28": 2
+      "2026-11-28": 5
     }
   },
   "contributions": {
@@ -856,7 +875,7 @@
       "2026-11-07": 153,
       "2026-11-14": 54,
       "2026-11-21": 23,
-      "2026-11-28": 8,
+      "2026-11-28": 31,
       "2025-01-05": 0,
       "2025-01-12": 0,
       "2025-01-19": 0,
@@ -1228,7 +1247,7 @@
       "2026": "current"
     },
     "history_complete": false,
-    "fetched_at": "2026-11-28T02:58:11.082Z",
+    "fetched_at": "2026-11-28T12:23:57.789Z",
     "notes": []
   },
   "productivity": {
@@ -1247,27 +1266,27 @@
       20,
       71,
       7,
-      12,
-      97,
-      25,
-      46,
+      13,
+      100,
+      28,
+      51,
       16,
       64,
-      53,
-      25,
+      47,
+      20,
       16,
       38
     ],
     "by_weekday": [
-      54,
+      42,
       17,
       3,
       96,
-      120,
+      130,
       272,
-      27
+      30
     ],
-    "sample_commits": 589,
+    "sample_commits": 590,
     "window_from": "2026-10-22",
     "window_to": "2026-11-28"
   },
@@ -1651,11 +1670,6 @@
       "type": "commit",
       "id": "commit:e0dc67db33afcc4f98e069ca95385a4f458df497",
       "date": "2026-10-23T09:18:14.000+05:30"
-    },
-    {
-      "type": "issue",
-      "id": "frpboy#5995471036",
-      "date": "2026-10-23T09:38:58Z"
     },
     {
       "type": "commit",
@@ -3104,26 +3118,6 @@
     },
     {
       "type": "pr",
-      "id": "frpboy#6405676319",
-      "date": "2026-11-15T15:13:15Z"
-    },
-    {
-      "type": "pr",
-      "id": "frpboy#6405704323",
-      "date": "2026-11-15T15:15:52Z"
-    },
-    {
-      "type": "pr",
-      "id": "frpboy#6405739816",
-      "date": "2026-11-15T15:19:07Z"
-    },
-    {
-      "type": "pr",
-      "id": "frpboy#6405758869",
-      "date": "2026-11-15T15:20:54Z"
-    },
-    {
-      "type": "pr",
       "id": "frpboy#6405771134",
       "date": "2026-11-15T15:22:04Z"
     },
@@ -3161,66 +3155,6 @@
       "type": "pr",
       "id": "frpboy#6408792255",
       "date": "2026-11-15T20:00:11Z"
-    },
-    {
-      "type": "commit",
-      "id": "commit:b83dc6f6375bea29d3ed90c26918475a905d77e4",
-      "date": "2026-11-15T20:50:45.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:b2c54bcce202c1662f6bfb1c42544aa7874d2057",
-      "date": "2026-11-15T20:52:29.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:b3b0333d976082ead9cf0441f32dc25f425eb7c9",
-      "date": "2026-11-15T20:53:45.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:ee3c1073cef0e6030d9aadeb8c8be95eea212e6a",
-      "date": "2026-11-15T20:54:47.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:dc9d311b62d95729e8ab5549fb117b046e9ba28d",
-      "date": "2026-11-15T20:56:32.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:edc2ed97d4560517488d5e5eafc4be4193a18ea3",
-      "date": "2026-11-15T20:58:12.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:55766005ac79fd30be71f2aefb79372feca5900a",
-      "date": "2026-11-15T20:59:54.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:af95ee47a2956dff762cd9ac1f35224b2fa2cbe8",
-      "date": "2026-11-15T21:00:18.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:857b881b7c248794900a107d09c3b808724546db",
-      "date": "2026-11-15T21:03:13.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:7913b4f0af5551d42573899f558010e9bc4e1e98",
-      "date": "2026-11-15T21:05:27.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:f95db949302dcf01766659b13ffb2b58eb21fa2f",
-      "date": "2026-11-15T21:11:16.000+05:30"
-    },
-    {
-      "type": "commit",
-      "id": "commit:f6f7805957993a691f7845c11240354e4d6a24d4",
-      "date": "2026-11-15T21:14:50.000+05:30"
     },
     {
       "type": "commit",
@@ -4794,6 +4728,56 @@
     },
     {
       "type": "commit",
+      "id": "commit:1ab06d8abd079eca56489e62816e79a7524126cc",
+      "date": "2026-11-26T15:52:26.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:79d27287ff8eb177c8ea2ba25ea9d394c6f2914c",
+      "date": "2026-11-26T15:52:27.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:2b81a9e7d7f33d0693cad4ec3b6aa123f5d168b6",
+      "date": "2026-11-26T15:53:33.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:576d1db4a7d39d64e918551bdeff69a07067162d",
+      "date": "2026-11-26T16:57:49.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:754d59a5779e7d403784ac09b80b9eedbf7e68a5",
+      "date": "2026-11-26T17:06:20.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:d5ba977f106ea1a7e0228ebfb9df053d123152e2",
+      "date": "2026-11-26T17:07:14.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:bdec5f646faded59b922407c43f69b7ae33bafef",
+      "date": "2026-11-26T17:08:24.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:32d5444b4b7d27dd2e369991d1894f5f53c8d0e6",
+      "date": "2026-11-26T17:09:14.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:3af0ae446ccd9c4dff21852df00a5e86396bd425",
+      "date": "2026-11-26T17:15:21.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:a3d521b22d84b10c4e3867d2ac5633da409d3c88",
+      "date": "2026-11-26T20:35:34.000+05:30"
+    },
+    {
+      "type": "commit",
       "id": "commit:c5889ec8e4c373789a0afec40d9b9ea05f2b0907",
       "date": "2026-11-26T23:15:53.000+05:30"
     },
@@ -5208,6 +5192,16 @@
       "date": "2026-11-28T02:15:16Z"
     },
     {
+      "type": "issue",
+      "id": "frpboy#6659706162",
+      "date": "2026-11-28T05:23:03Z"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6660061680",
+      "date": "2026-11-28T05:58:56Z"
+    },
+    {
       "type": "commit",
       "id": "commit:886e1629b4a8b9f1b587230f084d77ac51fc177a",
       "date": "2026-11-28T07:13:22.000+05:30"
@@ -5216,6 +5210,36 @@
       "type": "commit",
       "id": "commit:e633882e651e6e34e22e559f434a81af95d1ca71",
       "date": "2026-11-28T07:48:07.000+05:30"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6663058876",
+      "date": "2026-11-28T09:59:41Z"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6663292189",
+      "date": "2026-11-28T10:18:01Z"
+    },
+    {
+      "type": "pr",
+      "id": "frpboy#6663637654",
+      "date": "2026-11-28T10:44:20Z"
+    },
+    {
+      "type": "commit",
+      "id": "commit:fa6f4010f283f6dfcc3577493a41b1d59401f6f6",
+      "date": "2026-11-28T14:15:24.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:5036413b3aa20df4c7d1704d0896f1dbd0794d9a",
+      "date": "2026-11-28T16:07:20.000+05:30"
+    },
+    {
+      "type": "commit",
+      "id": "commit:7fb46fc370187054a203a2ef80d847811d7ec6ca",
+      "date": "2026-11-28T16:49:39.000+05:30"
     }
   ]
 }
